@@ -24,5 +24,5 @@ public class Grupp2PFT {
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
+ //Detta meddelande kommer att explodera om tio sekonder   
 }
