@@ -7,9 +7,8 @@ package grupp2pft;
 
 /**
  *
- * @author Ali
+ * @author stefa
  */
-public class Ali {
- //test   
-    //funkar inte
+public class HotelStaff {
+    
 }
