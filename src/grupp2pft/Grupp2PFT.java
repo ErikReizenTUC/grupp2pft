@@ -26,14 +26,6 @@ public class Grupp2PFT {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
-        //Erik säger kanske hej
-        //Stefan säger hej tillbaka!
-        //LAddar upp ny kod
+
     }
- //Detta meddelande kommer att explodera om tio sekonder  neeej neeej 
-    //assåååååå
-    
-    //Test comments
 }
