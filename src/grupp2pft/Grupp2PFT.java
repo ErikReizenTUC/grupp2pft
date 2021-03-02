@@ -15,7 +15,7 @@ package grupp2pft;
 
 /**
  *
- * @author Erik
+ * @author Grupp 2
  */
 public class Grupp2PFT {
 
