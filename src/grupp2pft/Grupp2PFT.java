@@ -7,7 +7,10 @@
  /*
 Gruppmedlemmar i grupp 2!
 Stefan Levstad
-
+Erik Reizenstein
+Pooja Bansal
+Marcus Ahlgren
+Ali Esmaeeli
  */
  
 
