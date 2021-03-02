@@ -2,12 +2,12 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- 
- 
- 
+
  //Test
  /*
 Gruppmedlemmar i grupp 2!
+Stefan Levstad
+
  */
  
 
@@ -26,6 +26,7 @@ public class Grupp2PFT {
         // TODO code application logic here
         
         //Erik säger hej
+        //Stefan säger hej tillbaka!
     }
  //Detta meddelande kommer att explodera om tio sekonder   
 }
