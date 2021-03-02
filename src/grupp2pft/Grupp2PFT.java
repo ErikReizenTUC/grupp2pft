@@ -6,10 +6,11 @@
  
  
  //Test
- 
- 
- 
+ /*
+Gruppmedlemmar i grupp 2!
  */
+ 
+
 package grupp2pft;
 
 /**
@@ -23,6 +24,8 @@ public class Grupp2PFT {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        //Erik säger hej
     }
  //Detta meddelande kommer att explodera om tio sekonder   
 }
