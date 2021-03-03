@@ -27,5 +27,7 @@ public class Grupp2PFT {
      */
     public static void main(String[] args) {
 
+        
+        
     }
 }
