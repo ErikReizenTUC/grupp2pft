@@ -12,3 +12,4 @@ package grupp2pft;
 public class HotelStaff {
     
 }
+//ehj
