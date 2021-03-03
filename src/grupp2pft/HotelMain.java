@@ -15,6 +15,8 @@ Ali Esmaeeli
 
 package grupp2pft;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Grupp 2
@@ -26,5 +28,11 @@ public class HotelMain {
      */
     public static void main(String[] args) {
         
+    
+    //calls the Rooms method in the HotelRoom class.
+    HotelRoom.Rooms();
+
     }
+
+    
 }

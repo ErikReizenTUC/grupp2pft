@@ -5,10 +5,36 @@
  */
 package grupp2pft;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author stefa
  */
-public class HotelRoom {
+public class HotelRoom extends HotelMain{
     
+
+    
+    public static void Rooms(){
+        Scanner scan = new Scanner(System.in);
+        
+        String newRoom;
+        
+        ArrayList roomList = new ArrayList();
+  
+        roomList.add("Room 1");
+        roomList.add("Room 2");
+        roomList.add("Room 3");
+        roomList.add("Room 4");
+        roomList.add("Room 5");
+        System.out.println(roomList);
+        
+        System.out.println("Name the new room: ");
+        newRoom = scan.nextLine();
+        roomList.add(newRoom);
+        System.out.println(roomList);
+        
+    }
+
 }
