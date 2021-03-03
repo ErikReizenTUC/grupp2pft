@@ -12,6 +12,7 @@ package grupp2pft;
 public class ReceptionStaff {
     
     
-    //skapa ett switch case i en for loop för att lägga till och ta bort rum?
+    //Denna klass är just nu överflödig, vi avvaktar med kod här och skriver 
+    // i HotelStaff-classen istället!
     
 }
