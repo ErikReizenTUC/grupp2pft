@@ -11,4 +11,7 @@ package grupp2pft;
  */
 public class ReceptionStaff {
     
+    
+    //skapa ett switch case i en for loop för att lägga till och ta bort rum?
+    
 }
