@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
 
- //Test
  /*
 Gruppmedlemmar i grupp 2!
 Stefan Levstad
@@ -20,14 +19,12 @@ package grupp2pft;
  *
  * @author Grupp 2
  */
-public class Grupp2PFT {
+public class HotelMain {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        
         
     }
 }
