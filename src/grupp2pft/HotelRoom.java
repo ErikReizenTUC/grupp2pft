@@ -28,12 +28,13 @@ public class HotelRoom extends HotelMain{
         roomList.add("Room 3");
         roomList.add("Room 4");
         roomList.add("Room 5");
-        System.out.println(roomList);
+        
+        System.out.println("Avaiable rooms: " + roomList);
         
         System.out.println("Name the new room: ");
         newRoom = scan.nextLine();
         roomList.add(newRoom);
-        System.out.println(roomList);
+        System.out.println("Avaiable rooms: " + roomList);
         
     }
 
