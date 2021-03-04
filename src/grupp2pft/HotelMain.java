@@ -16,11 +16,15 @@ Ali Esmaeeli
 package grupp2pft;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
  * @author Grupp 2
  */
+
+
+
 public class HotelMain {
 
     /**
@@ -72,11 +76,12 @@ public class HotelMain {
                 }
                 break;
     
+    }
+    
     //calls the Rooms method in the HotelRoom class.
     
                         HotelRoom.Rooms();
 
     }
-
     
 }
