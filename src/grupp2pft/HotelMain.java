@@ -15,7 +15,7 @@ Ali Esmaeeli
 
 package grupp2pft;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -50,7 +50,8 @@ public class HotelMain {
                 switch(value){
                     case 1:
                      //Show the list of available room by using hotelroom class
-                       
+                     //calls the Rooms method in the HotelRoom class.
+                       HotelRoom.Rooms();
                         //Create command here from hotelroom
                         break;
                     case 2:
@@ -72,9 +73,8 @@ public class HotelMain {
                 }
                 break;
     
-    //calls the Rooms method in the HotelRoom class.
-    
-                        HotelRoom.Rooms();
+        }    
+
 
     }
 
