@@ -18,7 +18,20 @@ public class HotelRoom extends HotelMain{
         private int NumberOfBeds;
         private int roomPrice;
         private boolean occupied;
-    
+        private boolean PaidInAdvance;
+       
+        
+        //Creates new method for hotelroom
+        public void HotelRoom(int roomNumber, int NumberOfBeds,int roomPrice,
+                              boolean occupied, boolean PaidInAdvance){
+            
+        //constructor
+        this.roomNumber = roomNumber;
+        this.NumberOfBeds = NumberOfBeds;
+        this.roomPrice = roomPrice;
+        
+        }
+
         
     //New method to DsiplayRooms.
     public static void DisplayRooms(){
@@ -46,4 +59,6 @@ public class HotelRoom extends HotelMain{
         
     }
 
+        
+        
 }
