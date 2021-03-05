@@ -15,7 +15,7 @@ Ali Esmaeeli
 
 package grupp2pft;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -27,7 +27,7 @@ public class HotelMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+           //Some comment from Pooja
              //This Scanner object can be used for diffrent cases
         Scanner scan = new Scanner(System.in);
        
@@ -50,7 +50,8 @@ public class HotelMain {
                 switch(value){
                     case 1:
                      //Show the list of available room by using hotelroom class
-                       
+                     //calls the Rooms method in the HotelRoom class.
+                       HotelRoom.DisplayRooms();
                         //Create command here from hotelroom
                         break;
                     case 2:
@@ -72,9 +73,8 @@ public class HotelMain {
                 }
                 break;
     
-    //calls the Rooms method in the HotelRoom class.
-    
-                        HotelRoom.Rooms();
+        }    
+
 
     }
 
