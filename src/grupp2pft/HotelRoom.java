@@ -35,13 +35,22 @@ public class HotelRoom{
 
                 
         //Creates an ArrayList of the rooms.
-        static ArrayList roomList = new ArrayList();
+        static ArrayList<HotelRoom> roomList = new ArrayList<>();
         
         
     //New method to DsiplayRooms.
     public static void DisplayRooms(){
-        for (Object i: roomList){
-            System.out.println(HotelRoom.roomList.get((int) i));
+                //Instanciate HotelRoom bojects
+        HotelRoom.roomList.add(new HotelRoom(1, 4, 500, false, false));
+        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false));
+        HotelRoom.roomList.add(new HotelRoom(3, 2, 700, false, false));
+        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false));
+        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false));
+        for (int i = 0; i < HotelRoom.roomList.size(); i++){
+            System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
+                               ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
+                               ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
+                               ", Occupied: " + HotelRoom.roomList.get(i).occupied);
             
         }
         
