@@ -9,7 +9,7 @@ package grupp2pft;
  *
  * @author stefa
  */
-public class HotelStaff {
+public class HotelStaff extends HotelMain{
     
 }
 //ehj
