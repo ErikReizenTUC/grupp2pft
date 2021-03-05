@@ -19,6 +19,8 @@ public class HotelRoom extends HotelMain{
         private int roomPrice;
         private boolean occupied;
     
+        
+    //New method to DsiplayRooms.
     public static void DisplayRooms(){
         Scanner scan = new Scanner(System.in);
         
