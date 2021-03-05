@@ -51,7 +51,7 @@ public class HotelMain {
                     case 1:
                      //Show the list of available room by using hotelroom class
                      //calls the Rooms method in the HotelRoom class.
-                       HotelRoom.Rooms();
+                       HotelRoom.DisplayRooms();
                         //Create command here from hotelroom
                         break;
                     case 2:
