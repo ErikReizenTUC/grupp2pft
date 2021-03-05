@@ -31,6 +31,14 @@ public class HotelMain {
              //This Scanner object can be used for diffrent cases
         Scanner scan = new Scanner(System.in);
        
+        //Instanciate HotelRoom bojects
+        HotelRoom.roomList.add(new HotelRoom(1, 4, 500, false, false));
+        HotelRoom.roomList.add(new HotelRoom(2, 3, 500, false, false));
+        HotelRoom.roomList.add(new HotelRoom(3, 2, 500, false, false));
+        HotelRoom.roomList.add(new HotelRoom(4, 2, 500, false, false));
+        HotelRoom.roomList.add(new HotelRoom(5, 1, 500, false, false));
+        
+        
         //Create SwitchCase for particular person choice
         System.out.println("Enter your choice: ");
         System.out.println("1. Customer");
