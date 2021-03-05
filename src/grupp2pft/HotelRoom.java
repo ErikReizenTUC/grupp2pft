@@ -14,11 +14,11 @@ import java.util.Scanner;
  */
 public class HotelRoom extends HotelMain{
     //variables
-        private int roomNumber;
-        private int NumberOfBeds;
-        private int roomPrice;
-        private boolean occupied;
-        private boolean PaidInAdvance;
+        public int roomNumber;
+        public int NumberOfBeds;
+        public int roomPrice;
+        public boolean occupied;
+        public boolean PaidInAdvance;
        
         
         //Creates new method for hotelroom
@@ -37,7 +37,6 @@ public class HotelRoom extends HotelMain{
     public static void DisplayRooms(){
         Scanner scan = new Scanner(System.in);
         
-
         String newRoom;
         
         //Creates an ArrayList of the rooms.
