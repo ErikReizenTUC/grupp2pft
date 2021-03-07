@@ -30,10 +30,13 @@ public class HotelMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+           //Some comment from Pooja
              //This Scanner object can be used for diffrent cases
         Scanner scan = new Scanner(System.in);
        
+
+        
+        
         //Create SwitchCase for particular person choice
         System.out.println("Enter your choice: ");
         System.out.println("1. Customer");
@@ -54,7 +57,7 @@ public class HotelMain {
                     case 1:
                      //Show the list of available room by using hotelroom class
                      //calls the Rooms method in the HotelRoom class.
-                       HotelRoom.Rooms();
+                       HotelRoom.DisplayRooms();
                         //Create command here from hotelroom
                         break;
                     case 2:
