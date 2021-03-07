@@ -31,6 +31,15 @@ public class ReceptionStaff {
         this.lastName = lastName;
         this.iD = iD;
     }
+    
+    public void MainMenuRec(){
+            System.out.println("[a] Check for available rooms");
+            System.out.println("[b] Create a new available room");
+            System.out.println("[c] Mark a room unavailable");
+            System.out.println("[d] Delete a room");
+            System.out.println("[e] Find customer info");
+            System.out.println("[f] Checkout bill");
+    }
     //an arraylist to save the data for receptionist users
     static ArrayList<ReceptionStaff> recStaff = new ArrayList<>();
     
@@ -46,13 +55,7 @@ public class ReceptionStaff {
             System.out.println("-------------------------------");
             System.out.println("Choose one of the following: \n");
             System.out.println("--------------------------------");
-            System.out.println("[a] Check for available rooms");
-            System.out.println("[b] Create a new available room");
-            System.out.println("[c] Mark a room unavailable");
-            System.out.println("[d] Delete a room");
-            System.out.println("[e] Find customer info");
-            System.out.println("[f] Checkout bill");
-        
+            MainMenuRec();
         
         
         } else {
