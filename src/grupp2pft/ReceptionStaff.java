@@ -46,7 +46,7 @@ public class ReceptionStaff {
     static ArrayList<ReceptionStaff> recStaff = new ArrayList<>();
     
         
-    public void AddRoom (HotelRoom room){
+    public void Access (HotelRoom room){
         //ask the receptionist to verify its user ID for further access
         
         boolean exit = false;
