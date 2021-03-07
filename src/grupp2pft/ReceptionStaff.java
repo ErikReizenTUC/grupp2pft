@@ -24,6 +24,7 @@ public class ReceptionStaff {
     public String firstName;
     public String lastName;
     public int iD;
+    public boolean exit;
     
     //contructor
     public void Receptionist (String firstName, String lastName, int iD) {
@@ -31,7 +32,8 @@ public class ReceptionStaff {
         this.lastName = lastName;
         this.iD = iD;
     }
-    
+    //main menu for receptionist user 
+    //this could be defined and modified on demand
     public void MainMenuRec(){
             System.out.println("[a] Check for available rooms");
             System.out.println("[b] Create a new available room");
@@ -46,22 +48,32 @@ public class ReceptionStaff {
         
     public void AddRoom (HotelRoom room){
         //ask the receptionist to verify its user ID for further access
-        System.out.println("Please enter your work ID: ");
-        int recID = RecInput.nextInt();
         
-        // a conditional sentence to give access to the right staff
-        if (recID < 10 && recID != 0 ){
-            System.out.println("Access Authorized");
-            System.out.println("-------------------------------");
-            System.out.println("Choose one of the following: \n");
-            System.out.println("--------------------------------");
-            MainMenuRec();
+        boolean exit = false;
+        do{
         
-        
-        } else {
-            System.out.println("Access Denied");
+            System.out.println("Please enter your work ID: ");
+            int recID = RecInput.nextInt();
+                    
+        //a switch-case to implement the menu options in case user is authorized 
+              
+        switch(recID){
             
+                case 1:  
+                    System.out.println("Access Authorized");
+                    System.out.println("-------------------------------");
+                    System.out.println("Choose one of the following: \n");
+                    System.out.println("--------------------------------");
+        
+                    MainMenuRec();
+        
+                case 2:
+                    
+                    System.out.println("Access Denied");
+                    exit = true;
+                    break;
         }
         
-    }
+    }while(!exit);
+}
 }
