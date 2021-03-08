@@ -18,18 +18,20 @@ public class HotelRoom{
         public int roomPrice;
         public boolean occupied;
         public boolean PaidInAdvance;
+        public String occupiedBy;
 
 
 
         //constructor
         //Creates new method for hotelroom
-        public HotelRoom(int roomNumber, int NumberOfBeds,int roomPrice, boolean occupied, boolean PaidInAdvance){
+        public HotelRoom(int roomNumber, int NumberOfBeds,int roomPrice, boolean occupied, boolean PaidInAdvance, String occupiedBy){
             
         this.roomNumber = roomNumber;
         this.NumberOfBeds = NumberOfBeds;
         this.roomPrice = roomPrice;
         this.occupied = occupied;
         this.PaidInAdvance = PaidInAdvance;
+        this.occupiedBy = occupiedBy;
         }
 
                 
@@ -40,11 +42,11 @@ public class HotelRoom{
     //New method to DsiplayRooms.
     public static void DisplayRooms(){
                 //Instanciate HotelRoom bojects
-        HotelRoom.roomList.add(new HotelRoom(1, 4, 500, false, false));
-        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false));
-        HotelRoom.roomList.add(new HotelRoom(3, 2, 700, false, false));
-        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false));
-        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false));
+        HotelRoom.roomList.add(new HotelRoom(1, 4, 500, false, false, "Adam Bertilsson"));
+        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "Ceaser Davidsson"));
+        HotelRoom.roomList.add(new HotelRoom(3, 2, 700, false, false, "Erik Fredriksson"));
+        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "Gustaf Haraldsson"));
+        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
         for (int i = 0; i < HotelRoom.roomList.size(); i++){
             System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
                                ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
