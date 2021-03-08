@@ -42,11 +42,11 @@ public class HotelRoom{
     //New method to DsiplayRooms.
     public static void DisplayRooms(){
                 //Instanciate HotelRoom bojects
-        HotelRoom.roomList.add(new HotelRoom(1, 4, 500, false, false, "Adam Bertilsson"));
-        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "Ceaser Davidsson"));
-        HotelRoom.roomList.add(new HotelRoom(3, 2, 700, false, false, "Erik Fredriksson"));
-        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "Gustaf Haraldsson"));
-        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
+        HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, false, " Adam Bertilsson"));
+        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, " Ceaser Davidsson"));
+        HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, " Erik Fredriksson"));
+        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, " Gustaf Haraldsson"));
+        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, " Ivar Jacobsson"));
         for (int i = 0; i < HotelRoom.roomList.size(); i++){
            
             // prints the Hotelroom with the name of the customer occupying the room.
