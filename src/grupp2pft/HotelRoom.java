@@ -21,11 +21,10 @@ public class HotelRoom{
 
 
 
-
+        //constructor
         //Creates new method for hotelroom
         public HotelRoom(int roomNumber, int NumberOfBeds,int roomPrice, boolean occupied, boolean PaidInAdvance){
             
-        //constructor
         this.roomNumber = roomNumber;
         this.NumberOfBeds = NumberOfBeds;
         this.roomPrice = roomPrice;
