@@ -27,7 +27,7 @@ public class ReceptionStaff {
     public boolean exit;
     
     //contructor
-    public void Receptionist (String firstName, String lastName, int iD) {
+    public ReceptionStaff (String firstName, String lastName, int iD) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.iD = iD;
