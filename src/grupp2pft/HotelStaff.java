@@ -9,7 +9,15 @@ package grupp2pft;
  *
  * @author stefa
  */
-public class HotelStaff extends HotelMain{
+public class HotelStaff {
+    
+    public void Cleaning() {
+        
+        
+        
+        System.out.println("The room has been cleaned!");
+    }
+    
     
 }
 //ehj

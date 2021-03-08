@@ -62,6 +62,7 @@ public class Customer {
     
     //checking out, selecting various extra options
     public void CheckOut() {
+        System.out.println("We hope you have enjoyed your stay!");
         
     }
 }
