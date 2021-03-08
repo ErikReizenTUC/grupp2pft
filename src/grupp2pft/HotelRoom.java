@@ -6,56 +6,52 @@
 package grupp2pft;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
  * @author stefa
  */
-public class HotelRoom extends HotelMain{
+public class HotelRoom{
     //variables
-        private int roomNumber;
-        private int NumberOfBeds;
-        private int roomPrice;
-        private boolean occupied;
-        private boolean PaidInAdvance;
-       
-        
-        //Creates new method for hotelroom
-        public void HotelRoom(int roomNumber, int NumberOfBeds,int roomPrice,
-                              boolean occupied, boolean PaidInAdvance){
-            
+        public int roomNumber;
+        public int NumberOfBeds;
+        public int roomPrice;
+        public boolean occupied;
+        public boolean PaidInAdvance;
+
+
+
         //constructor
+        //Creates new method for hotelroom
+        public HotelRoom(int roomNumber, int NumberOfBeds,int roomPrice, boolean occupied, boolean PaidInAdvance){
+            
         this.roomNumber = roomNumber;
         this.NumberOfBeds = NumberOfBeds;
         this.roomPrice = roomPrice;
-        
+        this.occupied = occupied;
+        this.PaidInAdvance = PaidInAdvance;
         }
 
+                
+        //Creates an ArrayList of the rooms.
+        static ArrayList<HotelRoom> roomList = new ArrayList<>();
+        
         
     //New method to DsiplayRooms.
     public static void DisplayRooms(){
-        Scanner scan = new Scanner(System.in);
-        
-
-        String newRoom;
-        
-        //Creates an ArrayList of the rooms.
-        ArrayList roomList = new ArrayList();
-        roomList.add("Room 1");
-        roomList.add("Room 2");
-        roomList.add("Room 3");
-        roomList.add("Room 4");
-        roomList.add("Room 5");
-        //Prints out the list of avaiable rooms.
-        System.out.println("Avaiable rooms: " + roomList);
-        
-        
-        //Lets the user create a new room and prints the list again.
-        System.out.println("Set number for the new room: ");
-        newRoom = scan.nextLine();
-        roomList.add(newRoom);
-        System.out.println("Avaiable rooms: " + roomList);
+                //Instanciate HotelRoom bojects
+        HotelRoom.roomList.add(new HotelRoom(1, 4, 500, false, false));
+        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false));
+        HotelRoom.roomList.add(new HotelRoom(3, 2, 700, false, false));
+        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false));
+        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false));
+        for (int i = 0; i < HotelRoom.roomList.size(); i++){
+            System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
+                               ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
+                               ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
+                               ", Occupied: " + HotelRoom.roomList.get(i).occupied);
+            
+        }
         
     }
 

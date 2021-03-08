@@ -21,6 +21,9 @@ import java.util.Scanner;
  *
  * @author Grupp 2
  */
+
+
+
 public class HotelMain {
 
     /**
@@ -31,6 +34,9 @@ public class HotelMain {
              //This Scanner object can be used for diffrent cases
         Scanner scan = new Scanner(System.in);
        
+
+        
+        
         //Create SwitchCase for particular person choice
         System.out.println("Enter your choice: ");
         System.out.println("1. Customer");
@@ -77,6 +83,5 @@ public class HotelMain {
 
 
     }
-
     
 }
