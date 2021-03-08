@@ -41,6 +41,8 @@ public class Customer {
         String userInput = scan.next();
         //calculates position in the arraylist to get the last created customer object 
         Customer.customerList.get(Customer.customerList.size() - 1).firstName = userInput;
+        
+        //using another variable to avoid having to use the super long call to get the final custmer in the list
         String userFirstName = userInput;
         System.out.print("Please enter your last name: ");
         userInput = scan.next();
