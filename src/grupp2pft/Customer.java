@@ -41,9 +41,11 @@ public class Customer {
         String userInput = scan.next();
         //calculates position in the arraylist to get the last created customer object 
         Customer.customerList.get(Customer.customerList.size() - 1).firstName = userInput;
+        String userFirstName = userInput;
         System.out.print("Please enter your last name: ");
         userInput = scan.next();
         Customer.customerList.get(Customer.customerList.size() - 1).lastName = userInput;
+        String userLastName = userInput;
         
         System.out.println("Do you wish to pay in advance?");
         System.out.println("1. Yes, I will pay now.");
@@ -57,6 +59,7 @@ public class Customer {
         
         //setting room.Occupied to true
         room.occupied = true;
+        room.occupiedBy = userFirstName + " " + userLastName;
     }
     
     
