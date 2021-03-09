@@ -12,13 +12,16 @@ import java.util.Scanner;
  *
  * @author stefa
  */
-public class ReceptionStaff {
+public class ReceptionStaff  {
     
     
     //Denna klass är just nu överflödig, vi avvaktar med kod här och skriver 
     // i HotelStaff-classen istället!
     
     Scanner RecInput = new Scanner (System.in);
+    
+    //an instance of Customer class for checkin method
+    Customer checkIn = new Customer();
     
     //attributes for the receptionist
     public String firstName;
@@ -43,6 +46,7 @@ public class ReceptionStaff {
             System.out.println("[f] Checkin");
             System.out.println("[g] Add extra");
             System.out.println("[h] Checkout bill");
+            System.out.println("[i] Back to main menu");
     }
     
     //1st sub menu for receptionist
@@ -77,11 +81,37 @@ public class ReceptionStaff {
             //a switch case to perform differnt tasks related to a receptionist
             switch(recVal){
                 case 1:
-            
-            
-            
-            
-            
+                    for (int i = 0; i < HotelRoom.roomList.size();i++) 
+        	      { 		      
+	          System.out.println(HotelRoom.roomList.get(i)); 		
+                      }   
+                    break;
+                    
+                case 2:
+                    System.out.println("Room number: ");
+                    int newRoomNumber = RecInput.nextInt();
+                    System.out.println("Number of beds: ");
+                    int newNumberBeds = RecInput.nextInt();
+                    System.out.println("Room price: ");
+                    int newRoomPrice = RecInput.nextInt();
+                    System.out.println("Name: ");
+                    String newName = RecInput.next();
+                    HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, newName));
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
             
             
             }
