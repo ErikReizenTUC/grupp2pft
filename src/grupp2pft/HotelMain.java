@@ -30,7 +30,7 @@ public class HotelMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-           //Some comment from Pooja
+           
              //This Scanner object can be used for diffrent cases
         Scanner scan = new Scanner(System.in);
        
