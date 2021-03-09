@@ -67,6 +67,21 @@ public class Customer {
     
     //checking out, selecting various extra options
     public void CheckOut() {
+        System.out.println("Which room did you stay in?");
+        
+        HotelRoom.DisplayRooms();
+        
+        int userChoice = scan.nextInt();
+        if (userChoice == 1); {
+        
+    } 
+            
+        
+        
+        
+        
+        
+        
         System.out.println("We hope you have enjoyed your stay!");
         
     }
