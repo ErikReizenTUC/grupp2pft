@@ -131,7 +131,7 @@ public class ReceptionStaff  {
             else { 
                     
             System.out.println("Access Denied");
-            exit = true;
+            SubMneuRec();
             
         }
         

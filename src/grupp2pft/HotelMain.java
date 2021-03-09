@@ -34,7 +34,12 @@ public class HotelMain {
              //This Scanner object can be used for diffrent cases
         Scanner scan = new Scanner(System.in);
        
-
+    //Instanciate HotelRoom objects
+        HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, false, "Adam Bertilsson"));
+        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "Ceaser Davidsson"));
+        HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
+        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "Gustaf Haraldsson"));
+        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
         
         
         //Create SwitchCase for particular person choice
@@ -57,7 +62,7 @@ public class HotelMain {
                     case 1:
                      //Show the list of available room by using hotelroom class
                      //calls the Rooms method in the HotelRoom class.
-                       HotelRoom.DisplayRooms ();
+                       HotelRoom.DisplayRoomsCustomer();
                         //Create command here from hotelroom
                         break;
                     case 2:
@@ -68,7 +73,11 @@ public class HotelMain {
                         for (int i = 0; i < HotelRoom.roomList.size(); i++)                     
                          {
                             if (number == HotelRoom.roomList.get(i).roomNumber) {
+
                              // Customer.CheckIn(HotelRoom.roomList.get(i));
+
+                              //Customer.CheckIn(HotelRoom.roomList.get(i));
+
                             }
                         }
                         System.out.println("You have booked the room. Congratulation!");
@@ -82,6 +91,7 @@ public class HotelMain {
                     default:
                         System.out.println("Try Again");
                         break;
+                        
                 }
             case 2:
                 //call acess from receptionsit staff
