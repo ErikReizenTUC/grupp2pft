@@ -19,7 +19,7 @@ public class Customer {
     public String lastName;
     
     //constructor
-    public void Customer(String firstName, String lastName) {
+    public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -35,19 +35,19 @@ public class Customer {
         System.out.println("You will now create a user profile for booking.");
         
         //creating new customer with user input for attributes
-        Customer.customerList.add(new Customer());
         System.out.print("Please enter your first name: ");
         //scanner takes user input
         String userInput = scan.next();
-        //calculates position in the arraylist to get the last created customer object 
-        Customer.customerList.get(Customer.customerList.size() - 1).firstName = userInput;
-        
-        //using another variable to avoid having to use the super long call to get the final custmer in the list
+        //Getting first name from user
         String userFirstName = userInput;
+        
         System.out.print("Please enter your last name: ");
         userInput = scan.next();
-        Customer.customerList.get(Customer.customerList.size() - 1).lastName = userInput;
+        //getting last name from user
         String userLastName = userInput;
+        
+        //creating actual customer and adding to list with user input as arguments
+        Customer.customerList.add(new Customer(userFirstName, userLastName));
         
         System.out.println("Hello " + userFirstName + " " + userLastName);
         System.out.println("Do you wish to pay in advance?");
@@ -60,7 +60,7 @@ public class Customer {
             room.PaidInAdvance = true;
         }
         
-        //setting room.Occupied to true
+        //setting room as occupied
         room.occupied = true;
         room.occupiedBy = userFirstName + " " + userLastName;
     }

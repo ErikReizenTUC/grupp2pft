@@ -32,7 +32,7 @@ public class HotelMain {
     
     
     public static void main(String[] args) {
-           //Some comment from Pooja
+           
              //This Scanner object can be used for diffrent cases
         Scanner scan = new Scanner(System.in);
        
@@ -47,7 +47,7 @@ public class HotelMain {
     public void FirstMenu(){
         System.out.println("Enter your choice: ");
         System.out.println("1. Customer");
-        System.out.println("2. Receptionstaff");
+        System.out.println("2. Receptionstaff");       
         System.out.println("3. Hotelstaff");
     }    
     
