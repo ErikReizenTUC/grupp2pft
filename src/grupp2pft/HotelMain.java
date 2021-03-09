@@ -34,31 +34,69 @@ public class HotelMain {
     public static void main(String[] args) {
            
              //This Scanner object can be used for diffrent cases
-        Scanner scan = new Scanner(System.in);
+              Scanner scan = new Scanner(System.in);
        
-    //Instanciate HotelRoom objects
-        HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, false, "Adam Bertilsson"));
-        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "Ceaser Davidsson"));
-        HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
-        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "Gustaf Haraldsson"));
-        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
-        
-        //creating a first menu methid so it can be called in other classes
+     //Instanciate HotelRoom objects
+     HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, false, "Adam Bertilsson"));
+     HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "Ceaser Davidsson"));
+     HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
+     HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "Gustaf Haraldsson"));
+     HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
+     
+         //creating a first menu method so it can be called in other classes
     public void FirstMenu(){
         System.out.println("Enter your choice: ");
         System.out.println("1. Customer");
         System.out.println("2. Receptionstaff");       
         System.out.println("3. Hotelstaff");
-    }    
+        System.out.println("---------------");
+    } 
+        
+      //checking in, getting the option of paying in advance or not.
+    //using HotelRoom object as parameter
+    public void CheckIn(HotelRoom room) {
+        System.out.println("Thank you for choosing this hotel.");
+        System.out.println("You will now create a user profile for booking.");
+        
+        //creating new customer with user input for attributes
+        System.out.print("Please enter your first name: ");
+        //scanner takes user input
+        String userInput = scan.next();
+        //Getting first name from user
+        String userFirstName = userInput;
+        
+        System.out.print("Please enter your last name: ");
+        userInput = scan.next();
+        //getting last name from user
+        String userLastName = userInput;
+        
+        //creating actual customer and adding to list with user input as arguments
+        Customer.customerList.add(new Customer(userFirstName, userLastName));
+        
+        System.out.println("Hello " + userFirstName + " " + userLastName);
+        System.out.println("Do you wish to pay in advance?");
+        System.out.println("1. Yes, I will pay now.");
+        System.out.println("2. No, I will pay later.");
+        System.out.print("Make selection: ");
+        //customer makes a choice whether to pay in advance or not
+        int userChoice = scan.nextInt();
+        if (userChoice == 1) {
+            room.PaidInAdvance = true;
+        }
+        
+        //setting room as occupied
+        room.occupied = true;
+        room.occupiedBy = userFirstName + " " + userLastName;
+        
+    }   
+  
     
-    
-    //call the first menu
+        //call the first menu
         FirstMenu();
         int choice = scan.nextInt();
-      
-      
+                 
     
-    //Create SwitchCase for particular person choice       
+        //Create SwitchCase for particular person choice       
         switch(choice){
              //Customer can check room availability, booking room and prepayment option are available
             case 1:
@@ -66,27 +104,25 @@ public class HotelMain {
                 System.out.println("Choose 1: check availability, 2: Checkin, 3: Checkout");
                 int value = scan.nextInt();
                
-               
-                switch(value){
+                    switch(value){
                     case 1:
                      //Show the list of available room by using hotelroom class
                      //calls the Rooms method in the HotelRoom class.
-                       HotelRoom.DisplayRoomsCustomer();
-                        //Create command here from hotelroom
-                        break;
+                       HotelRoom.DisplayRoomsCustomer();                        
+                       break;
                     case 2:
-                        //HotelRoom.DisplayRooms();
-                        System.out.println("Enter room number");
+                        //Show room list before checkin
+                        //Customer can choose room number from the list
+                        HotelRoom.DisplayRoomsCustomer();
+                        //Enter room number which you want to checkin
+                        System.out.println("Enter room number: ");
                         int number = scan.nextInt();
-                        //change the status of room for entered room number
-                        for (int i = 0; i < HotelRoom.roomList.size(); i++)                     
-                         {
+                        //Create For loop to change the status of room for entered room number
+                        for (int i = 0; i < HotelRoom.roomList.size(); i++) {
+                            
                             if (number == HotelRoom.roomList.get(i).roomNumber) {
 
-                             // Customer.CheckIn(HotelRoom.roomList.get(i));
-
-                              //Customer.CheckIn(HotelRoom.roomList.get(i));
-
+                             CheckIn(HotelRoom.roomList.get(i));                            
                             }
                         }
                         System.out.println("You have booked the room. Congratulation!");
@@ -119,7 +155,7 @@ public class HotelMain {
             case 3:
                 break;
         }    
-
+                
 
     }
     
