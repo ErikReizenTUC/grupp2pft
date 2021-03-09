@@ -44,6 +44,14 @@ public class ReceptionStaff {
             System.out.println("[g] Add extra");
             System.out.println("[h] Checkout bill");
     }
+    
+    //1st sub menu for receptionist
+    public void SubMneuRec (){
+        System.out.println("Access Authorized");
+        System.out.println("-------------------------------");
+        System.out.println("Choose one of the following: \n");
+        System.out.println("--------------------------------");
+    }
     //an arraylist to save the data for receptionist users
     static ArrayList<ReceptionStaff> recStaff = new ArrayList<>();
     
@@ -57,24 +65,32 @@ public class ReceptionStaff {
             System.out.println("Please enter your work ID: ");
             int recID = RecInput.nextInt();
                     
-        //a switch-case to implement the menu options in case user is authorized 
-              
-        switch(recID){
+        //if statement for euther accessing  the main menu or being redirected to the user 
+        //selection menu
+          
+        if (recID > 0 && recID < 10){
             
-                case 1:  
-                    System.out.println("Access Authorized");
-                    System.out.println("-------------------------------");
-                    System.out.println("Choose one of the following: \n");
-                    System.out.println("--------------------------------");
-        
-                    MainMenuRec();
-                    int recVal = RecInput.nextInt();
-                                
-                case 2:
+            SubMneuRec();
+            MainMenuRec();
+            int recVal = RecInput.nextInt();
+            
+            //a switch case to perform differnt tasks related to a receptionist
+            switch(recVal){
+                case 1:
+            
+            
+            
+            
+            
+            
+            
+            }
+        }
+            else { 
                     
-                    System.out.println("Access Denied");
-                    exit = true;
-                    break;
+            System.out.println("Access Denied");
+            exit = true;
+            
         }
         
     }while(!exit);
