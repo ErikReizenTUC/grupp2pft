@@ -68,7 +68,8 @@ public class ReceptionStaff {
                     System.out.println("--------------------------------");
         
                     MainMenuRec();
-        
+                    int recVal = RecInput.nextInt();
+                                
                 case 2:
                     
                     System.out.println("Access Denied");
