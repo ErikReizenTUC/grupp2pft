@@ -60,7 +60,7 @@ public class ReceptionStaff  {
     static ArrayList<ReceptionStaff> recStaff = new ArrayList<>();
     
         
-    public void Access (HotelRoom room){
+    public void Access (){
         //ask the receptionist to verify its user ID for further access
         
         boolean exit = false;
@@ -99,6 +99,7 @@ public class ReceptionStaff  {
                     HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, newName));
                     break;
                 case 3:
+                    
                     break;
                 case 4:
                     break;
