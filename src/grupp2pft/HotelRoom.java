@@ -66,10 +66,14 @@ public class HotelRoom{
     public static void DisplayRoomsCustomer(){
         
         for (int i = 0; i < HotelRoom.roomList.size(); i++){
-            System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
+            if (HotelRoom.roomList.get(i).occupied == false){
+                System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
                                ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
                                ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
                                ", Avaiable!");
+            }
+            
+            
         }
     }
         
