@@ -73,7 +73,11 @@ public class HotelMain {
                         for (int i = 0; i < HotelRoom.roomList.size(); i++)                     
                          {
                             if (number == HotelRoom.roomList.get(i).roomNumber) {
+
+                             // Customer.CheckIn(HotelRoom.roomList.get(i));
+
                               //Customer.CheckIn(HotelRoom.roomList.get(i));
+
                             }
                         }
                         System.out.println("You have booked the room. Congratulation!");
@@ -87,6 +91,7 @@ public class HotelMain {
                     default:
                         System.out.println("Try Again");
                         break;
+                        
                 }
                 break;
             case 2:
