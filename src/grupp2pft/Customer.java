@@ -49,6 +49,7 @@ public class Customer {
         Customer.customerList.get(Customer.customerList.size() - 1).lastName = userInput;
         String userLastName = userInput;
         
+        System.out.println("Hello " + userFirstName + " " + userLastName);
         System.out.println("Do you wish to pay in advance?");
         System.out.println("1. Yes, I will pay now.");
         System.out.println("2. No, I will pay later.");
