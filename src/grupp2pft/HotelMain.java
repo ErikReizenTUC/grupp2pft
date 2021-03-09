@@ -29,6 +29,8 @@ public class HotelMain {
     /**
      * @param args the command line arguments
      */
+    
+    
     public static void main(String[] args) {
            //Some comment from Pooja
              //This Scanner object can be used for diffrent cases
@@ -41,15 +43,22 @@ public class HotelMain {
         HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "Gustaf Haraldsson"));
         HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
         
-        
-        //Create SwitchCase for particular person choice
+        //creating a first menu methid so it can be called in other classes
+    public void FirstMenu(){
         System.out.println("Enter your choice: ");
         System.out.println("1. Customer");
         System.out.println("2. Receptionstaff");
         System.out.println("3. Hotelstaff");
-                     
+    }    
+    
+    
+    //call the first menu
+        FirstMenu();
         int choice = scan.nextInt();
-       
+      
+      
+    
+    //Create SwitchCase for particular person choice       
         switch(choice){
              //Customer can check room availability, booking room and prepayment option are available
             case 1:
