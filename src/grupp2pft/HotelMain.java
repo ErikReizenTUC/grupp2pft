@@ -57,20 +57,20 @@ public class HotelMain {
                     case 1:
                      //Show the list of available room by using hotelroom class
                      //calls the Rooms method in the HotelRoom class.
-                       //HotelRoom.DisplayRoomsForCustmor();
+                       HotelRoom.DisplayRooms ();
                         //Create command here from hotelroom
                         break;
                     case 2:
-                        //HotelRoom.DisplayRoomsForCustmor();
+                        //HotelRoom.DisplayRooms();
                         System.out.println("Enter room number");
                         int number = scan.nextInt();
                         //change the status of room for entered room number
-                        /*for (int i = 0; i < HotelRoom.roomList.size(); i++)                     
+                        for (int i = 0; i < HotelRoom.roomList.size(); i++)                     
                          {
                             if (number == HotelRoom.roomList.get(i).roomNumber) {
                               Customer.CheckIn(HotelRoom.roomList.get(i));
                             }
-                        }*/
+                        }
                         System.out.println("You have booked the room. Congratulation!");
                         break;
                     case 3:
