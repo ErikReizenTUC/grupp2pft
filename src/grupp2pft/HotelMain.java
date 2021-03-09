@@ -88,6 +88,7 @@ public class HotelMain {
                         System.out.println("Try Again");
                         break;
                 }
+                break;
             case 2:
                 //call acess from receptionsit staff
                 System.out.println("First Name: ");
