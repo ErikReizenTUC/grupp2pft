@@ -28,6 +28,7 @@ public class ReceptionStaff  {
     public String lastName;
     public int iD;
     public boolean exit;
+    public char recMenuVal;
     
     //contructor
     public ReceptionStaff (String firstName, String lastName, int iD) {
@@ -38,15 +39,14 @@ public class ReceptionStaff  {
     //main menu for receptionist user 
     //this could be defined and modified on demand
     public void MainMenuRec(){
-            System.out.println("[a] Check for available rooms");
-            System.out.println("[b] Create a new available room");
-            System.out.println("[c] Mark a room unavailable");
-            System.out.println("[d] Delete a room");
-            System.out.println("[e] Find customer info");
-            System.out.println("[f] Checkin");
-            System.out.println("[g] Add extra");
-            System.out.println("[h] Checkout bill");
-            System.out.println("[i] Back to main menu");
+            System.out.println("1. Check for available rooms");
+            System.out.println("2. Create a new available room");
+            System.out.println("3. Mark a room unavailable");
+            System.out.println("4. Delete a room");
+            System.out.println("5. Find customer info");
+            System.out.println("6. Checkin");
+            System.out.println("7. Checkout");
+            System.out.println("8. Back to main menu");
     }
     
     //1st sub menu for receptionist
@@ -55,6 +55,21 @@ public class ReceptionStaff  {
         System.out.println("-------------------------------");
         System.out.println("Choose one of the following: \n");
         System.out.println("--------------------------------");
+    }
+    
+    public void AddRoom (){
+        
+        
+        System.out.println("Room number: ");
+        int newRoomNumber = RecInput.nextInt();
+        System.out.println("Number of beds: ");
+        int newNumberBeds = RecInput.nextInt();
+        System.out.println("Room price: ");
+        int newRoomPrice = RecInput.nextInt();
+        System.out.println("Name: ");
+        String newName = RecInput.next();
+        HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, newName));
+        System.out.println("Room added");
     }
     //an arraylist to save the data for receptionist users
     static ArrayList<ReceptionStaff> recStaff = new ArrayList<>();
@@ -88,32 +103,28 @@ public class ReceptionStaff  {
                     break;
                     
                 case 2:
-                    System.out.println("Room number: ");
-                    int newRoomNumber = RecInput.nextInt();
-                    System.out.println("Number of beds: ");
-                    int newNumberBeds = RecInput.nextInt();
-                    System.out.println("Room price: ");
-                    int newRoomPrice = RecInput.nextInt();
-                    System.out.println("Name: ");
-                    String newName = RecInput.next();
-                    HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, newName));
+                    AddRoom();
                     break;
+                    
                 case 3:
                     
                     break;
+                    
                 case 4:
                     break;
+                    
                 case 5:
                     break;
+                    
                 case 6:
                     break;
+                    
                 case 7:
                     break;
+                    
                 case 8:
                     break;
-                case 9:
-                    break;
-            
+                
             
             }
         }

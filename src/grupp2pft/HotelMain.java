@@ -96,8 +96,9 @@ public class HotelMain {
                 String recLName = scan.next();
                 System.out.println("ID: ");
                 int recId = scan.nextInt();
+                
                 ReceptionStaff receptionist = new ReceptionStaff(recFName, recLName, recId);
-                receptionist.Access ();
+                receptionist.Access();
                 break;
                 
             case 3:
