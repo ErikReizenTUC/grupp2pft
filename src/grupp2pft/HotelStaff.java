@@ -11,6 +11,14 @@ package grupp2pft;
  */
 public class HotelStaff {
     
+    public void Cleaning() {
+        
+        
+        
+        System.out.println("The room has been cleaned!");
+    }
+    
+    
 }
 //ehj
 //hej Marcus!
