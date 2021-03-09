@@ -45,7 +45,7 @@ public class HotelMain {
         //Create SwitchCase for particular person choice
         System.out.println("Enter your choice: ");
         System.out.println("1. Customer");
-        System.out.println("2. Receptionstaff");
+        System.out.println("2. Receptionstaff");       
         System.out.println("3. Hotelstaff");
                      
         int choice = scan.nextInt();
