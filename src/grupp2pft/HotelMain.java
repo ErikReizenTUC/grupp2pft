@@ -44,11 +44,11 @@ public class HotelMain {
      HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
      
          //creating a first menu method so it can be called in other classes
-    public void FirstMenu(){
+    public void FirstMenu()
+    {
         System.out.println("Enter your choice: ");
-        System.out.println("1. Customer");
-        System.out.println("2. Receptionstaff");       
-        System.out.println("3. Hotelstaff");
+        System.out.println("1. Log in as Customer");
+        System.out.println("2. Log in as Receptionstaff");       
         System.out.println("---------------");
     } 
         
@@ -119,11 +119,12 @@ public class HotelMain {
                         int number = scan.nextInt();
                         //Create For loop to change the status of room for entered room number
                         for (int i = 0; i < HotelRoom.roomList.size(); i++) {
-                            
+                            //If entered room number is right. checkin possible
                             if (number == HotelRoom.roomList.get(i).roomNumber) {
-
-                             CheckIn(HotelRoom.roomList.get(i));                            
-                            }
+                             
+                             CheckIn(HotelRoom.roomList.get(i));}
+                            else {
+                                System.out.println("Please, enter correct room number!");}//Need to correct it
                         }
                         System.out.println("You have booked the room. Congratulation!");
                         break;
@@ -135,8 +136,7 @@ public class HotelMain {
                         break;
                     default:
                         System.out.println("Try Again");
-                        break;
-                        
+                        break;                        
                 }
                 break;
             case 2:
@@ -152,7 +152,7 @@ public class HotelMain {
                 receptionist.Access();
                 break;
                 
-            case 3:
+            default:
                 break;
         }    
                 
