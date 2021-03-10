@@ -31,7 +31,7 @@ public class HotelMain {
      */
     
     //This Scanner object can be used for diffrent cases
-              Scanner scan = new Scanner(System.in);
+              static Scanner scan = new Scanner(System.in);
     
     //creating a first menu method so it can be called in other classes
     public static void FirstMenu()
@@ -125,11 +125,14 @@ public class HotelMain {
                             //If entered room number is right. checkin possible
                             if (number == HotelRoom.roomList.get(i).roomNumber) {
                              
-                             CheckIn(HotelRoom.roomList.get(i));}
+                                CheckIn(HotelRoom.roomList.get(i));
+                                System.out.println("You have booked the room. Congratulation!");
+                                
+                            }
                             else {
                                 System.out.println("Please, enter correct room number!");}//Need to correct it
+                            
                         }
-                        System.out.println("You have booked the room. Congratulation!");
                         break;
                     case 3:
                         System.out.println("Enter room number which you want to checkout");
