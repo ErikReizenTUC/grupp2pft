@@ -33,18 +33,17 @@ public class HotelMain {
     //This Scanner object can be used for diffrent cases
               static Scanner scan = new Scanner(System.in);
     
-    //creating a first menu method so it can be called in other classes
+    //Creating a first menu method so it can be called in other classes
     public static void FirstMenu()
     {
         System.out.println("Enter your choice: ");
         System.out.println("1. Log in as Customer");
         System.out.println("2. Log in as Receptionstaff");       
-        System.out.println("---------------");
-       
+        System.out.println("---------------");       
     }
     
-    //checking in, getting the option of paying in advance or not.
-    //using HotelRoom object as parameter
+    //Checking in, getting the option of paying in advance or not.
+    //Using HotelRoom object as parameter
     public static void CheckIn(HotelRoom room) {
         System.out.println("Thank you for choosing this hotel.");
         System.out.println("You will now create a user profile for booking.");
@@ -73,6 +72,7 @@ public class HotelMain {
         int userChoice = scan.nextInt();
         if (userChoice == 1) {
             room.PaidInAdvance = true;
+           
         }
         
         //setting room as occupied
@@ -83,71 +83,42 @@ public class HotelMain {
     }   
     
     //checking out, selecting various extra options
-    public static void CheckOut() {
-        System.out.println("Which room did you stay in?");
-        
-        HotelRoom.DisplayRooms();
-        
+    public static void CheckOut() {        
+        System.out.println("Enter room number which you want to checkout: ");
+       
         int userChoice = scan.nextInt();
         int indexPosition = -1;
         for (int i = 0; i < HotelRoom.roomList.size(); i++) {
-            if (userChoice == HotelRoom.roomList.get(i).roomNumber && HotelRoom.roomList.get(i).occupied == true) {
-            
-            
+            if (userChoice == HotelRoom.roomList.get(i).roomNumber  && HotelRoom.roomList.get(i).occupied == true) {
             indexPosition = i; 
-            
-            
-            
-
-            
         }
-            
-        
     } 
             if (indexPosition == -1) {
                 System.out.println("Invalid input.");
-                
             }
             else {
                     HotelRoom.roomList.get(indexPosition).occupied = false;
                 HotelRoom.roomList.get(indexPosition).occupiedBy = "";    
             
                 if (HotelRoom.roomList.get(indexPosition).PaidInAdvance == true) {
-                    System.out.println("Room already paid, please come again!");
-                
-                
-                
-                } 
-
+                    
+                    System.out.println("Room already paid, please come again!"); 
+                    } 
                 else {
                     System.out.println("We have deducted " + HotelRoom.roomList.get(indexPosition).roomPrice + " your creditt card, please come again!");
-
                 } 
-
-                
+                    System.out.println("You have succesfully checked out");
             }
-            
-        
-        
-        
-        
-        
-        
-        
     }
     
     public static void main(String[] args) {
-           
-            
-       
-     //Instanciate HotelRoom objects
-     HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, false, "Adam Bertilsson"));
-     HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "Ceaser Davidsson"));
+
+        //Instanciate HotelRoom objects
+     HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, true, "Adam Bertilsson"));
+     HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "  "));                 //Ceaser Davidsson
      HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
-     HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "Gustaf Haraldsson"));
-     HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
-     CheckOut();
-     
+     HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "  "));                   //Gustaf Haraldsson  
+     HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));                   //Ivar Jacobsson
                    
         //call the first menu
         FirstMenu();
@@ -171,29 +142,29 @@ public class HotelMain {
                     case 2:
                         //Show room list before checkin
                         //Customer can choose room number from the list
+                        
                         HotelRoom.DisplayRoomsCustomer();
                         //Enter room number which you want to checkin
                         System.out.println("Enter room number: ");
                         int number = scan.nextInt();
+                        int Indexvalue = -1;
                         //Create For loop to change the status of room for entered room number
                         for (int i = 0; i < HotelRoom.roomList.size(); i++) {
-                            //If entered room number is right. checkin possible
+                            //If entered room number is right. Checkin possible
                             if (number == HotelRoom.roomList.get(i).roomNumber) {
                              
                                 CheckIn(HotelRoom.roomList.get(i));
                                 System.out.println("You have booked the room. Congratulation!");
-                                
+                                Indexvalue = i;
                             }
-                            else {
-                                System.out.println("Please, enter correct room number!");}//Need to correct it
-                            
+                        }
+                        if(Indexvalue == -1){
+                        System.out.println("Please, enter correct room number!");
                         }
                         break;
                     case 3:
-                        System.out.println("Enter room number which you want to checkout");
-                        int t = scan.nextInt();
-                        //change the status of room for entered room number
-                        System.out.println("You have succesfully checked out");
+                        //Call Checkout method
+                        CheckOut();
                         break;
                     default:
                         System.out.println("Try Again");
