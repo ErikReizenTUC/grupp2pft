@@ -35,24 +35,10 @@ public class HotelMain {
         System.out.println("1. Log in as Customer");
         System.out.println("2. Log in as Receptionstaff");       
         System.out.println("---------------");
+       
     }
     
-    public static void main(String[] args) {
-           
-             //This Scanner object can be used for diffrent cases
-              Scanner scan = new Scanner(System.in);
-       
-     //Instanciate HotelRoom objects
-     HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, false, "Adam Bertilsson"));
-     HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "Ceaser Davidsson"));
-     HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
-     HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "Gustaf Haraldsson"));
-     HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
-     
-         //creating a first menu method so it can be called in other classes
-     
-        
-      //checking in, getting the option of paying in advance or not.
+    //checking in, getting the option of paying in advance or not.
     //using HotelRoom object as parameter
     public void CheckIn(HotelRoom room) {
         System.out.println("Thank you for choosing this hotel.");
@@ -89,8 +75,24 @@ public class HotelMain {
         room.occupiedBy = userFirstName + " " + userLastName;
         
     }   
-  
     
+    public static void main(String[] args) {
+           
+             //This Scanner object can be used for diffrent cases
+              Scanner scan = new Scanner(System.in);
+       
+     //Instanciate HotelRoom objects
+     HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, false, "Adam Bertilsson"));
+     HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "Ceaser Davidsson"));
+     HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
+     HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "Gustaf Haraldsson"));
+     HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
+     
+         //creating a first menu method so it can be called in other classes
+     
+        
+
+   
         //call the first menu
         FirstMenu();
         int choice = scan.nextInt();
