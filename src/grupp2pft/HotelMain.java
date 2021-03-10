@@ -31,7 +31,7 @@ public class HotelMain {
      */
     
     //This Scanner object can be used for diffrent cases
-              Scanner scan = new Scanner(System.in);
+              static Scanner scan = new Scanner(System.in);
     
     //creating a first menu method so it can be called in other classes
     public static void FirstMenu()
@@ -93,7 +93,11 @@ public class HotelMain {
      HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "Gustaf Haraldsson"));
      HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
      
-                   
+     ReceptionStaff.recStaff.add(new ReceptionStaff("Hanna", "Persson", 7));
+     ReceptionStaff.recStaff.add(new ReceptionStaff("Pernilla", "Svärd", 3));
+     ReceptionStaff.recStaff.add(new ReceptionStaff("Syd", "Natani", 1));
+     
+     
         //call the first menu
         FirstMenu();
         int choice = scan.nextInt();

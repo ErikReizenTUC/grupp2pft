@@ -36,16 +36,24 @@ public class ReceptionStaff  {
         this.lastName = lastName;
         this.iD = iD;
     }
+    
+    
+        
+    //list of receptionists
+    //static int [] recID = {1,2,3,4,5,6,7,8,9};
+    
+
+
     //main menu for receptionist user 
     //this could be defined and modified on demand
     public void MainMenuRec(){
-            System.out.println("1. Check for available rooms");
-            System.out.println("2. Create a new available room");
-            System.out.println("3. Mark a room unavailable");
-            System.out.println("4. Delete a room");
-            System.out.println("5. Find customer info");
-            System.out.println("6. Checkin");
-            System.out.println("7. Checkout");
+            System.out.println("1. Check-in");
+            System.out.println("2. Check-out");
+            System.out.println("3. Check for available rooms");
+            System.out.println("4. Mark a room unavailable");
+            System.out.println("5. Create a new available room");
+            System.out.println("6. Delete a room");
+            System.out.println("7. Find customer info");
             System.out.println("8. Back to main menu");
     }
     
@@ -66,7 +74,7 @@ public class ReceptionStaff  {
         int newNumberBeds = RecInput.nextInt();
         System.out.println("Room price: ");
         int newRoomPrice = RecInput.nextInt();
-        System.out.println("Name: ");
+        System.out.println("Initials: ");
         String newName = RecInput.next();
         HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, newName));
         System.out.println("Room added");
@@ -77,19 +85,48 @@ public class ReceptionStaff  {
         System.out.println("Room number: ");
         //get the user's input
         int oldRoomNumber = RecInput.nextInt();
+        
+        boolean finns = HotelRoom.roomList.contains(oldRoomNumber);
+        
+        if (!finns)
+            System.out.println("The room number you entered is invalid");
+        else 
+            HotelRoom.roomList.remove(oldRoomNumber);
+            System.out.println("The room is to be deleted");
+            
+
         //find the exact index of the asked room number
-        int delRoom = HotelRoom.roomList.indexOf(oldRoomNumber);
+        //int delRoom = HotelRoom.roomList.indexOf(oldRoomNumber);
         // an if statement to check if the room number exists
-            if (delRoom == -1)
-                System.out.println("The room number yu entered is invalid");
-            else
-                HotelRoom.roomList.remove(delRoom);
-                System.out.println("The room is to be deleted");
+          //  if (delRoom == -1)
+            //    System.out.println("The room number yu entered is invalid");
+            //else
+              //  HotelRoom.roomList.remove(delRoom);
+                //System.out.println("The room is to be deleted");
             
     
     }
     //an arraylist to save the data for receptionist users
     static ArrayList<ReceptionStaff> recStaff = new ArrayList<>();
+    
+    //a method for greeting any registered receptionist 
+    public void GreetingsRec (){
+        for (int i = 0; i < ReceptionStaff.recStaff.size(); i++){
+            if (ReceptionStaff.recStaff.get(i).iD == 1)
+                System.out.println("Welcome " + ReceptionStaff.recStaff.get(i).firstName +
+                        " " + ReceptionStaff.recStaff.get(i).lastName);
+            else if (ReceptionStaff.recStaff.get(i).iD == 3)
+                System.out.println("Welcome " + ReceptionStaff.recStaff.get(i).firstName +
+                        " " + ReceptionStaff.recStaff.get(i).lastName);
+            else if (ReceptionStaff.recStaff.get(i).iD == 7)
+                System.out.println("Welcome " + ReceptionStaff.recStaff.get(i).firstName +
+                        " " + ReceptionStaff.recStaff.get(i).lastName);
+            else 
+                System.out.println("User not found");
+        }
+            
+        
+    }
     
         
     public void Access (){
@@ -100,7 +137,7 @@ public class ReceptionStaff  {
         
             System.out.println("Please enter your work ID: ");
             int recID = RecInput.nextInt();
-                    
+            GreetingsRec();        
         //if statement for euther accessing  the main menu or being redirected to the user 
         //selection menu
           
@@ -113,27 +150,32 @@ public class ReceptionStaff  {
             //a switch case to perform differnt tasks related to a receptionist
             switch(recVal){
                 case 1:
-                    for (int i = 0; i < HotelRoom.roomList.size();i++) 
-        	      { 		      
-	          System.out.println(HotelRoom.roomList.get(i)); 		
-                      }   
+                       
                     break;
                     
                 case 2:
-                    AddRoom();
+                    
                     break;
                     
                 case 3:
-                    
+                    HotelRoom.DisplayRooms();
+
+                    //for (int i = 0; i < HotelRoom.roomList.size();i++) 
+        	      //{ 		      
+	          //System.out.println(HotelRoom.roomList.get(i)); 		
+                    //  }
                     break;
                     
                 case 4:
+                    
                     break;
                     
                 case 5:
+                    AddRoom();
                     break;
                     
                 case 6:
+                    DelRoom();
                     break;
                     
                 case 7:
@@ -147,7 +189,7 @@ public class ReceptionStaff  {
         }
             else { 
                     
-            System.out.println("Access Denied");
+            System.out.println("Access Denied \nPlease try again");
             SubMneuRec();
             
         }
