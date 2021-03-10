@@ -30,6 +30,9 @@ public class HotelMain {
      * @param args the command line arguments
      */
     
+    //This Scanner object can be used for diffrent cases
+              Scanner scan = new Scanner(System.in);
+    
     //creating a first menu method so it can be called in other classes
     public static void FirstMenu()
     {
@@ -81,8 +84,7 @@ public class HotelMain {
     
     public static void main(String[] args) {
            
-             //This Scanner object can be used for diffrent cases
-              Scanner scan = new Scanner(System.in);
+             
        
      //Instanciate HotelRoom objects
      HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, false, "Adam Bertilsson"));
