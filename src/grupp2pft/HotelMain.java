@@ -79,12 +79,66 @@ public class HotelMain {
         room.occupied = true;
         room.occupiedBy = userFirstName + " " + userLastName;
         
+        
     }   
     
+    //checking out, selecting various extra options
+    public static void CheckOut() {
+        System.out.println("Which room did you stay in?");
+        
+        HotelRoom.DisplayRooms();
+        
+        int userChoice = scan.nextInt();
+        int indexPosition = -1;
+        for (int i = 0; i < HotelRoom.roomList.size(); i++) {
+            if (userChoice == HotelRoom.roomList.get(i).roomNumber && HotelRoom.roomList.get(i).occupied == true) {
+            
+            
+            indexPosition = i; 
+            
+            
+            
+
+            
+        }
+            
+        
+    } 
+            if (indexPosition == -1) {
+                System.out.println("Invalid input.");
+                
+            }
+            else {
+                    HotelRoom.roomList.get(indexPosition).occupied = false;
+                HotelRoom.roomList.get(indexPosition).occupiedBy = "";    
+            
+                if (HotelRoom.roomList.get(indexPosition).PaidInAdvance == true) {
+                    System.out.println("Room already paid, please come again!");
+                
+                
+                
+                } 
+
+                else {
+                    System.out.println("We have deducted " + HotelRoom.roomList.get(indexPosition).roomPrice + " your creditt card, please come again!");
+
+                } 
+
+                
+            }
+            
+        
+        
+        
+        
+        
+        
+        
+    }
     
     public static void main(String[] args) {
            
-             
+            
        
      //Instanciate HotelRoom objects
      HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, false, "Adam Bertilsson"));
@@ -92,6 +146,7 @@ public class HotelMain {
      HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
      HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "Gustaf Haraldsson"));
      HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
+     CheckOut();
      
      ReceptionStaff.recStaff.add(new ReceptionStaff("Hanna", "Persson", 7));
      ReceptionStaff.recStaff.add(new ReceptionStaff("Pernilla", "Svärd", 3));
@@ -129,11 +184,14 @@ public class HotelMain {
                             //If entered room number is right. checkin possible
                             if (number == HotelRoom.roomList.get(i).roomNumber) {
                              
-                             CheckIn(HotelRoom.roomList.get(i));}
+                                CheckIn(HotelRoom.roomList.get(i));
+                                System.out.println("You have booked the room. Congratulation!");
+                                
+                            }
                             else {
                                 System.out.println("Please, enter correct room number!");}//Need to correct it
+                            
                         }
-                        System.out.println("You have booked the room. Congratulation!");
                         break;
                     case 3:
                         System.out.println("Enter room number which you want to checkout");
