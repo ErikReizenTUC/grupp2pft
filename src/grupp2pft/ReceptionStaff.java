@@ -83,7 +83,7 @@ public class ReceptionStaff  {
             if (delRoom == -1)
                 System.out.println("The room number yu entered is invalid");
             else
-                
+                HotelRoom.roomList.remove(delRoom);
                 System.out.println("The room is to be deleted");
             
     
