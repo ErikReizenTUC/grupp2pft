@@ -29,7 +29,13 @@ public class HotelMain {
     /**
      * @param args the command line arguments
      */
-    
+    public static void FirstMenu()
+    {
+        System.out.println("Enter your choice: ");
+        System.out.println("1. Log in as Customer");
+        System.out.println("2. Log in as Receptionstaff");       
+        System.out.println("---------------");
+    }
     
     public static void main(String[] args) {
            
@@ -44,13 +50,7 @@ public class HotelMain {
      HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
      
          //creating a first menu method so it can be called in other classes
-    public void FirstMenu()
-    {
-        System.out.println("Enter your choice: ");
-        System.out.println("1. Log in as Customer");
-        System.out.println("2. Log in as Receptionstaff");       
-        System.out.println("---------------");
-    } 
+     
         
       //checking in, getting the option of paying in advance or not.
     //using HotelRoom object as parameter

@@ -21,7 +21,7 @@ public class ReceptionStaff  {
     Scanner RecInput = new Scanner (System.in);
     
     //an instance of Customer class for checkin method
-    Customer checkIn = new Customer();
+    //Customer checkIn = new Customer();
     
     //attributes for the receptionist
     public String firstName;
@@ -70,6 +70,23 @@ public class ReceptionStaff  {
         String newName = RecInput.next();
         HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, newName));
         System.out.println("Room added");
+    }
+    //a method to search for a given room in the list and remove it 
+    public void DelRoom (){
+        
+        System.out.println("Room number: ");
+        //get the user's input
+        int oldRoomNumber = RecInput.nextInt();
+        //find the exact index of the asked room number
+        int delRoom = HotelRoom.roomList.indexOf(oldRoomNumber);
+        // an if statement to check if the room number exists
+            if (delRoom == -1)
+                System.out.println("The room number yu entered is invalid");
+            else
+                
+                System.out.println("The room is to be deleted");
+            
+    
     }
     //an arraylist to save the data for receptionist users
     static ArrayList<ReceptionStaff> recStaff = new ArrayList<>();
