@@ -29,6 +29,8 @@ public class HotelMain {
     /**
      * @param args the command line arguments
      */
+    
+    //creating a first menu method so it can be called in other classes
     public static void FirstMenu()
     {
         System.out.println("Enter your choice: ");
@@ -40,7 +42,7 @@ public class HotelMain {
     
     //checking in, getting the option of paying in advance or not.
     //using HotelRoom object as parameter
-    public void CheckIn(HotelRoom room) {
+    public static void CheckIn(HotelRoom room) {
         System.out.println("Thank you for choosing this hotel.");
         System.out.println("You will now create a user profile for booking.");
         
@@ -76,6 +78,7 @@ public class HotelMain {
         
     }   
     
+    
     public static void main(String[] args) {
            
              //This Scanner object can be used for diffrent cases
@@ -88,11 +91,7 @@ public class HotelMain {
      HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "Gustaf Haraldsson"));
      HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "Ivar Jacobsson"));
      
-         //creating a first menu method so it can be called in other classes
-     
-        
-
-   
+                   
         //call the first menu
         FirstMenu();
         int choice = scan.nextInt();
