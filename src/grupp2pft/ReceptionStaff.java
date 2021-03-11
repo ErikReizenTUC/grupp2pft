@@ -50,11 +50,9 @@ public class ReceptionStaff  {
             System.out.println("1. Check-in");
             System.out.println("2. Check-out");
             System.out.println("3. Check for available rooms");
-            System.out.println("4. Mark a room unavailable");
-            System.out.println("5. Create a new available room");
-            System.out.println("6. Delete a room");
-            System.out.println("7. Find customer info");
-            System.out.println("8. Back to main menu");
+            System.out.println("4. Create a new available room");
+            System.out.println("5. Delete a room");
+            System.out.println("6. Back to main menu");
     }
     
     //1st sub menu for receptionist
@@ -82,29 +80,26 @@ public class ReceptionStaff  {
     //a method to search for a given room in the list and remove it 
     public void DelRoom (){
         
+        System.out.println("Here is a list of rooms: \n");
+        //call the method for showing a list of all rooms
+        HotelRoom.DisplayRooms();
+        System.out.println("-----------------------------");
         System.out.println("Room number: ");
         //get the user's input
-        int oldRoomNumber = RecInput.nextInt();
-        
-        boolean finns = HotelRoom.roomList.contains(oldRoomNumber);
-        
-        if (!finns)
+        int delRoomNumber = RecInput.nextInt();
+        //loop through the room list to find whether the room number matches one of the rooms
+        //and delete the one asked by the user
+        for (int i = 1; i < HotelRoom.roomList.size(); i++){
+            
+            if (delRoomNumber == HotelRoom.roomList.get(i).roomNumber){
+                HotelRoom.roomList.remove(delRoomNumber);
+                System.out.println("The room number " + delRoomNumber + " is deleted");
+            } else { 
             System.out.println("The room number you entered is invalid");
-        else 
-            HotelRoom.roomList.remove(oldRoomNumber);
-            System.out.println("The room is to be deleted");
+            }
             
-
-        //find the exact index of the asked room number
-        //int delRoom = HotelRoom.roomList.indexOf(oldRoomNumber);
-        // an if statement to check if the room number exists
-          //  if (delRoom == -1)
-            //    System.out.println("The room number yu entered is invalid");
-            //else
-              //  HotelRoom.roomList.remove(delRoom);
-                //System.out.println("The room is to be deleted");
-            
-    
+        }
+        
     }
     //an arraylist to save the data for receptionist users
     static ArrayList<ReceptionStaff> recStaff = new ArrayList<>();
@@ -150,11 +145,11 @@ public class ReceptionStaff  {
             //a switch case to perform differnt tasks related to a receptionist
             switch(recVal){
                 case 1:
-                       
+                       HotelMain.CheckIn();
                     break;
                     
                 case 2:
-                    
+                        HotelMain.CheckOut();
                     break;
                     
                 case 3:
@@ -166,22 +161,17 @@ public class ReceptionStaff  {
                     //  }
                     break;
                     
+                    
                 case 4:
-                    
-                    break;
-                    
-                case 5:
                     AddRoom();
                     break;
                     
-                case 6:
+                case 5:
                     DelRoom();
                     break;
                     
-                case 7:
-                    break;
                     
-                case 8:
+                case 6:
                     break;
                 
             
