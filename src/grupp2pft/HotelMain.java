@@ -38,16 +38,21 @@ public class HotelMain {
     {
         System.out.println("Enter your choice: ");
         System.out.println("1. Log in as Customer");
-        System.out.println("2. Log in as Receptionstaff");       
-        System.out.println("---------------");       
+        System.out.println("2. Log in as Receptionstaff"); 
+        System.out.println("3. Exit from the program!");
+        System.out.println("----------------------------------");
     }
     
     //Checking in, getting the option of paying in advance or not.
     public static void CheckIn() {
+               
+        boolean CheckInComplete = false;
+        while(CheckInComplete == false) {
+       
         //Show room list before checkin
         //Customer can choose room number from the list
-
         HotelRoom.DisplayRoomsCustomer();
+        
         //Enter room number which you want to checkin
         System.out.print("Enter room number: ");
         int number = scan.nextInt();
@@ -60,18 +65,16 @@ public class HotelMain {
                 System.out.println("Thank you for choosing this hotel.");
                 System.out.println("You will now create a user profile for booking.");
 
-                //creating new customer with user input for attributes
+                //Creating new customer with user input for attributes
                 System.out.print("Please enter your first name: ");
-                //scanner takes user input
-                String userInput = scan.next();
                 //Getting first name from user
-                String userFirstName = userInput;
-
+                String userFirstName = scan.next();
+                
+                
                 System.out.print("Please enter your last name: ");
-                userInput = scan.next();
-                //getting last name from user
-                String userLastName = userInput;
-
+                //Getting last name from user
+                String userLastName = scan.next();
+                
                 //creating actual customer and adding to list with user input as arguments
                 Customer.customerList.add(new Customer(userFirstName, userLastName));
 
@@ -85,24 +88,37 @@ public class HotelMain {
                 number = scan.nextInt();
                 if (number == 1) {
                     HotelRoom.roomList.get(i).PaidInAdvance = true;
-
                 }
-
                 //setting room as occupied
                 HotelRoom.roomList.get(i).occupied = true;
                 HotelRoom.roomList.get(i).occupiedBy = userFirstName + " " + userLastName;
             }
         }
-        if(roomExists == false){
-        System.out.println("Please, enter correct room number!");
-        }
-        else {
-            //resetting values for Indexvalue and roomExists
+            if(roomExists == false){
+              System.out.println("----------------------------------"); 
+              System.out.println("Please, enter correct room number!");
+              System.out.println("----------------------------------"); 
+             }
+            else {
+            //Checkin completed and message is shown to customer
+            System.out.println("Checkin completed. Welcome to the Hotel!");
+            System.out.println("----------------------------------------");
+            System.out.println("Do you want to checkin more? 1: Yes, 2: No");
+            int CheckinAgain = scan.nextInt();
+            if(CheckinAgain == 1)
+            CheckInComplete = false;
+            else {
+            //Resetting value for successful checkin
+            CheckInComplete = true;
+
+            //Resetting values for Indexvalue and roomExists
             roomExists = false;
         }   
-    }   
+    } 
+        }  
+    }
     
-    //checking out
+    //Checking out
     public static void CheckOut() {
         System.out.print("Enter your first name: ");
         //user inputs first and last name
@@ -112,8 +128,8 @@ public class HotelMain {
         userChoice = scan.next();
         userName += " " + userChoice;
 
-        //using indexPosition to track the index of the room user will checkout from
-        //using roomExists to see whether user entered a valid room
+        //Using indexPosition to track the index of the room user will checkout from
+        //Using roomExists to see whether user entered a valid room
         boolean roomExists = false;
         for (int i = 0; i < HotelRoom.roomList.size(); i++) {
             if (userName.equals(HotelRoom.roomList.get(i).occupiedBy)) {
@@ -125,18 +141,19 @@ public class HotelMain {
                     System.out.println("Room already paid, please come again!"); 
                 } 
                 else {
-                    System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + " your creditt card, please come again!");
+                    System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + " from your credit card, please come again!");
                 } 
                 System.out.println("You have succesfully checked out");
+                System.out.println("----------------------------------");
                 }
         }
-        
-        //checking if user entered an invalid room
+        //Checking if user entered an invalid room
         if (roomExists == false) {
             System.out.println("Invalid input.");
+            System.out.println("----------------------------------");
         }
         else {
-            //resetting and roomExists variable
+            //Resetting and roomExists variable
             roomExists = false;        
         }
 
@@ -146,51 +163,66 @@ public class HotelMain {
 
     //Instanciate HotelRoom objects
     HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, true, "Adam Bertilsson"));
-    HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "  "));                 //Ceaser Davidsson
+    HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "  "));                
     HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
-    HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "  "));                   //Gustaf Haraldsson  
-    HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));                   //Ivar Jacobsson
+    HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "  "));                   
+    HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));                   
 
 
-
+    //Instanciate HReceptionStaff objects
     ReceptionStaff.recStaff.add(new ReceptionStaff("Hanna", "Persson", 7));
     ReceptionStaff.recStaff.add(new ReceptionStaff("Pernilla", "Svärd", 3));
     ReceptionStaff.recStaff.add(new ReceptionStaff("Syd", "Natani", 1));
     
-    boolean runProgram = true;
     
-    while (runProgram == true) {
+    //While loop for repetation of FirstMenu method
+    boolean Exit = false;
+     while(Exit ==false) {
+     
         //call the first menu
         FirstMenu();
         int choice = scan.nextInt();
-
-        //Create SwitchCase for particular person choice       
+              
+        //Create SwitchCase for log in as perticular person choice      
         switch(choice){
              //Customer can check room availability, booking room and prepayment option are available
-            case 1:
-                //Create SwitchCase for customer choice                               
-                System.out.println("Choose 1: check availability, 2: Checkin, 3: Checkout");
+            case 1:                                            
+                boolean ExitCustomer = false;
+                //While loop for come back to select diffrent choice
+                while(ExitCustomer == false) { 
+                System.out.println("----------------------------------");
+                System.out.println("1: check availability, 2: Checkin, 3: Checkout, 4: Exit");
                 System.out.print("Make selection: ");
                 int value = scan.nextInt();
-
-                    switch(value){
+                //Create SwitchCase for customer choice  
+                switch(value){
                     case 1:
                      //Show the list of available room by using hotelroom class
-                     //calls the Rooms method in the HotelRoom class.
+                     //call DisplayRoomsCustomer method in the HotelRoom class.
                        HotelRoom.DisplayRoomsCustomer();                        
                        break;
                     case 2:
+                        //Call Checkin method
                         CheckIn();
                         break;
                     case 3:
                         //Call Checkout method
                         CheckOut();
                         break;
+                    case 4:
+                        System.out.println("Exit from customer menu");
+                        System.out.println("----------------------------------");
+                        //Resetting variable to exit from cutomer menu
+                        ExitCustomer = true;
+                        break;
                     default:
                         System.out.println("Try Again");
+                        System.out.println("----------------------------------");
                         break;                        
                 }
-                break;
+               }
+        break;
+        
             case 2:
                 //call acess from receptionsit staff
                 System.out.println("First Name: ");
@@ -203,14 +235,20 @@ public class HotelMain {
                 ReceptionStaff receptionist = new ReceptionStaff(recFName, recLName, recId);
                 receptionist.Access();
                 break;
+                
+            case 3:
+                System.out.println("Exit from the program!");
+                //Resetting variable to exit from Firstmenu
+                Exit = true;
+                break;
 
             default:
+                System.out.println("Somthing went wrong, please try again.");
                 break;
-        }    
+        }    }
     }
 
-                
+    }          
 
-    }
     
-}
+    
