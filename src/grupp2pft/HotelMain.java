@@ -104,17 +104,19 @@ public class HotelMain {
     
     //checking out
     public static void CheckOut() {
-        System.out.println("Enter room number which you want to checkout: ");
-        HotelRoom.DisplayRooms();
-        System.out.print("Make selection: ");
-        //user inputs roomnumber
-        int userChoice = scan.nextInt();
-        
+        System.out.print("Enter your first name: ");
+        //user inputs first and last name
+        String userChoice = scan.next();
+        String userName = userChoice;
+        System.out.print("Enter your last name: ");
+        userChoice = scan.next();
+        userName += " " + userChoice;
+
         //using indexPosition to track the index of the room user will checkout from
         //using roomExists to see whether user entered a valid room
         boolean roomExists = false;
         for (int i = 0; i < HotelRoom.roomList.size(); i++) {
-            if (userChoice == HotelRoom.roomList.get(i).roomNumber  && HotelRoom.roomList.get(i).occupied == true) {
+            if (userName.equals(HotelRoom.roomList.get(i).occupiedBy)) {
                 roomExists = true;
                 HotelRoom.roomList.get(i).occupied = false;
                 HotelRoom.roomList.get(i).occupiedBy = "";    
@@ -142,24 +144,26 @@ public class HotelMain {
     
     public static void main(String[] args) {
 
-        //Instanciate HotelRoom objects
-     HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, true, "Adam Bertilsson"));
-     HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "  "));                 //Ceaser Davidsson
-     HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
-     HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "  "));                   //Gustaf Haraldsson  
-     HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));                   //Ivar Jacobsson
-                   
-   
-        
-     ReceptionStaff.recStaff.add(new ReceptionStaff("Hanna", "Persson", 7));
-     ReceptionStaff.recStaff.add(new ReceptionStaff("Pernilla", "Svärd", 3));
-     ReceptionStaff.recStaff.add(new ReceptionStaff("Syd", "Natani", 1));
-     
-     
+    //Instanciate HotelRoom objects
+    HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, true, "Adam Bertilsson"));
+    HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "  "));                 //Ceaser Davidsson
+    HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
+    HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "  "));                   //Gustaf Haraldsson  
+    HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));                   //Ivar Jacobsson
+
+
+
+    ReceptionStaff.recStaff.add(new ReceptionStaff("Hanna", "Persson", 7));
+    ReceptionStaff.recStaff.add(new ReceptionStaff("Pernilla", "Svärd", 3));
+    ReceptionStaff.recStaff.add(new ReceptionStaff("Syd", "Natani", 1));
+    
+    boolean runProgram = true;
+    
+    while (runProgram == true) {
         //call the first menu
         FirstMenu();
         int choice = scan.nextInt();
-    
+
         //Create SwitchCase for particular person choice       
         switch(choice){
              //Customer can check room availability, booking room and prepayment option are available
@@ -168,7 +172,7 @@ public class HotelMain {
                 System.out.println("Choose 1: check availability, 2: Checkin, 3: Checkout");
                 System.out.print("Make selection: ");
                 int value = scan.nextInt();
-               
+
                     switch(value){
                     case 1:
                      //Show the list of available room by using hotelroom class
@@ -195,14 +199,16 @@ public class HotelMain {
                 String recLName = scan.next();
                 System.out.println("ID: ");
                 int recId = scan.nextInt();
-                
+
                 ReceptionStaff receptionist = new ReceptionStaff(recFName, recLName, recId);
                 receptionist.Access();
                 break;
-                
+
             default:
                 break;
         }    
+    }
+
                 
 
     }
