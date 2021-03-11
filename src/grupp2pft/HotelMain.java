@@ -82,33 +82,43 @@ public class HotelMain {
         
     }   
     
-    //checking out, selecting various extra options
-    public static void CheckOut() {        
+    //checking out
+    public static void CheckOut() {
         System.out.println("Enter room number which you want to checkout: ");
-       
+        HotelRoom.DisplayRooms();
+        System.out.print("Make selection: ");
+        //user inputs roomnumber
         int userChoice = scan.nextInt();
+        
+        //using indexPosition to track the index of the room user will checkout from
         int indexPosition = -1;
+        //using roomExists to see whether user entered a valid room
+        boolean roomExists = false;
         for (int i = 0; i < HotelRoom.roomList.size(); i++) {
             if (userChoice == HotelRoom.roomList.get(i).roomNumber  && HotelRoom.roomList.get(i).occupied == true) {
-            indexPosition = i; 
-        }
-    } 
-            if (indexPosition == -1) {
-                System.out.println("Invalid input.");
-            }
-            else {
-                    HotelRoom.roomList.get(indexPosition).occupied = false;
+                indexPosition = i;
+                roomExists = true;
+                HotelRoom.roomList.get(indexPosition).occupied = false;
                 HotelRoom.roomList.get(indexPosition).occupiedBy = "";    
-            
                 if (HotelRoom.roomList.get(indexPosition).PaidInAdvance == true) {
-                    
+
                     System.out.println("Room already paid, please come again!"); 
-                    } 
+                } 
                 else {
                     System.out.println("We have deducted " + HotelRoom.roomList.get(indexPosition).roomPrice + " your creditt card, please come again!");
                 } 
-                    System.out.println("You have succesfully checked out");
-            }
+                System.out.println("You have succesfully checked out");
+                }
+        }
+        
+        //checking if user entered an invalid room
+        if (roomExists == false) {
+            System.out.println("Invalid input.");
+        }
+        
+        //resetting indexPosition and roomExists variable
+        indexPosition = -1;
+        roomExists = false;
     }
     
     public static void main(String[] args) {
@@ -137,6 +147,7 @@ public class HotelMain {
             case 1:
                 //Create SwitchCase for customer choice                               
                 System.out.println("Choose 1: check availability, 2: Checkin, 3: Checkout");
+                System.out.print("Make selection: ");
                 int value = scan.nextInt();
                
                     switch(value){
@@ -151,9 +162,10 @@ public class HotelMain {
                         
                         HotelRoom.DisplayRoomsCustomer();
                         //Enter room number which you want to checkin
-                        System.out.println("Enter room number: ");
+                        System.out.print("Enter room number: ");
                         int number = scan.nextInt();
                         int Indexvalue = -1;
+                        boolean roomExists = false;
                         //Create For loop to change the status of room for entered room number
                         for (int i = 0; i < HotelRoom.roomList.size(); i++) {
                             //If entered room number is right. Checkin possible
@@ -162,11 +174,16 @@ public class HotelMain {
                                 CheckIn(HotelRoom.roomList.get(i));
                                 System.out.println("You have booked the room. Congratulation!");
                                 Indexvalue = i;
+                                roomExists = true;
                             }
                         }
-                        if(Indexvalue == -1){
+                        if(roomExists == false){
                         System.out.println("Please, enter correct room number!");
                         }
+                        
+                        //resetting values for Indexvalue and roomExists
+                        Indexvalue = -1;
+                        roomExists = false;
                         break;
                     case 3:
                         //Call Checkout method
