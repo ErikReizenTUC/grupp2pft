@@ -120,10 +120,16 @@ public class HotelMain {
      HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "  "));                   //Gustaf Haraldsson  
      HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));                   //Ivar Jacobsson
                    
+   
+        
+     ReceptionStaff.recStaff.add(new ReceptionStaff("Hanna", "Persson", 7));
+     ReceptionStaff.recStaff.add(new ReceptionStaff("Pernilla", "Svärd", 3));
+     ReceptionStaff.recStaff.add(new ReceptionStaff("Syd", "Natani", 1));
+     
+     
         //call the first menu
         FirstMenu();
         int choice = scan.nextInt();
-                 
     
         //Create SwitchCase for particular person choice       
         switch(choice){
