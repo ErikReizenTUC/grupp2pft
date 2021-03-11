@@ -6,7 +6,6 @@
 package grupp2pft;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
