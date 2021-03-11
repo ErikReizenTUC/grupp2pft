@@ -32,9 +32,9 @@ public class ReceptionStaff  {
     
     //contructor
     public ReceptionStaff (String firstName, String lastName, int iD) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.iD = iD;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.iD = iD;
     }
     
     
@@ -108,14 +108,14 @@ public class ReceptionStaff  {
     public void GreetingsRec (){
         for (int i = 0; i < ReceptionStaff.recStaff.size(); i++){
             if (ReceptionStaff.recStaff.get(i).iD == 1)
-                System.out.println("Welcome " + ReceptionStaff.recStaff.get(i).firstName +
-                        " " + ReceptionStaff.recStaff.get(i).lastName);
+                System.out.println("Welcome " + ReceptionStaff.recStaff.get(0).firstName +
+                        " " + ReceptionStaff.recStaff.get(0).lastName);
+            else if (ReceptionStaff.recStaff.get(i).iD == 2)
+                System.out.println("Welcome " + ReceptionStaff.recStaff.get(1).firstName +
+                        " " + ReceptionStaff.recStaff.get(1).lastName);
             else if (ReceptionStaff.recStaff.get(i).iD == 3)
-                System.out.println("Welcome " + ReceptionStaff.recStaff.get(i).firstName +
-                        " " + ReceptionStaff.recStaff.get(i).lastName);
-            else if (ReceptionStaff.recStaff.get(i).iD == 7)
-                System.out.println("Welcome " + ReceptionStaff.recStaff.get(i).firstName +
-                        " " + ReceptionStaff.recStaff.get(i).lastName);
+                System.out.println("Welcome " + ReceptionStaff.recStaff.get(2).firstName +
+                        " " + ReceptionStaff.recStaff.get(2).lastName);
             else 
                 System.out.println("User not found");
         }
@@ -124,7 +124,7 @@ public class ReceptionStaff  {
     }
     
         
-    public void Access (){
+    public void RecAccess (){
         //ask the receptionist to verify its user ID for further access
         
         boolean exit = false;
@@ -172,6 +172,7 @@ public class ReceptionStaff  {
                     
                     
                 case 6:
+                    exit = true;
                     break;
                 
             
