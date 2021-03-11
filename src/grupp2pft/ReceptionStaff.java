@@ -81,12 +81,14 @@ public class ReceptionStaff  {
     public void DelRoom (){
         
         System.out.println("Here is a list of rooms: \n");
+        //call the method for showing a list of all rooms
         HotelRoom.DisplayRooms();
         System.out.println("-----------------------------");
         System.out.println("Room number: ");
         //get the user's input
         int delRoomNumber = RecInput.nextInt();
-        
+        //loop through the room list to find whether the room number matches one of the rooms
+        //and delete the one asked by the user
         for (int i = 1; i < HotelRoom.roomList.size(); i++){
             
             if (delRoomNumber == HotelRoom.roomList.get(i).roomNumber){
@@ -97,34 +99,7 @@ public class ReceptionStaff  {
             }
             
         }
-        /*
-        for (delRoomNumber = 0; delRoomNumber < HotelRoom.roomList.size(); delRoomNumber++)
         
-            if (HotelRoom.roomList.contains(delRoomNumber)){
-                HotelRoom.roomList.remove(delRoomNumber);
-                System.out.println("The room number " + delRoomNumber + " is deleted");
-            } else { 
-            System.out.println("The room number you entered is invalid");
-            }
-        //boolean finns = HotelRoom.roomList.contains(oldRoomNumber);
-        
-       // if (!finns)
-         //   System.out.println("The room number you entered is invalid");
-        //else 
-          //  HotelRoom.roomList.remove(oldRoomNumber);
-            //System.out.println("The room is to be deleted");
-            
-
-        //find the exact index of the asked room number
-        //int delRoom = HotelRoom.roomList.indexOf(oldRoomNumber);
-        // an if statement to check if the room number exists
-          //  if (delRoom == -1)
-            //    System.out.println("The room number yu entered is invalid");
-            //else
-              //  HotelRoom.roomList.remove(delRoom);
-                //System.out.println("The room is to be deleted");
-            */
-    
     }
     //an arraylist to save the data for receptionist users
     static ArrayList<ReceptionStaff> recStaff = new ArrayList<>();
