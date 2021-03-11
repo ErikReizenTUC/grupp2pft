@@ -44,40 +44,69 @@ public class HotelMain {
     
     //Checking in, getting the option of paying in advance or not.
     //Using HotelRoom object as parameter
-    public static void CheckIn(HotelRoom room) {
-        System.out.println("Thank you for choosing this hotel.");
-        System.out.println("You will now create a user profile for booking.");
-        
-        //creating new customer with user input for attributes
-        System.out.print("Please enter your first name: ");
-        //scanner takes user input
-        String userInput = scan.next();
-        //Getting first name from user
-        String userFirstName = userInput;
-        
-        System.out.print("Please enter your last name: ");
-        userInput = scan.next();
-        //getting last name from user
-        String userLastName = userInput;
-        
-        //creating actual customer and adding to list with user input as arguments
-        Customer.customerList.add(new Customer(userFirstName, userLastName));
-        
-        System.out.println("Hello " + userFirstName + " " + userLastName);
-        System.out.println("Do you wish to pay in advance?");
-        System.out.println("1. Yes, I will pay now.");
-        System.out.println("2. No, I will pay later.");
-        System.out.print("Make selection: ");
-        //customer makes a choice whether to pay in advance or not
-        int userChoice = scan.nextInt();
-        if (userChoice == 1) {
-            room.PaidInAdvance = true;
-           
+    public static void CheckIn() {
+        //Show room list before checkin
+        //Customer can choose room number from the list
+
+        HotelRoom.DisplayRoomsCustomer();
+        //Enter room number which you want to checkin
+        System.out.print("Enter room number: ");
+        int number = scan.nextInt();
+        int indexValue = -1;
+        boolean roomExists = false;
+        //Create For loop to change the status of room for entered room number
+        for (int i = 0; i < HotelRoom.roomList.size(); i++) {
+            //If entered room number is right. Checkin possible
+            if (number == HotelRoom.roomList.get(i).roomNumber) {
+                indexValue = i;
+                roomExists = true;
+            }
+        }
+        if(roomExists == false){
+        System.out.println("Please, enter correct room number!");
+        }
+        else {
+            System.out.println("Thank you for choosing this hotel.");
+            System.out.println("You will now create a user profile for booking.");
+
+            //creating new customer with user input for attributes
+            System.out.print("Please enter your first name: ");
+            //scanner takes user input
+            String userInput = scan.next();
+            //Getting first name from user
+            String userFirstName = userInput;
+
+            System.out.print("Please enter your last name: ");
+            userInput = scan.next();
+            //getting last name from user
+            String userLastName = userInput;
+
+            //creating actual customer and adding to list with user input as arguments
+            Customer.customerList.add(new Customer(userFirstName, userLastName));
+
+            System.out.println("Hello " + userFirstName + " " + userLastName);
+            System.out.println("Do you wish to pay in advance?");
+            System.out.println("1. Yes, I will pay now.");
+            System.out.println("2. No, I will pay later.");
+            System.out.print("Make selection: ");
+            
+            //customer makes a choice whether to pay in advance or not
+            number = scan.nextInt();
+            if (number == 1) {
+                HotelRoom.roomList.get(indexValue).PaidInAdvance = true;
+
+            }
+
+            //setting room as occupied
+            HotelRoom.roomList.get(indexValue).occupied = true;
+            HotelRoom.roomList.get(indexValue).occupiedBy = userFirstName + " " + userLastName;
+            
+            //resetting values for Indexvalue and roomExists
+            indexValue = -1;
+            roomExists = false;
         }
         
-        //setting room as occupied
-        room.occupied = true;
-        room.occupiedBy = userFirstName + " " + userLastName;
+
         
         
     }   
@@ -115,10 +144,12 @@ public class HotelMain {
         if (roomExists == false) {
             System.out.println("Invalid input.");
         }
-        
-        //resetting indexPosition and roomExists variable
-        indexPosition = -1;
-        roomExists = false;
+        else {
+            //resetting indexPosition and roomExists variable
+            indexPosition = -1;
+            roomExists = false;        
+        }
+
     }
     
     public static void main(String[] args) {
@@ -157,33 +188,7 @@ public class HotelMain {
                        HotelRoom.DisplayRoomsCustomer();                        
                        break;
                     case 2:
-                        //Show room list before checkin
-                        //Customer can choose room number from the list
-                        
-                        HotelRoom.DisplayRoomsCustomer();
-                        //Enter room number which you want to checkin
-                        System.out.print("Enter room number: ");
-                        int number = scan.nextInt();
-                        int Indexvalue = -1;
-                        boolean roomExists = false;
-                        //Create For loop to change the status of room for entered room number
-                        for (int i = 0; i < HotelRoom.roomList.size(); i++) {
-                            //If entered room number is right. Checkin possible
-                            if (number == HotelRoom.roomList.get(i).roomNumber) {
-                             
-                                CheckIn(HotelRoom.roomList.get(i));
-                                System.out.println("You have booked the room. Congratulation!");
-                                Indexvalue = i;
-                                roomExists = true;
-                            }
-                        }
-                        if(roomExists == false){
-                        System.out.println("Please, enter correct room number!");
-                        }
-                        
-                        //resetting values for Indexvalue and roomExists
-                        Indexvalue = -1;
-                        roomExists = false;
+                        CheckIn();
                         break;
                     case 3:
                         //Call Checkout method
