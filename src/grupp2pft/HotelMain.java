@@ -104,11 +104,7 @@ public class HotelMain {
             //resetting values for Indexvalue and roomExists
             indexValue = -1;
             roomExists = false;
-        }
-        
-
-        
-        
+        }   
     }   
     
     //checking out
