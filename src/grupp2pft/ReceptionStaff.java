@@ -6,6 +6,7 @@
 package grupp2pft;
 
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
 /**
@@ -39,8 +40,6 @@ public class ReceptionStaff  {
     
     
         
-    //list of receptionists
-    //static int [] recID = {1,2,3,4,5,6,7,8,9};
     
 
 
@@ -104,6 +103,8 @@ public class ReceptionStaff  {
     //an arraylist to save the data for receptionist users
     static ArrayList<ReceptionStaff> recStaff = new ArrayList<>();
     
+    
+    
     //a method for greeting any registered receptionist 
     public void GreetingsRec (){
         for (int i = 0; i < ReceptionStaff.recStaff.size(); i++){
@@ -155,10 +156,6 @@ public class ReceptionStaff  {
                 case 3:
                     HotelRoom.DisplayRooms();
 
-                    //for (int i = 0; i < HotelRoom.roomList.size();i++) 
-        	      //{ 		      
-	          //System.out.println(HotelRoom.roomList.get(i)); 		
-                    //  }
                     break;
                     
                     
