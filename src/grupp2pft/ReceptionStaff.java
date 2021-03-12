@@ -49,9 +49,9 @@ public class ReceptionStaff  {
             System.out.println("1. Check-in");
             System.out.println("2. Check-out");
             System.out.println("3. Check for available rooms");
-            System.out.println("4. Create a new available room");
-            System.out.println("5. Delete a room");
-            System.out.println("6. Back to main menu");
+            System.out.println("5. Create a new available room");
+            System.out.println("6. Delete a room");
+            System.out.println("8. Back to main menu");
     }
     
     //1st sub menu for receptionist
@@ -91,7 +91,7 @@ public class ReceptionStaff  {
         for (int i = 1; i < HotelRoom.roomList.size(); i++){
             
             if (delRoomNumber == HotelRoom.roomList.get(i).roomNumber){
-                HotelRoom.roomList.remove(delRoomNumber);
+                HotelRoom.roomList.remove(i);
                 System.out.println("The room number " + delRoomNumber + " is deleted");
             } else { 
             System.out.println("The room number you entered is invalid");
