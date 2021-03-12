@@ -225,16 +225,18 @@ public class HotelMain {
         break;
         
             case 2:
+                
                 //call acess from receptionsit staff
                 System.out.println("First Name: ");
                 String recFName = scan.next();
                 System.out.println("Last Name: ");
                 String recLName = scan.next();
-                System.out.println("ID: ");
+                System.out.println("Work ID: ");
                 int recId = scan.nextInt();
 
-                ReceptionStaff receptionist = new ReceptionStaff(recFName, recLName, recId);
-                receptionist.Access();
+                ReceptionStaff receptionist = new ReceptionStaff(recLName, recLName, recId);
+                
+                receptionist.RecAccess();
                 break;
                 
             case 3:
