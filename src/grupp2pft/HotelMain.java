@@ -35,7 +35,8 @@ public class HotelMain {
     
     //Creating a first menu method so it can be called in other classes
     public static void FirstMenu()
-    {
+    {   
+        System.out.println("Hello, Welcome to the Hotel!");
         System.out.println("Enter your choice: ");
         System.out.println("1. Log in as Customer");
         System.out.println("2. Log in as Receptionstaff"); 
