@@ -187,4 +187,8 @@ public class ReceptionStaff  {
         
     }while(!exit);
 }
+
+    public static void Cleaning() {   
+        System.out.println("The room has been cleaned!");
+    }
 }

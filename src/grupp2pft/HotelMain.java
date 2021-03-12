@@ -146,7 +146,8 @@ public class HotelMain {
                 } 
                 System.out.println("You have succesfully checked out");
                 System.out.println("----------------------------------");
-                }
+                ReceptionStaff.Cleaning();
+            }
         }
         //Checking if user entered an invalid room
         if (roomExists == false) {
