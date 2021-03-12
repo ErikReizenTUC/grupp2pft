@@ -92,7 +92,7 @@ public class ReceptionStaff  {
         for (int i = 1; i < HotelRoom.roomList.size(); i++){
             
             if (delRoomNumber == HotelRoom.roomList.get(i).roomNumber){
-                HotelRoom.roomList.remove(delRoomNumber);
+                HotelRoom.roomList.remove(i);
                 System.out.println("The room number " + delRoomNumber + " is deleted");
             } else { 
             System.out.println("The room number you entered is invalid");
