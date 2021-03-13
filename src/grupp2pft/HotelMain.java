@@ -227,7 +227,7 @@ public class HotelMain {
         break;
         
             case 2:
-                
+                /*
                 //call acess from receptionsit staff
                 System.out.println("First Name: ");
                 String recFName = scan.next();
@@ -235,10 +235,10 @@ public class HotelMain {
                 String recLName = scan.next();
                 System.out.println("Work ID: ");
                 int recId = scan.nextInt();
-
-                ReceptionStaff receptionist = new ReceptionStaff(recLName, recLName, recId);
+*/
+                //ReceptionStaff receptionist = new ReceptionStaff(recLName, recLName, recId);
                 
-                receptionist.RecAccess();
+                ReceptionStaff.RecAccess();
                 break;
                 
             case 3:

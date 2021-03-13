@@ -18,7 +18,7 @@ public class ReceptionStaff  {
     //Denna klass är just nu överflödig, vi avvaktar med kod här och skriver 
     // i HotelStaff-classen istället!
     
-    Scanner RecInput = new Scanner (System.in);
+    static Scanner RecInput = new Scanner (System.in);
     
     //an instance of Customer class for checkin method
     //Customer checkIn = new Customer();
@@ -46,24 +46,24 @@ public class ReceptionStaff  {
 
     //main menu for receptionist user 
     //this could be defined and modified on demand
-    public void MainMenuRec(){
+    private static void MainMenuRec(){
             System.out.println("1. Check-in");
             System.out.println("2. Check-out");
             System.out.println("3. Check for available rooms");
-            System.out.println("5. Create a new available room");
-            System.out.println("6. Delete a room");
-            System.out.println("8. Back to main menu");
+            System.out.println("4. Create a new available room");
+            System.out.println("5. Delete a room");
+            System.out.println("6. Back to main menu");
     }
     
     //1st sub menu for receptionist
-    public void SubMneuRec (){
+    private static void SubMneuRec (){
         System.out.println("Access Authorized");
         System.out.println("-------------------------------");
         System.out.println("Choose one of the following: \n");
         System.out.println("--------------------------------");
     }
     
-    public void AddRoom (){
+    private static void AddRoom (){
         
         
         System.out.println("Room number: ");
@@ -78,7 +78,7 @@ public class ReceptionStaff  {
         System.out.println("Room added");
     }
     //a method to search for a given room in the list and remove it 
-    public void DelRoom (){
+    private static void DelRoom (){
         
         System.out.println("Here is a list of rooms: \n");
         //call the method for showing a list of all rooms
@@ -105,8 +105,12 @@ public class ReceptionStaff  {
     static ArrayList<ReceptionStaff> recStaff = new ArrayList<>();
     
     //a method for greeting any registered receptionist 
-    public void GreetingsRec (){
+    private static void GreetingsRec (){
         for (int i = 0; i < ReceptionStaff.recStaff.size(); i++){
+            
+            //System.out.println("Welcome " + );
+            
+            /*
             if (ReceptionStaff.recStaff.get(i).iD == 1)
                 System.out.println("Welcome " + ReceptionStaff.recStaff.get(0).firstName +
                         " " + ReceptionStaff.recStaff.get(0).lastName);
@@ -118,25 +122,38 @@ public class ReceptionStaff  {
                         " " + ReceptionStaff.recStaff.get(2).lastName);
             else 
                 System.out.println("User not found");
-        }
+*/        
+}
             
         
     }
     
         
-    public void RecAccess (){
+    public static void RecAccess (){
         //ask the receptionist to verify its user ID for further access
         
         boolean exit = false;
         do{
-        
-            System.out.println("Please enter your work ID: ");
-            int recID = RecInput.nextInt();
-            GreetingsRec();        
+                System.out.println("First Name: ");
+                String recFName = RecInput.next();
+                System.out.println("Last Name: ");
+                String recLName = RecInput.next();
+                System.out.println("Work ID: ");
+                int recId = RecInput.nextInt();
+
+                ReceptionStaff receptionist = new ReceptionStaff(recFName, recLName, recId);
+                
+                 //for (int i = 0; i < ReceptionStaff.recStaff.size(); i++){
+            
+            System.out.println("Welcome " + receptionist.firstName + " " + receptionist.lastName);
+                 
+            //System.out.println("Please enter your work ID: ");
+            //int recID = RecInput.nextInt();
+            //GreetingsRec();        
         //if statement for euther accessing  the main menu or being redirected to the user 
         //selection menu
           
-        if (recID > 0 && recID < 10){
+        if (recId > 0 && recId < 10){
             
             SubMneuRec();
             MainMenuRec();
@@ -190,5 +207,6 @@ public class ReceptionStaff  {
 
     public static void Cleaning() {   
         System.out.println("The room has been cleaned!");
+  
     }
 }
