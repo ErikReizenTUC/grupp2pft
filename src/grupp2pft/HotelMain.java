@@ -172,10 +172,7 @@ public class HotelMain {
 
 
     
-    ReceptionStaff.recStaff.add(new ReceptionStaff("Hanna", "Persson", 1));
-    ReceptionStaff.recStaff.add(new ReceptionStaff("Pernilla", "Svärd", 2));
-    ReceptionStaff.recStaff.add(new ReceptionStaff("Syd", "Natani", 3));
-
+    
     
     
     //While loop for repetation of FirstMenu method

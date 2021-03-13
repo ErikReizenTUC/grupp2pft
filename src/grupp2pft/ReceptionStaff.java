@@ -39,8 +39,6 @@ public class ReceptionStaff  {
     
     
         
-    //list of receptionists
-    //static int [] recID = {1,2,3,4,5,6,7,8,9};
     
 
 
@@ -57,12 +55,10 @@ public class ReceptionStaff  {
     
     //1st sub menu for receptionist
     private static void SubMneuRec (){
-        System.out.println("Access Authorized");
-        System.out.println("-------------------------------");
         System.out.println("Choose one of the following: \n");
         System.out.println("--------------------------------");
     }
-    
+    //a method for creating a new available room
     private static void AddRoom (){
         
         
@@ -77,6 +73,7 @@ public class ReceptionStaff  {
         HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, newName));
         System.out.println("Room added");
     }
+    
     //a method to search for a given room in the list and remove it 
     private static void DelRoom (){
         
@@ -101,59 +98,35 @@ public class ReceptionStaff  {
         }
         
     }
-    //an arraylist to save the data for receptionist users
-    static ArrayList<ReceptionStaff> recStaff = new ArrayList<>();
-    
-    //a method for greeting any registered receptionist 
-    private static void GreetingsRec (){
-        for (int i = 0; i < ReceptionStaff.recStaff.size(); i++){
-            
-            //System.out.println("Welcome " + );
-            
-            /*
-            if (ReceptionStaff.recStaff.get(i).iD == 1)
-                System.out.println("Welcome " + ReceptionStaff.recStaff.get(0).firstName +
-                        " " + ReceptionStaff.recStaff.get(0).lastName);
-            else if (ReceptionStaff.recStaff.get(i).iD == 2)
-                System.out.println("Welcome " + ReceptionStaff.recStaff.get(1).firstName +
-                        " " + ReceptionStaff.recStaff.get(1).lastName);
-            else if (ReceptionStaff.recStaff.get(i).iD == 3)
-                System.out.println("Welcome " + ReceptionStaff.recStaff.get(2).firstName +
-                        " " + ReceptionStaff.recStaff.get(2).lastName);
-            else 
-                System.out.println("User not found");
-*/        
-}
-            
-        
-    }
-    
-        
+   //this is the main method for accessing the receptionists options     
     public static void RecAccess (){
-        //ask the receptionist to verify its user ID for further access
         
         boolean exit = false;
+        //a do-while loop for performing different menus and exiting using the boolean
         do{
+                
+            //asking the receptionist to enter 
                 System.out.println("First Name: ");
                 String recFName = RecInput.next();
                 System.out.println("Last Name: ");
                 String recLName = RecInput.next();
                 System.out.println("Work ID: ");
                 int recId = RecInput.nextInt();
-
+                
+                //saving the users input
                 ReceptionStaff receptionist = new ReceptionStaff(recFName, recLName, recId);
                 
-                 //for (int i = 0; i < ReceptionStaff.recStaff.size(); i++){
-            
-            System.out.println("Welcome " + receptionist.firstName + " " + receptionist.lastName);
-                 
-            //System.out.println("Please enter your work ID: ");
-            //int recID = RecInput.nextInt();
-            //GreetingsRec();        
+                   
         //if statement for euther accessing  the main menu or being redirected to the user 
         //selection menu
           
         if (recId > 0 && recId < 10){
+        
+            System.out.println("Access Authorized");
+            System.out.println("-------------------------------");
+        
+            System.out.println("Welcome " + receptionist.firstName + " " + receptionist.lastName);
+            System.out.println("------------------------------------------------ \n");
             
             SubMneuRec();
             MainMenuRec();
