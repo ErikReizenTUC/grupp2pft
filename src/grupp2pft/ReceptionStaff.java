@@ -143,26 +143,19 @@ public class ReceptionStaff  {
                     break;
                     
                 case 3:
-                    HotelRoom.DisplayRooms();
-
-                    //for (int i = 0; i < HotelRoom.roomList.size();i++) 
-        	      //{ 		      
-	          //System.out.println(HotelRoom.roomList.get(i)); 		
-                    //  }
+                        HotelRoom.DisplayRooms();
                     break;
                     
-                    
                 case 4:
-                    AddRoom();
+                        AddRoom();
                     break;
                     
                 case 5:
-                    DelRoom();
+                        DelRoom();
                     break;
                     
-                    
                 case 6:
-                    exit = true;
+                        exit = true;
                     break;
                 
             
