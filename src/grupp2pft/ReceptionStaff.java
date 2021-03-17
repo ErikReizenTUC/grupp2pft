@@ -46,6 +46,8 @@ public class ReceptionStaff  {
     //main menu for receptionist user 
     //this could be defined and modified on demand
     private static void MainMenuRec(){
+            System.out.println("Choose one of the following: \n");
+            System.out.println("-------------------------------- \n");
             System.out.println("1. Check-in");
             System.out.println("2. Check-out");
             System.out.println("3. Check for available rooms");
@@ -54,11 +56,6 @@ public class ReceptionStaff  {
             System.out.println("6. Back to main menu");
     }
     
-    //1st sub menu for receptionist
-    private static void SubMneuRec (){
-        System.out.println("Choose one of the following: \n");
-        System.out.println("--------------------------------");
-    }
     //a method for creating a new available room
     private static void AddRoom (){
         
@@ -106,22 +103,23 @@ public class ReceptionStaff  {
    //this is the main method for accessing the receptionists options     
     public static void RecAccess (){
         
-        boolean exit = false;
-        //a do-while loop for performing different menus and exiting using the boolean
-        do{
+            boolean exit = false;
+        
                 
             //asking the receptionist to enter 
-                System.out.println("First Name: ");
-                String recFName = RecInput.next();
-                System.out.println("Last Name: ");
-                String recLName = RecInput.next();
-                System.out.println("Work ID: ");
-                int recId = RecInput.nextInt();
+            System.out.println("First Name: ");
+            String recFName = RecInput.next();
+            System.out.println("Last Name: ");
+            String recLName = RecInput.next();
+            System.out.println("Work ID: ");
+            int recId = RecInput.nextInt();
                 
-                //saving the users input
-                ReceptionStaff receptionist = new ReceptionStaff(recFName, recLName, recId);
-                
-                   
+            //saving the users input
+            ReceptionStaff receptionist = new ReceptionStaff(recFName, recLName, recId);
+        
+        //a do-while loop for performing different menus and exiting using the boolean
+          do{         
+        
         //if statement for euther accessing  the main menu or being redirected to the user 
         //selection menu
           
@@ -133,7 +131,6 @@ public class ReceptionStaff  {
             System.out.println("Welcome " + receptionist.firstName + " " + receptionist.lastName);
             System.out.println("------------------------------------------------ \n");
             
-            SubMneuRec();
             MainMenuRec();
             int recVal = RecInput.nextInt();
             
@@ -168,8 +165,8 @@ public class ReceptionStaff  {
         }
             else { 
                     
-            System.out.println("Access Denied \nPlease try again");
-            SubMneuRec();
+           System.out.println("Access Denied \nPlease try again");
+           exit = true;
             
         }
         
