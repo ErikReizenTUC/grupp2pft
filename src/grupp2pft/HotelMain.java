@@ -120,8 +120,8 @@ public class HotelMain {
             boolean CheckinMore = true;
             while(CheckinMore==true){
             System.out.println("Do you want to check in more?");
-                System.out.println("1: Yes");
-                System.out.println("2: No");
+            System.out.println("1: Yes");
+            System.out.println("2: No");
             int CheckinAgain = scan.nextInt();
             if(CheckinAgain == 1){
             CheckInComplete = false;
