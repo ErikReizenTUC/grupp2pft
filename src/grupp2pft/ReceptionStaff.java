@@ -5,7 +5,6 @@
  */
 package grupp2pft;
 
-import java.util.ArrayList;
 
 import java.util.Scanner;
 
@@ -96,7 +95,6 @@ public class ReceptionStaff  {
                 
             System.out.println("The room number you entered is invalid");
         }
-        roomNumberExist = false;
     }
    //this is the main method for accessing the receptionists options     
     public static void RecAccess (){
