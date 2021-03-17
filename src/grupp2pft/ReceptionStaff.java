@@ -5,7 +5,6 @@
  */
 package grupp2pft;
 
-import java.util.ArrayList;
 
 import java.util.Scanner;
 
@@ -29,7 +28,7 @@ public class ReceptionStaff  {
     public String lastName;
     public int iD;
     public boolean exit;
-    public char recMenuVal;
+    
     
     //contructor
     public ReceptionStaff (String firstName, String lastName, int iD) {
@@ -46,6 +45,8 @@ public class ReceptionStaff  {
     //main menu for receptionist user 
     //this could be defined and modified on demand
     private static void MainMenuRec(){
+            System.out.println("Choose one of the following: \n");
+            System.out.println("-------------------------------- \n");
             System.out.println("1. Check-in");
             System.out.println("2. Check-out");
             System.out.println("3. Check for available rooms");
@@ -54,24 +55,17 @@ public class ReceptionStaff  {
             System.out.println("6. Back to main menu");
     }
     
-    //1st sub menu for receptionist
-    private static void SubMneuRec (){
-        System.out.println("Choose one of the following: \n");
-        System.out.println("--------------------------------");
-    }
     //a method for creating a new available room
     private static void AddRoom (){
         
         
-        System.out.println("Room number: ");
+        System.out.print("Room number: ");
         int newRoomNumber = RecInput.nextInt();
-        System.out.println("Number of beds: ");
+        System.out.print("Number of beds: ");
         int newNumberBeds = RecInput.nextInt();
-        System.out.println("Room price: ");
+        System.out.print("Room price: ");
         int newRoomPrice = RecInput.nextInt();
-        System.out.println("Initials: ");
-        String newName = RecInput.next();
-        HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, newName));
+        HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, ""));
         System.out.println("Room added");
     }
     
@@ -101,27 +95,27 @@ public class ReceptionStaff  {
                 
             System.out.println("The room number you entered is invalid");
         }
-        roomNumberExist = false;
     }
    //this is the main method for accessing the receptionists options     
     public static void RecAccess (){
         
-        boolean exit = false;
-        //a do-while loop for performing different menus and exiting using the boolean
-        do{
+            boolean exit = false;
+        
                 
             //asking the receptionist to enter 
-                System.out.println("First Name: ");
-                String recFName = RecInput.next();
-                System.out.println("Last Name: ");
-                String recLName = RecInput.next();
-                System.out.println("Work ID: ");
-                int recId = RecInput.nextInt();
+            System.out.print("First Name: ");
+            String recFName = RecInput.next();
+            System.out.print("Last Name: ");
+            String recLName = RecInput.next();
+            System.out.print("Work ID: ");
+            int recId = RecInput.nextInt();
                 
-                //saving the users input
-                ReceptionStaff receptionist = new ReceptionStaff(recFName, recLName, recId);
-                
-                   
+            //saving the users input
+            ReceptionStaff receptionist = new ReceptionStaff(recFName, recLName, recId);
+        
+        //a do-while loop for performing different menus and exiting using the boolean
+          do{         
+        
         //if statement for euther accessing  the main menu or being redirected to the user 
         //selection menu
           
@@ -133,8 +127,8 @@ public class ReceptionStaff  {
             System.out.println("Welcome " + receptionist.firstName + " " + receptionist.lastName);
             System.out.println("------------------------------------------------ \n");
             
-            SubMneuRec();
             MainMenuRec();
+            System.out.print("Make selection: ");
             int recVal = RecInput.nextInt();
             
             //a switch case to perform differnt tasks related to a receptionist
@@ -168,8 +162,8 @@ public class ReceptionStaff  {
         }
             else { 
                     
-            System.out.println("Access Denied \nPlease try again");
-            SubMneuRec();
+           System.out.println("Access Denied \nPlease try again");
+           exit = true;
             
         }
         
