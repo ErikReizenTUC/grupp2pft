@@ -146,7 +146,8 @@ public class HotelMain {
                 } 
                 System.out.println("You have succesfully checked out");
                 System.out.println("----------------------------------");
-                }
+                ReceptionStaff.Cleaning();
+            }
         }
         //Checking if user entered an invalid room
         if (roomExists == false) {
@@ -171,10 +172,7 @@ public class HotelMain {
 
 
     
-    ReceptionStaff.recStaff.add(new ReceptionStaff("Hanna", "Persson", 1));
-    ReceptionStaff.recStaff.add(new ReceptionStaff("Pernilla", "Svärd", 2));
-    ReceptionStaff.recStaff.add(new ReceptionStaff("Syd", "Natani", 3));
-
+    
     
     
     //While loop for repetation of FirstMenu method
@@ -226,7 +224,7 @@ public class HotelMain {
         break;
         
             case 2:
-                
+                /*
                 //call acess from receptionsit staff
                 System.out.println("First Name: ");
                 String recFName = scan.next();
@@ -234,10 +232,10 @@ public class HotelMain {
                 String recLName = scan.next();
                 System.out.println("Work ID: ");
                 int recId = scan.nextInt();
-
-                ReceptionStaff receptionist = new ReceptionStaff(recLName, recLName, recId);
+*/
+                //ReceptionStaff receptionist = new ReceptionStaff(recLName, recLName, recId);
                 
-                receptionist.RecAccess();
+                ReceptionStaff.RecAccess();
                 break;
                 
             case 3:
