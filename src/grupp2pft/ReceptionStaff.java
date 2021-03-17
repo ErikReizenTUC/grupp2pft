@@ -58,21 +58,32 @@ public class ReceptionStaff  {
     //a method for creating a new available room
     private static void AddRoom (){
         boolean addRoomLoop = true;
-        while (addRoomLoop == true) {
+        while (addRoomLoop) {
             try {
                 System.out.print("Room number: ");
+                boolean roomNumberDuplicate = false;
                 int newRoomNumber = RecInput.nextInt();
+                for (int i = 0; i < HotelRoom.roomList.size(); i++) {
+                    if (newRoomNumber == HotelRoom.roomList.get(i).roomNumber) {
+                        roomNumberDuplicate = true;
+                    }
+                }
+                if (roomNumberDuplicate) {
+                    System.out.println("Room number must be unique, try again!");
+                }
+                else {
+                    System.out.print("Number of beds: ");
+                    int newNumberBeds = RecInput.nextInt();
 
-                System.out.print("Number of beds: ");
-                int newNumberBeds = RecInput.nextInt();
+                    System.out.print("Room price: ");
+                    int newRoomPrice = RecInput.nextInt();
 
-                System.out.print("Room price: ");
-                int newRoomPrice = RecInput.nextInt();
+                    HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, ""));
+                    System.out.println("Room added");
 
-                HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, ""));
-                System.out.println("Room added");
-                
-                addRoomLoop = false;
+                    addRoomLoop = false;
+                }
+                    
             }
             catch (Exception InputMismaException) {
                 System.out.println("Please enter a number");
@@ -89,7 +100,7 @@ public class ReceptionStaff  {
     //a method to search for a given room in the list and remove it 
     private static void DelRoom (){
         boolean DelRoomLoop = true;
-        while (DelRoomLoop == true) {
+        while (DelRoomLoop) {
             System.out.println("Here is a list of rooms: \n");
             //call the method for showing a list of all rooms
             HotelRoom.DisplayRooms();

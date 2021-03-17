@@ -39,7 +39,7 @@ public class HotelRoom{
         
     //New method to DisplayRooms for the ReceptionStaff.
     public static void DisplayRooms(){
-            
+        
         for (int i = 0; i < HotelRoom.roomList.size(); i++){
            
             // prints the Hotelroom with the name of the customer occupying the room.
