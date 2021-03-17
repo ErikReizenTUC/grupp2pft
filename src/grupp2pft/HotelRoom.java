@@ -39,41 +39,54 @@ public class HotelRoom{
         
     //New method to DisplayRooms for the ReceptionStaff.
     public static void DisplayRooms(){
-        
-        for (int i = 0; i < HotelRoom.roomList.size(); i++){
-           
-            // prints the Hotelroom with the name of the customer occupying the room.
-            if (HotelRoom.roomList.get(i).occupied == true) {
-                System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
-                               ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
-                               ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
-                               ", Occupied by: " + HotelRoom.roomList.get(i).occupiedBy);
-            } 
-            // prints the Hotelroom without a name for the customer occupying the room.
-            else {
-                System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
-                               ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
-                               ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
-                               ", Avaiable!");
-            }
-                
+        //Handling if room is empty
+        if (HotelRoom.roomList.isEmpty()) {
+            System.out.println("There are no rooms to display");
+            System.out.println("-----------------------------");
         }
+        else {
+            for (int i = 0; i < HotelRoom.roomList.size(); i++){
+
+                // prints the Hotelroom with the name of the customer occupying the room.
+                if (HotelRoom.roomList.get(i).occupied == true) {
+                    System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
+                                   ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
+                                   ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
+                                   ", Occupied by: " + HotelRoom.roomList.get(i).occupiedBy);
+                } 
+                // prints the Hotelroom without a name for the customer occupying the room.
+                else {
+                    System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
+                                   ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
+                                   ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
+                                   ", Avaiable!");
+                }
+
+            }
+        }    
+            
         
     }
 
     //New method to DisplayRooms for the Customer.
     public static void DisplayRoomsCustomer(){
-        
-        for (int i = 0; i < HotelRoom.roomList.size(); i++){
-            if (HotelRoom.roomList.get(i).occupied == false){
-                System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
-                               ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
-                               ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
-                               ", Avaiable!");
-            }
-            
-            
+        //Handling if room is empty
+        if (HotelRoom.roomList.isEmpty()) {
+            System.out.println("Apologies, there are no available rooms");
         }
+        else {
+            for (int i = 0; i < HotelRoom.roomList.size(); i++){
+                if (HotelRoom.roomList.get(i).occupied == false){
+                    System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
+                                   ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
+                                   ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
+                                   ", Avaiable!");
+                }
+
+
+            }
+        }
+
     }
         
 }

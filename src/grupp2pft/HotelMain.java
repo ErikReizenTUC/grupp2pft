@@ -34,7 +34,7 @@ public class HotelMain {
         System.out.println("1. Log in as Customer");
         System.out.println("2. Log in as Receptionstaff");
         System.out.println("3. Exit from the program!");
-        System.out.println("----------------------------------");
+        System.out.println("-----------------------------");
     }
 
     //Checking in, getting the option of paying in advance or not.
@@ -118,14 +118,13 @@ public class HotelMain {
                     }
 
                     if (roomExists == false) {
-                        System.out.println("----------------------------------");
-                        System.out.println("Please, enter correct room number!");
-                        System.out.println("----------------------------------");
+                        System.out.println("Please enter a correct room number!");
+                        System.out.println("-----------------------------");
                     } 
                     else {
                         //Checkin completed and message is shown to customer
                         System.out.println("Check in completed. Welcome to the Hotel!");
-                        System.out.println("----------------------------------------");
+                        System.out.println("-----------------------------");
                         boolean CheckinMore = true;
                         while (CheckinMore == true) {
                             try {
@@ -202,14 +201,14 @@ public class HotelMain {
                         System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + " from your credit card, please come again!");
                     } 
                     System.out.println("You have succesfully checked out");
-                    System.out.println("----------------------------------");
+                    System.out.println("-----------------------------");
                     ReceptionStaff.Cleaning();
                 }
             }
             //Checking if user entered an invalid room
             if (roomExists == false) {
                 System.out.println("Invalid input.");
-                System.out.println("----------------------------------");
+                System.out.println("-----------------------------");
             }
 
         }
@@ -228,11 +227,11 @@ public class HotelMain {
     public static void main(String[] args) {
 
         //Instanciate HotelRoom objects
-//        HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, true, "Adam Bertilsson"));
-//        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "  "));                
-//        HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
-//        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "  "));                   
-//        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));                   
+        HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, true, "Adam Bertilsson"));
+        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "  "));                
+        HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
+        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "  "));                   
+        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));                   
 
         //While loop for repetation of FirstMenu method
         boolean Exit = false;

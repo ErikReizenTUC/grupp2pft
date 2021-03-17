@@ -35,12 +35,12 @@ public class Customer {
         boolean ExitCustomer = false;
             //While loop for come back to select diffrent choice
             while(ExitCustomer == false) { 
-                System.out.println("----------------------------------");
+                System.out.println("-----------------------------");
                 System.out.println("1: See available rooms");
                 System.out.println("2: Check in");
                 System.out.println("3: Check out");
                 System.out.println("4: Return to main menu");
-                System.out.println("----------------------------------");
+                System.out.println("-----------------------------");
                 System.out.print("Make selection: ");
 
                 try {
@@ -63,13 +63,13 @@ public class Customer {
                             break;
                         case 4:
                             System.out.println("Returning to main menu");
-                            System.out.println("----------------------------------");
+                            System.out.println("-----------------------------");
                             //Resetting variable to exit from cutomer menu
                             ExitCustomer = true;
                             break;
                         default:
                             System.out.println("Try Again");
-                            System.out.println("----------------------------------");
+                            System.out.println("-----------------------------");
                             break;                        
                     }
                 }

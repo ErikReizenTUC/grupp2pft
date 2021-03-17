@@ -45,8 +45,8 @@ public class ReceptionStaff  {
     //main menu for receptionist user 
     //this could be defined and modified on demand
     private static void MainMenuRec(){
-        System.out.println("Choose one of the following: \n");
-        System.out.println("-------------------------------- \n");
+        System.out.println("Choose one of the following:");
+        System.out.println("-----------------------------");
         System.out.println("1. Check-in");
         System.out.println("2. Check-out");
         System.out.println("3. Check for available rooms");
@@ -70,6 +70,7 @@ public class ReceptionStaff  {
                 }
                 if (roomNumberDuplicate) {
                     System.out.println("Room number must be unique, try again!");
+                    System.out.println("-----------------------------");
                 }
                 else {
                     System.out.print("Number of beds: ");
@@ -101,7 +102,7 @@ public class ReceptionStaff  {
     private static void DelRoom (){
         boolean DelRoomLoop = true;
         while (DelRoomLoop) {
-            System.out.println("Here is a list of rooms: \n");
+            System.out.println("Here is a list of rooms:");
             //call the method for showing a list of all rooms
             HotelRoom.DisplayRooms();
             System.out.println("-----------------------------");
@@ -118,6 +119,7 @@ public class ReceptionStaff  {
                         roomNumberExist = true;
                         HotelRoom.roomList.remove(i);
                         System.out.println("The room number " + delRoomNumber + " is deleted");
+                        System.out.println("-----------------------------");
                         DelRoomLoop = false;
                     } 
 
@@ -125,6 +127,7 @@ public class ReceptionStaff  {
                 if(roomNumberExist == false) {
 
                     System.out.println("The room number you entered is invalid");
+                    System.out.println("-----------------------------");
                 }
             }
             catch (Exception InputMismatchException) {
@@ -163,12 +166,13 @@ public class ReceptionStaff  {
                 //selection menu
 
                 if (recId > 0 && recId < 10){
-
+                    
+                    System.out.println("-----------------------------");
                     System.out.println("Access Authorized");
-                    System.out.println("-------------------------------");
+                    System.out.println("-----------------------------");
 
                     System.out.println("Welcome " + receptionist.firstName + " " + receptionist.lastName);
-                    System.out.println("------------------------------------------------ \n");
+                    System.out.println("-----------------------------");
 
                     MainMenuRec();
                     try {
@@ -198,6 +202,8 @@ public class ReceptionStaff  {
                                 break;
 
                             case 6:
+                                    System.out.println("Returning to main menu");
+                                    System.out.println("-----------------------------");
                                     exit = true;
                                 break;
 
