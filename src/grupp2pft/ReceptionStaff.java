@@ -87,20 +87,21 @@ public class ReceptionStaff  {
         int delRoomNumber = RecInput.nextInt();
         //loop through the room list to find whether the room number matches one of the rooms
         //and delete the one asked by the user
-        boolean roomNumberExist = true;
+        boolean roomNumberExist = false;
         for (int i = 1; i < HotelRoom.roomList.size(); i++){
             
             if (delRoomNumber == HotelRoom.roomList.get(i).roomNumber){
                 roomNumberExist = true;
                 HotelRoom.roomList.remove(i);
                 System.out.println("The room number " + delRoomNumber + " is deleted");
-            } else {
-                
-            System.out.println("The room number you entered is invalid");
-            }
+            } 
             
         }
-        
+        if(roomNumberExist == false) {
+                
+            System.out.println("The room number you entered is invalid");
+        }
+        roomNumberExist = false;
     }
    //this is the main method for accessing the receptionists options     
     public static void RecAccess (){
