@@ -15,6 +15,7 @@ Ali Esmaeeli
 
 package grupp2pft;
 
+import static grupp2pft.Customer.scan;
 import java.util.Scanner;
 
 /**
@@ -31,7 +32,7 @@ public class HotelMain {
      */
     
     //This Scanner object can be used for diffrent cases
-              static Scanner scan = new Scanner(System.in);
+    static Scanner scan = new Scanner(System.in);
     
     //Creating a first menu method so it can be called in other classes
     public static void FirstMenu()
@@ -181,63 +182,40 @@ public class HotelMain {
      
         //call the first menu
         FirstMenu();
-        int choice = scan.nextInt();
-              
-        //Create SwitchCase for log in as perticular person choice      
-        switch(choice){
-             //Customer can check room availability, booking room and prepayment option are available
-            case 1:                                            
-                boolean ExitCustomer = false;
-                //While loop for come back to select diffrent choice
-                while(ExitCustomer == false) { 
-                System.out.println("----------------------------------");
-                System.out.println("1: Check availability, 2: Check in, 3: Check out, 4: Return to main menu");
-                System.out.print("Make selection: ");
-                int value = scan.nextInt();
-                //Create SwitchCase for customer choice  
-                switch(value){
-                    case 1:
-                     //Show the list of available room by using hotelroom class
-                     //call DisplayRoomsCustomer method in the HotelRoom class.
-                       HotelRoom.DisplayRoomsCustomer();                        
-                       break;
-                    case 2:
-                        //Call Checkin method
-                        CheckIn();
-                        break;
-                    case 3:
-                        //Call Checkout method
-                        CheckOut();
-                        break;
-                    case 4:
-                        System.out.println("Returning to main menu");
-                        System.out.println("----------------------------------");
-                        //Resetting variable to exit from cutomer menu
-                        ExitCustomer = true;
-                        break;
-                    default:
-                        System.out.println("Try Again");
-                        System.out.println("----------------------------------");
-                        break;                        
-                }
-               }
-        break;
-        
-            case 2:
-                //calling method from receptionstaff class              
-                ReceptionStaff.RecAccess();
-                break;
-                
-            case 3:
-                System.out.println("Exit from the program!");
-                //Resetting variable to exit from Firstmenu
-                Exit = true;
+        try {
+            int choice = scan.nextInt();
+
+            //Create SwitchCase for log in as perticular person choice      
+            switch(choice){
+                 //Customer can check room availability, booking room and prepayment option are available
+                case 1:                                            
+                    Customer.CustomerMenu();
                 break;
 
-            default:
-                System.out.println("Somthing went wrong, please try again.");
-                break;
-            }    
+                case 2:
+                    //calling method from receptionstaff class              
+                    ReceptionStaff.RecAccess();
+                    break;
+
+                case 3:
+                    System.out.println("Exit from the program!");
+                    //Resetting variable to exit from Firstmenu
+                    Exit = true;
+                    break;
+
+                default:
+                    System.out.println("Somthing went wrong, please try again.");
+                    break;
+                }
+        }
+        catch (Exception InputMismatchException) {
+            System.out.println("Please enter a number matching menu options");
+                    
+                    
+            //Cleaning scanner
+            scan.next();
+                    
+        }
         }
     }
 }          
