@@ -59,11 +59,11 @@ public class ReceptionStaff  {
     private static void AddRoom (){
         
         
-        System.out.println("Room number: ");
+        System.out.print("Room number: ");
         int newRoomNumber = RecInput.nextInt();
-        System.out.println("Number of beds: ");
+        System.out.print("Number of beds: ");
         int newNumberBeds = RecInput.nextInt();
-        System.out.println("Room price: ");
+        System.out.print("Room price: ");
         int newRoomPrice = RecInput.nextInt();
         HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, ""));
         System.out.println("Room added");
@@ -103,11 +103,11 @@ public class ReceptionStaff  {
         
                 
             //asking the receptionist to enter 
-            System.out.println("First Name: ");
+            System.out.print("First Name: ");
             String recFName = RecInput.next();
-            System.out.println("Last Name: ");
+            System.out.print("Last Name: ");
             String recLName = RecInput.next();
-            System.out.println("Work ID: ");
+            System.out.print("Work ID: ");
             int recId = RecInput.nextInt();
                 
             //saving the users input
