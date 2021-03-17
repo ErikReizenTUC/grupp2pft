@@ -102,9 +102,9 @@ public class HotelMain {
              }
             else {
             //Checkin completed and message is shown to customer
-            System.out.println("Checkin completed. Welcome to the Hotel!");
+            System.out.println("Check in completed. Welcome to the Hotel!");
             System.out.println("----------------------------------------");
-            System.out.println("Do you want to checkin more? 1: Yes, 2: No");
+            System.out.println("Do you want to check in more? 1: Yes, 2: No");
             int CheckinAgain = scan.nextInt();
             if(CheckinAgain == 1)
             CheckInComplete = false;
@@ -191,7 +191,7 @@ public class HotelMain {
                 //While loop for come back to select diffrent choice
                 while(ExitCustomer == false) { 
                 System.out.println("----------------------------------");
-                System.out.println("1: check availability, 2: Checkin, 3: Checkout, 4: Exit");
+                System.out.println("1: Check availability, 2: Check in, 3: Check out, 4: Return to main menu");
                 System.out.print("Make selection: ");
                 int value = scan.nextInt();
                 //Create SwitchCase for customer choice  
@@ -210,7 +210,7 @@ public class HotelMain {
                         CheckOut();
                         break;
                     case 4:
-                        System.out.println("Exit from customer menu");
+                        System.out.println("Returning to main menu");
                         System.out.println("----------------------------------");
                         //Resetting variable to exit from cutomer menu
                         ExitCustomer = true;
