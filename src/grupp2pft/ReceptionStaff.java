@@ -128,6 +128,7 @@ public class ReceptionStaff  {
             System.out.println("------------------------------------------------ \n");
             
             MainMenuRec();
+            System.out.print("Make selection: ");
             int recVal = RecInput.nextInt();
             
             //a switch case to perform differnt tasks related to a receptionist
