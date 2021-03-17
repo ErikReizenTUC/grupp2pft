@@ -53,9 +53,10 @@ public class HotelMain {
         //Show room list before checkin
         //Customer can choose room number from the list
         HotelRoom.DisplayRoomsCustomer();
-        
         //Enter room number which you want to checkin
         System.out.print("Enter room number: ");
+        
+    try {
         int number = scan.nextInt();
         boolean roomExists = false;
         //Create For loop to change the status of room for entered room number
@@ -78,22 +79,34 @@ public class HotelMain {
                 
                 //creating actual customer and adding to list with user input as arguments
                 Customer.customerList.add(new Customer(userFirstName, userLastName));
-
                 System.out.println("Hello " + userFirstName + " " + userLastName);
+                boolean CheckInCom = false;
+                while(CheckInCom==false){
                 System.out.println("Do you wish to pay in advance?");
                 System.out.println("1. Yes, I will pay now.");
                 System.out.println("2. No, I will pay later.");
                 System.out.print("Make selection: ");
 
+               
                 //customer makes a choice whether to pay in advance or not
                 number = scan.nextInt();
                 if (number == 1) {
                     HotelRoom.roomList.get(i).PaidInAdvance = true;
+                    System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + " from your credit card, Thank You!");
+                    CheckInCom = true;
+                }
+                else if(number == 2){
+                        System.out.println("Ok. You can pay at the time of checkout.");
+                        CheckInCom = true;
+                }
+                else
+                        System.out.println("Please choose from available options:");
                 }
                 //setting room as occupied
                 HotelRoom.roomList.get(i).occupied = true;
                 HotelRoom.roomList.get(i).occupiedBy = userFirstName + " " + userLastName;
             }
+            
         }
             if(roomExists == false){
               System.out.println("----------------------------------"); 
@@ -104,25 +117,47 @@ public class HotelMain {
             //Checkin completed and message is shown to customer
             System.out.println("Check in completed. Welcome to the Hotel!");
             System.out.println("----------------------------------------");
+            boolean CheckinMore = true;
+            while(CheckinMore==true){
             System.out.println("Do you want to check in more? 1: Yes, 2: No");
             int CheckinAgain = scan.nextInt();
-            if(CheckinAgain == 1)
+            if(CheckinAgain == 1){
             CheckInComplete = false;
+            CheckinMore = false;
+            }
+            else if(CheckinAgain == 2){
+                    System.out.println("Ok, Thanks!");
+                    CheckinMore = false;
+                    //Resetting value for successful checkin
+                    CheckInComplete = true;
+            }
             else {
-            //Resetting value for successful checkin
-            CheckInComplete = true;
+                System.out.println("Please choose from menu options.");
+            
 
             //Resetting values for Indexvalue and roomExists
             roomExists = false;
-        }   
-    } 
-        }  
+            } 
+            }
+            } 
+    }
+    catch (Exception InputMismatchException) {
+         System.out.println("Please enter a number matching menu options");
+                    
+                    
+        //Cleaning scanner
+        scan.next();
+                    
+    }  
+       }
     }
     
     //Checking out
     public static void CheckOut() {
         System.out.print("Enter your first name: ");
         //user inputs first and last name
+        
+    try {
         String userChoice = scan.next();
         String userName = userChoice;
         System.out.print("Enter your last name: ");
@@ -160,6 +195,16 @@ public class HotelMain {
         }
 
     }
+    catch (Exception InputMismatchException) {
+            System.out.println("Please enter a number matching menu options");
+                    
+                    
+            //Cleaning scanner
+            scan.next();
+                    
+    } 
+    }
+    
     
     public static void main(String[] args) {
 
