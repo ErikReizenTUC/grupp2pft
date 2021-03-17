@@ -13,29 +13,28 @@ import java.util.ArrayList;
  */
 public class HotelRoom{
     //variables For HotelRooms
-        public int roomNumber;
-        public int NumberOfBeds;
-        public int roomPrice;
-        public boolean occupied;
-        public boolean PaidInAdvance;
-        public String occupiedBy;
+    public int roomNumber;
+    public int NumberOfBeds;
+    public int roomPrice;
+    public boolean occupied;
+    public boolean PaidInAdvance;
+    public String occupiedBy;
 
 
 
-        //constructor for hotelroom
-        public HotelRoom(int roomNumber, int NumberOfBeds,int roomPrice, boolean occupied, boolean PaidInAdvance, String occupiedBy){
-            
+    //constructor for hotelroom
+    public HotelRoom(int roomNumber, int NumberOfBeds,int roomPrice, boolean occupied, boolean PaidInAdvance, String occupiedBy){
         this.roomNumber = roomNumber;
         this.NumberOfBeds = NumberOfBeds;
         this.roomPrice = roomPrice;
         this.occupied = occupied;
         this.PaidInAdvance = PaidInAdvance;
         this.occupiedBy = occupiedBy;
-        }
+    }
 
-                
-        //Creates an ArrayList of the rooms.
-        static ArrayList<HotelRoom> roomList = new ArrayList<>();
+
+    //Creates an ArrayList of the rooms.
+    static ArrayList<HotelRoom> roomList = new ArrayList<>();
         
         
     //New method to DisplayRooms for the ReceptionStaff.
@@ -62,7 +61,7 @@ public class HotelRoom{
         
     }
 
-        //New method to DisplayRooms for the Customer.
+    //New method to DisplayRooms for the Customer.
     public static void DisplayRoomsCustomer(){
         
         for (int i = 0; i < HotelRoom.roomList.size(); i++){

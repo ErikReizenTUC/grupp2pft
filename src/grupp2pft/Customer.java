@@ -36,7 +36,11 @@ public class Customer {
             //While loop for come back to select diffrent choice
             while(ExitCustomer == false) { 
                 System.out.println("----------------------------------");
-                System.out.println("1: Check availability, 2: Check in, 3: Check out, 4: Return to main menu");
+                System.out.println("1: See available rooms");
+                System.out.println("2: Check in");
+                System.out.println("3: Check out");
+                System.out.println("4: Return to main menu");
+                System.out.println("----------------------------------");
                 System.out.print("Make selection: ");
 
                 try {
@@ -70,7 +74,8 @@ public class Customer {
                     }
                 }
                 catch (Exception InputMismatchException) {
-                    System.out.println("Please enter a number matching menu options");
+                    System.out.println("Please enter a number");
+                    System.out.println("-----------------------------");
 
 
                     //Cleaning scanner
