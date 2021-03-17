@@ -66,9 +66,7 @@ public class ReceptionStaff  {
         int newNumberBeds = RecInput.nextInt();
         System.out.println("Room price: ");
         int newRoomPrice = RecInput.nextInt();
-        System.out.println("Initials: ");
-        String newName = RecInput.next();
-        HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, newName));
+        HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, ""));
         System.out.println("Room added");
     }
     
