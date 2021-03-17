@@ -177,7 +177,7 @@ public class HotelMain {
     
     //While loop for repetation of FirstMenu method
     boolean Exit = false;
-     while(Exit ==false) {
+    while(Exit ==false) {
      
         //call the first menu
         FirstMenu();
@@ -224,17 +224,7 @@ public class HotelMain {
         break;
         
             case 2:
-                /*
-                //call acess from receptionsit staff
-                System.out.println("First Name: ");
-                String recFName = scan.next();
-                System.out.println("Last Name: ");
-                String recLName = scan.next();
-                System.out.println("Work ID: ");
-                int recId = scan.nextInt();
-*/
-                //ReceptionStaff receptionist = new ReceptionStaff(recLName, recLName, recId);
-                
+                //calling method from receptionstaff class              
                 ReceptionStaff.RecAccess();
                 break;
                 
@@ -247,10 +237,10 @@ public class HotelMain {
             default:
                 System.out.println("Somthing went wrong, please try again.");
                 break;
-        }    }
+            }    
+        }
     }
-
-    }          
+}          
 
     
     
