@@ -28,7 +28,7 @@ public class ReceptionStaff  {
     public String lastName;
     public int iD;
     public boolean exit;
-    public char recMenuVal;
+    
     
     //contructor
     public ReceptionStaff (String firstName, String lastName, int iD) {
