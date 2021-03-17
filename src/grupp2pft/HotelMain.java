@@ -15,7 +15,6 @@ Ali Esmaeeli
 
 package grupp2pft;
 
-import static grupp2pft.Customer.scan;
 import java.util.Scanner;
 
 /**
