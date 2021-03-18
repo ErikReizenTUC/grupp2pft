@@ -68,11 +68,11 @@ public class HotelMain {
                             System.out.println("You will now create a user profile for booking.");
 
                             //Creating new customer with user input for attributes
-                            System.out.print("Please enter your first name: ");
+                            System.out.print("Enter the first name of the person checking in: ");
                             //Getting first name from user
                             String userFirstName = scan.next();
 
-                            System.out.print("Please enter your last name: ");
+                            System.out.print("Enter the last name of the person checking in: ");
                             //Getting last name from user
                             String userLastName = scan.next();
 
