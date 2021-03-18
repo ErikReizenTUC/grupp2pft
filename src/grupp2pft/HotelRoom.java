@@ -72,7 +72,7 @@ public class HotelRoom{
     //New method to DisplayRooms for the Customer.
     public static void DisplayRoomsCustomer(){
         //Handling if room is empty
-        if (HotelRoom.roomList.isEmpty()) {
+        if (HotelRoom.roomList.isEmpty() || AllRoomsOccupied() == true) {
             System.out.println("Apologies, there are no available rooms");
         }
         else {
