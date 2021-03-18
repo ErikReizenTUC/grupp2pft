@@ -152,13 +152,15 @@ public class ReceptionStaff  {
             //asking the receptionist to enter 
             System.out.print("First Name: ");
            while (!RecInput.hasNext("[A-Za-z]+")) {
-        System.out.println("Invalid input!");
-        RecInput.next();
+            System.out.println("Invalid input!");
+               System.out.print("First Name: ");
+            RecInput.next();
     }
             String recFName = RecInput.next();
             System.out.print("Last Name: ");
             while (!RecInput.hasNext("[A-Za-z]+")) {
         System.out.println("Invalid input!");
+                System.out.print("Last Name: ");
         RecInput.next();
     }
             String recLName = RecInput.next();
