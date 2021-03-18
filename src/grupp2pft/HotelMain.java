@@ -110,7 +110,7 @@ public class HotelMain {
                                     number = scan.nextInt();
                                     if (number == 1) {
                                         HotelRoom.roomList.get(i).PaidInAdvance = true;
-                                        System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + " from your credit card, Thank You!");
+                                        System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + "kr from your credit card, Thank You!");
                                         payLoop = true;
                                     } 
                                     else if (number == 2) {
@@ -246,7 +246,7 @@ public class HotelMain {
                         System.out.println("Room already paid, please come again!"); 
                     } 
                     else {
-                        System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + " from your credit card, please come again!");
+                        System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + "kr from your credit card, please come again!");
                     } 
                     System.out.println("You have succesfully checked out");
                     System.out.println("-----------------------------");
