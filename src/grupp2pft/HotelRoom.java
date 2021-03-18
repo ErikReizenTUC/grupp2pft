@@ -19,6 +19,7 @@ public class HotelRoom{
     public boolean occupied;
     public boolean PaidInAdvance;
     public String occupiedBy;
+    public static boolean allRoomsOccupied;
 
 
 
@@ -87,6 +88,20 @@ public class HotelRoom{
             }
         }
 
+    }
+    
+    public static boolean AllRoomsOccupied() {
+        int count = 0;
+        for (int i = 0; i < HotelRoom.roomList.size(); i++) {
+            if (HotelRoom.roomList.get(i).occupied == true) {
+                count++;
+            }
+        }
+        if (count == HotelRoom.roomList.size()) {
+            return allRoomsOccupied = true;
+        }
+        else return allRoomsOccupied = false;
+        
     }
         
 }

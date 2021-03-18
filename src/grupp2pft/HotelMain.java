@@ -43,7 +43,7 @@ public class HotelMain {
         boolean CheckInComplete = false;
         while (CheckInComplete == false) {
 
-            if (HotelRoom.roomList.isEmpty()) {
+            if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true) {
                 System.out.println("Apologies, there are no available rooms!");
                 CheckInComplete = true;
             } 
@@ -228,10 +228,10 @@ public class HotelMain {
 
         //Instanciate HotelRoom objects
         HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, true, "Adam Bertilsson"));
-        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "  "));                
+        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, true, false, "  "));                
         HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
-        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "  "));                   
-        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));                   
+        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, true, false, "  "));                   
+        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, true, false, "  "));                   
 
         //While loop for repetation of FirstMenu method
         boolean Exit = false;

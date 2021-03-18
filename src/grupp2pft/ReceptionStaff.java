@@ -102,40 +102,46 @@ public class ReceptionStaff  {
     private static void DelRoom (){
         boolean DelRoomLoop = true;
         while (DelRoomLoop) {
-            System.out.println("Here is a list of rooms:");
-            //call the method for showing a list of all rooms
-            HotelRoom.DisplayRooms();
-            System.out.println("-----------------------------");
-            System.out.print("Room number: ");
-            try {
-                //get the user's input
-                int delRoomNumber = RecInput.nextInt();
-                //loop through the room list to find whether the room number matches one of the rooms
-                //and delete the one asked by the user
-                boolean roomNumberExist = false;
-                for (int i = 0; i < HotelRoom.roomList.size(); i++){
-
-                    if (delRoomNumber == HotelRoom.roomList.get(i).roomNumber && HotelRoom.roomList.get(i).occupied == false){
-                        roomNumberExist = true;
-                        HotelRoom.roomList.remove(i);
-                        System.out.println("The room number " + delRoomNumber + " is deleted");
-                        System.out.println("-----------------------------");
-                        DelRoomLoop = false;
-                    } 
-
-                }
-                if(roomNumberExist == false) {
-
-                    System.out.println("The room number you entered is invalid");
-                    System.out.println("-----------------------------");
-                }
-            }
-            catch (Exception InputMismatchException) {
-                System.out.println("Please enter a number");
+            if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true) {
+                System.out.println("Apologies, there are no available rooms!");
+                DelRoomLoop = false;
+            } 
+            else {
+                System.out.println("Here is a list of rooms:");
+                //call the method for showing a list of all rooms
+                HotelRoom.DisplayRooms();
                 System.out.println("-----------------------------");
+                System.out.print("Room number: ");
+                try {
+                    //get the user's input
+                    int delRoomNumber = RecInput.nextInt();
+                    //loop through the room list to find whether the room number matches one of the rooms
+                    //and delete the one asked by the user
+                    boolean roomNumberExist = false;
+                    for (int i = 0; i < HotelRoom.roomList.size(); i++){
 
-                //Cleaning scanner
-                RecInput.next();
+                        if (delRoomNumber == HotelRoom.roomList.get(i).roomNumber && HotelRoom.roomList.get(i).occupied == false){
+                            roomNumberExist = true;
+                            HotelRoom.roomList.remove(i);
+                            System.out.println("The room number " + delRoomNumber + " is deleted");
+                            System.out.println("-----------------------------");
+                            DelRoomLoop = false;
+                        } 
+
+                    }
+                    if(roomNumberExist == false) {
+
+                        System.out.println("The room number you entered is invalid");
+                        System.out.println("-----------------------------");
+                    }
+                }
+                catch (Exception InputMismatchException) {
+                    System.out.println("Please enter a number");
+                    System.out.println("-----------------------------");
+
+                    //Cleaning scanner
+                    RecInput.next();
+                }
             }
         }
         
