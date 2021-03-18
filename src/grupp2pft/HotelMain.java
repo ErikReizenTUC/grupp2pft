@@ -72,10 +72,23 @@ public class HotelMain {
 
                             //Creating new customer with user input for attributes
                             System.out.print("Enter the first name of the person checking in: ");
+                            //checking that input is only letters, english only
+                                while (!scan.hasNext("[A-Za-z]+")) {
+                                    System.out.println("Invalid input!");
+                                    System.out.print("Enter the first name of the person checking in: ");
+                                    scan.next();
+                                    }
                             //Getting first name from user
                             String userFirstName = scan.next();
 
                             System.out.print("Enter the last name of the person checking in: ");
+                            //checking that input is only letters, english only
+                            while (!scan.hasNext("[A-Za-z]+")) {
+                                    System.out.println("Invalid input!");
+                                    System.out.print("Enter the last name of the person checking in: ");
+                                    scan.next();
+                                    }    
+
                             //Getting last name from user
                             String userLastName = scan.next();
 
@@ -193,12 +206,27 @@ public class HotelMain {
     public static void CheckOut() {
         //try/catch for checkout, maybe unnecessary
         try {
+            //user inputs first name
             System.out.print("Enter your first name: ");
-            //user inputs first and last name
+            //checking that input is only letters, english only
+                            while (!scan.hasNext("[A-Za-z]+")) {
+                                    System.out.println("Invalid input!");
+                                    System.out.print("Enter your first name: ");
+                                    scan.next();
+                                    }    
 
             String userChoice = scan.next();
             String userName = userChoice;
+            
+            //user inputs last name
             System.out.print("Enter your last name: ");
+           //checking that input is only letters, english only
+                            while (!scan.hasNext("[A-Za-z]+")) {
+                                    System.out.println("Invalid input!");
+                                    System.out.print("Enter your last name: ");
+                                    scan.next();
+                                    }  
+            
             userChoice = scan.next();
             //userName is now Customer firstName + " " + lastName
             userName += " " + userChoice;

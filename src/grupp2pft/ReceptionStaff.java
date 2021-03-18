@@ -171,8 +171,9 @@ public class ReceptionStaff  {
                 System.out.print("First Name: ");
                 RecInput.next();
             }
-            //user inputs last name
             String recFName = RecInput.next();
+            
+            //user inputs last name
             System.out.print("Last Name: ");
             //chgecking that input is only letters, english only
             while (!RecInput.hasNext("[A-Za-z]+")) {
