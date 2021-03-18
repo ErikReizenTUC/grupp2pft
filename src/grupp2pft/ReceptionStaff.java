@@ -86,7 +86,7 @@ public class ReceptionStaff  {
                 }
                     
             }
-            catch (Exception InputMismaException) {
+            catch (Exception InputMismatchException) {
                 System.out.println("Please enter a number");
                 System.out.println("-----------------------------");
 
