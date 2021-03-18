@@ -43,6 +43,7 @@ public class Customer {
                 System.out.println("-----------------------------");
                 System.out.print("Make selection: ");
 
+                //try catch for customer menu input
                 try {
                    int value = scan.nextInt(); 
 
@@ -68,12 +69,14 @@ public class Customer {
                             ExitCustomer = true;
                             break;
                         default:
-                            System.out.println("Try Again");
+                            //handling if user input does not match menu options
+                            System.out.println("Input did not match menu options");
                             System.out.println("-----------------------------");
                             break;                        
                     }
                 }
                 catch (Exception InputMismatchException) {
+                    //handling if user input is not a number
                     System.out.println("Please enter a number");
                     System.out.println("-----------------------------");
 

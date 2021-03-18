@@ -60,7 +60,7 @@ public class HotelRoom{
                     System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
                                    ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
                                    ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
-                                   ", Avaiable!");
+                                   ", Available!");
                 }
 
             }
@@ -76,12 +76,13 @@ public class HotelRoom{
             System.out.println("Apologies, there are no available rooms");
         }
         else {
+            //printing only available rooms
             for (int i = 0; i < HotelRoom.roomList.size(); i++){
                 if (HotelRoom.roomList.get(i).occupied == false){
                     System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
                                    ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
                                    ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
-                                   ", Avaiable!");
+                                   ", Available!");
                 }
 
 
@@ -89,14 +90,17 @@ public class HotelRoom{
         }
 
     }
-    
+    //checking if all rooms are occupied
     public static boolean AllRoomsOccupied() {
+        //count checking how many rooms are occupied
         int count = 0;
+        //loop adding 1 to count for every occupied room
         for (int i = 0; i < HotelRoom.roomList.size(); i++) {
             if (HotelRoom.roomList.get(i).occupied == true) {
                 count++;
             }
         }
+        //comparing count to the number of rooms. if they are equal, all rooms are occupied
         if (count == HotelRoom.roomList.size()) {
             return allRoomsOccupied = true;
         }

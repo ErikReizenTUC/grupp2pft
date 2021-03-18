@@ -41,8 +41,10 @@ public class HotelMain {
     public static void CheckIn() {
 
         boolean CheckInComplete = false;
+        //loop for entire checkin process
         while (CheckInComplete == false) {
-
+            
+            //Checking if rooms are available
             if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true) {
                 System.out.println("Apologies, there are no available rooms!");
                 CheckInComplete = true;
@@ -52,7 +54,8 @@ public class HotelMain {
                 //Customer can choose room number from the list
                 HotelRoom.DisplayRoomsCustomer();
                 //Enter room number which you want to checkin
-
+                
+                //try/catch for room number input
                 try {
                     System.out.print("Enter room number: ");
                     int number = scan.nextInt();
@@ -79,8 +82,11 @@ public class HotelMain {
                             //creating actual customer and adding to list with user input as arguments
                             Customer.customerList.add(new Customer(userFirstName, userLastName));
                             System.out.println("Hello " + userFirstName + " " + userLastName);
-                            boolean CheckInCom = false;
-                            while (CheckInCom == false) {
+                            boolean payLoop = false;
+                            
+                            //while loop for user payment, to make sure it happens even if user inputs string
+                            while (payLoop == false) {
+                                //try/catch for user payment
                                 try {
                                     System.out.println("Do you wish to pay in advance?");
                                     System.out.println("1. Yes, I will pay now.");
@@ -92,17 +98,19 @@ public class HotelMain {
                                     if (number == 1) {
                                         HotelRoom.roomList.get(i).PaidInAdvance = true;
                                         System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + " from your credit card, Thank You!");
-                                        CheckInCom = true;
+                                        payLoop = true;
                                     } 
                                     else if (number == 2) {
                                         System.out.println("Ok. You can pay at the time of checkout.");
-                                        CheckInCom = true;
+                                        payLoop = true;
                                     } 
+                                    //handling if user inputs number not matching menu options
                                     else {
-                                        System.out.println("Please choose from available options:");
+                                        System.out.println("Please choose from available options");
                                     }
                                 } 
                                 catch (Exception InputMismatchException) {
+                                    //handling if user input is not an integer
                                     System.out.println("Please enter a number");
                                     System.out.println("-----------------------------");
 
@@ -111,12 +119,14 @@ public class HotelMain {
                                 }
 
                             }
-                            //setting room as occupied
+                            //setting room as occupied with user first and last name in occupiedBy attribute
                             HotelRoom.roomList.get(i).occupied = true;
                             HotelRoom.roomList.get(i).occupiedBy = userFirstName + " " + userLastName;
                         }
                     }
-
+                    
+                    //if no matching room is found in the for loop, loop restarts
+                    //user has to input new room number
                     if (roomExists == false) {
                         System.out.println("Please enter a correct room number!");
                         System.out.println("-----------------------------");
@@ -126,31 +136,36 @@ public class HotelMain {
                         System.out.println("Check in completed. Welcome to the Hotel!");
                         System.out.println("-----------------------------");
                         boolean CheckinMore = true;
+                        //loop for whether user wants to check in more customers
                         while (CheckinMore == true) {
+                            //try/catch for 'check in more' input
                             try {
-                                System.out.println("Do you want to check in more?");
+                                System.out.println("Do you want to check in more customers?");
                                 System.out.println("1: Yes");
                                 System.out.println("2: No");
                                 System.out.print("Make selection: ");
                                 int CheckinAgain = scan.nextInt();
+                                //if user wants to check in more
                                 if (CheckinAgain == 1) {
+                                    //loop for checkin is false so checkin process restarts
                                     CheckInComplete = false;
+                                    //breaking loop for 'check in more' input
                                     CheckinMore = false;
                                 } 
                                 else if (CheckinAgain == 2) {
                                     System.out.println("Ok, Thanks!");
+                                    //breaking loop for 'check in more' input
                                     CheckinMore = false;
-                                    //Resetting value for successful checkin
+                                    //breaking loop for check in, user is returned to menu
                                     CheckInComplete = true;
                                 } 
                                 else {
+                                    //handling if user enters number not matching menu options
                                     System.out.println("Please choose from menu options.");
-
-                                    //Resetting values for Indexvalue and roomExists
-                                    roomExists = false;
                                 }
                             } 
                             catch (Exception InputMismatchException) {
+                                //handling if user input is not integer
                                 System.out.println("Please enter a number");
                                 System.out.println("-----------------------------");
 
@@ -161,6 +176,7 @@ public class HotelMain {
                     }
                 } 
                 catch (Exception InputMismatchException) {
+                    //handling if user input is not integer
                     System.out.println("Please enter a number");
                     System.out.println("-----------------------------");
 
@@ -175,6 +191,7 @@ public class HotelMain {
     
     //Checking out
     public static void CheckOut() {
+        //try/catch for checkout, maybe unnecessary
         try {
             System.out.print("Enter your first name: ");
             //user inputs first and last name
@@ -183,16 +200,19 @@ public class HotelMain {
             String userName = userChoice;
             System.out.print("Enter your last name: ");
             userChoice = scan.next();
+            //userName is now Customer firstName + " " + lastName
             userName += " " + userChoice;
 
-            //Using indexPosition to track the index of the room user will checkout from
             //Using roomExists to see whether user entered a valid room
             boolean roomExists = false;
+            //looping through all rooms checking if any are occupied by user
             for (int i = 0; i < HotelRoom.roomList.size(); i++) {
                 if (userName.equals(HotelRoom.roomList.get(i).occupiedBy)) {
                     roomExists = true;
+                    //resetting room
                     HotelRoom.roomList.get(i).occupied = false;
                     HotelRoom.roomList.get(i).occupiedBy = "";    
+                    //handling user payment
                     if (HotelRoom.roomList.get(i).PaidInAdvance == true) {
 
                         System.out.println("Room already paid, please come again!"); 
@@ -202,10 +222,11 @@ public class HotelMain {
                     } 
                     System.out.println("You have succesfully checked out");
                     System.out.println("-----------------------------");
+                    //cleaning room
                     ReceptionStaff.Cleaning();
                 }
             }
-            //Checking if user entered an invalid room
+            //Checking if user entered an invalid customer
             if (roomExists == false) {
                 System.out.println("Invalid input.");
                 System.out.println("-----------------------------");
@@ -213,6 +234,7 @@ public class HotelMain {
 
         }
         catch (Exception InputMismatchException) {
+            //handling if user input is not integer
             System.out.println("Please enter a number");
             System.out.println("-----------------------------");
 
@@ -228,17 +250,19 @@ public class HotelMain {
 
         //Instanciate HotelRoom objects
         HotelRoom.roomList.add(new HotelRoom(1, 4, 500, true, true, "Adam Bertilsson"));
-        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, true, false, "  "));                
+        HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "  "));                
         HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
-        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, true, false, "  "));                   
-        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, true, false, "  "));                   
+        HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "  "));                   
+        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));                   
 
         //While loop for repetation of FirstMenu method
         boolean Exit = false;
+        //while loop for main menu
         while(Exit ==false) {
 
             //call the first menu
             FirstMenu();
+            //try/catch for main menu
             try {
                 System.out.print("Make selection: ");
                 int choice = scan.nextInt();
@@ -251,7 +275,7 @@ public class HotelMain {
                     break;
 
                     case 2:
-                        //calling method from receptionstaff class              
+                        //logging in as receptionist              
                         ReceptionStaff.RecAccess();
                         break;
 
@@ -262,11 +286,14 @@ public class HotelMain {
                         break;
 
                     default:
-                        System.out.println("Somthing went wrong, please try again.");
+                        //handling if user inputs number not matching menu options
+                        System.out.println("Your selection did not match menu options.");
+                        System.out.println("-----------------------------");
                         break;
                 }
             }
             catch (Exception InputMismatchException) {
+                //handling if user input is not integer
                 System.out.println("Please enter a number");
                 System.out.println("-----------------------------");
 
