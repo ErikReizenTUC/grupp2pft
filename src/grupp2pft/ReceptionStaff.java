@@ -15,13 +15,8 @@ import java.util.Scanner;
 public class ReceptionStaff  {
     
     
-    //Denna klass är just nu överflödig, vi avvaktar med kod här och skriver 
-    // i HotelStaff-classen istället!
-    
     static Scanner RecInput = new Scanner (System.in);
     
-    //an instance of Customer class for checkin method
-    //Customer checkIn = new Customer();
     
     //attributes for the receptionist
     public String firstName;
