@@ -43,7 +43,7 @@ public class ReceptionStaff  {
         System.out.println("-----------------------------");
         System.out.println("1. Check-in");
         System.out.println("2. Check-out");
-        System.out.println("3. Check for available rooms");
+        System.out.println("3. See room list");
         System.out.println("4. Create a new available room");
         System.out.println("5. Delete a room");
         System.out.println("6. Back to main menu");

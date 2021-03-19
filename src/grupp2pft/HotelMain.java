@@ -110,7 +110,7 @@ public class HotelMain {
                                     number = scan.nextInt();
                                     if (number == 1) {
                                         HotelRoom.roomList.get(i).PaidInAdvance = true;
-                                        System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + " from your credit card, Thank You!");
+                                        System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + "kr from your credit card, Thank You!");
                                         payLoop = true;
                                     } 
                                     else if (number == 2) {
@@ -209,23 +209,23 @@ public class HotelMain {
             //user inputs first name
             System.out.print("Enter your first name: ");
             //checking that input is only letters, english only
-                            while (!scan.hasNext("[A-Za-z]+")) {
-                                    System.out.println("Invalid input!");
-                                    System.out.print("Enter your first name: ");
-                                    scan.next();
-                                    }    
+            while (!scan.hasNext("[A-Za-z]+")) {
+                System.out.println("Invalid input!");
+                System.out.print("Enter your first name: ");
+                scan.next();
+            }
 
             String userChoice = scan.next();
             String userName = userChoice;
             
             //user inputs last name
             System.out.print("Enter your last name: ");
-           //checking that input is only letters, english only
-                            while (!scan.hasNext("[A-Za-z]+")) {
-                                    System.out.println("Invalid input!");
-                                    System.out.print("Enter your last name: ");
-                                    scan.next();
-                                    }  
+            //checking that input is only letters, english only
+            while (!scan.hasNext("[A-Za-z]+")) {
+                System.out.println("Invalid input!");
+                System.out.print("Enter your last name: ");
+                scan.next();
+            }
             
             userChoice = scan.next();
             //userName is now Customer firstName + " " + lastName
@@ -246,7 +246,7 @@ public class HotelMain {
                         System.out.println("Room already paid, please come again!"); 
                     } 
                     else {
-                        System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + " from your credit card, please come again!");
+                        System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + "kr from your credit card, please come again!");
                     } 
                     System.out.println("You have succesfully checked out");
                     System.out.println("-----------------------------");
