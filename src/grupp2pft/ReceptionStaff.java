@@ -47,6 +47,7 @@ public class ReceptionStaff  {
         System.out.println("4. Create a new available room");
         System.out.println("5. Delete a room");
         System.out.println("6. Back to main menu");
+        System.out.println("-----------------------------");
     }
     
     //a method for creating a new available room
