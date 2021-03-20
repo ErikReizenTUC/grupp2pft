@@ -6,6 +6,7 @@
 package grupp2pft;
 
 
+import static grupp2pft.HotelMain.scan;
 import java.util.Scanner;
 
 /**
@@ -46,7 +47,8 @@ public class ReceptionStaff  {
         System.out.println("3. See room list");
         System.out.println("4. Create a new available room");
         System.out.println("5. Delete a room");
-        System.out.println("6. Back to main menu");
+        System.out.println("6. Make a room unavailable");
+        System.out.println("7. Back to main menu");
         System.out.println("-----------------------------");
     }
     
@@ -157,6 +159,56 @@ public class ReceptionStaff  {
         
         
     }
+    
+    private static void ModRoom(){
+        
+       boolean modRoomOption = false;
+       
+        System.out.println("Here is a list of all available rooms");
+        HotelRoom.DisplayRoomsCustomer();
+        System.out.println("--------------------------------------");
+        
+        try {
+            
+        
+        System.out.print("Enter room number: ");
+        System.out.println("");
+        
+        int roomMod = RecInput.nextInt();
+        
+        for (int i = 0; i < HotelRoom.roomList.size(); i++){
+        
+            if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true){
+                System.out.println("All rooms are currently occupied by customers");
+            }
+            
+            else if (roomMod == HotelRoom.roomList.get(i).roomNumber && HotelRoom.roomList.get(i).occupied == false ){
+                HotelRoom.roomList.get(i).occupied = true;
+                HotelRoom.roomList.get(i).occupiedBy = "N/A";
+                
+                System.out.println("Room number " + roomMod + " is made unavailable until further notice");
+                
+            //} else {
+              //     System.out.println("The room number you entered is invalid");     
+                    }
+                
+            }
+        }
+        catch (Exception InputMismatchException) {
+                    //handling if user input is not integer
+                    System.out.println("Please enter a number");
+                    System.out.println("-----------------------------");
+
+                    //Cleaning scanner
+                    RecInput.next();
+                } 
+        }
+        
+        
+        
+
+    
+    
    //this is the main method for accessing the receptionists options     
     public static void RecAccess (){
         
@@ -232,8 +284,12 @@ public class ReceptionStaff  {
                             case 5:
                                     DelRoom();
                                 break;
-
+                            
                             case 6:
+                                    ModRoom();
+                                break;
+
+                            case 7:
                                     System.out.println("Returning to main menu");
                                     System.out.println("-----------------------------");
                                     exit = true;
