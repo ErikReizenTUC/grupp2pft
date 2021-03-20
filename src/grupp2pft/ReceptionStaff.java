@@ -162,7 +162,7 @@ public class ReceptionStaff  {
     
     private static void ModRoom(){
         
-       boolean modRoomOption = false;
+       
        
         System.out.println("Here is a list of all available rooms");
         HotelRoom.DisplayRoomsCustomer();
