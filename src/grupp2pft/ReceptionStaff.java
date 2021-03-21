@@ -48,7 +48,8 @@ public class ReceptionStaff  {
         System.out.println("4. Create a new available room");
         System.out.println("5. Delete a room");
         System.out.println("6. Make a room unavailable");
-        System.out.println("7. Back to main menu");
+        System.out.println("7. Make a (unavailable) room available");
+        System.out.println("8. Back to main menu");
         System.out.println("-----------------------------");
     }
     
@@ -155,57 +156,157 @@ public class ReceptionStaff  {
                 }
             }
         }
-        
-        
-        
     }
     
-    private static void ModRoom(){
+    //set a room as unavailable
+    private static void SetRoomUnavailable(){
         
-       
-       
-        System.out.println("Here is a list of all available rooms");
-        HotelRoom.DisplayRoomsCustomer();
-        System.out.println("--------------------------------------");
+        boolean roomUnavailableLoop = true;
         
-        try {
+        //loop for setting room unavailable
+        while (roomUnavailableLoop == true) {
             
-        
-        System.out.print("Enter room number: ");
-        System.out.println("");
-        
-        int roomMod = RecInput.nextInt();
-        
-        for (int i = 0; i < HotelRoom.roomList.size(); i++){
-        
+            //if no rooms can be made unavailable, exit loop
             if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true){
                 System.out.println("All rooms are currently occupied by customers");
+                roomUnavailableLoop = false;
             }
             
-            else if (roomMod == HotelRoom.roomList.get(i).roomNumber && HotelRoom.roomList.get(i).occupied == false ){
-                HotelRoom.roomList.get(i).occupied = true;
-                HotelRoom.roomList.get(i).occupiedBy = "N/A";
+            //printing available rooms to the user
+            System.out.println("Here is a list of all rooms:");
+            HotelRoom.DisplayRoomsCustomer();
+            System.out.println("--------------------------------------");
+            
+            //try/catch for room number input
+            try {
+                System.out.print("Enter room number: ");
+                System.out.println("");
                 
-                System.out.println("Room number " + roomMod + " is made unavailable until further notice");
+                //asking user for room number input
+                int roomMod = RecInput.nextInt();
                 
-            //} else {
-              //     System.out.println("The room number you entered is invalid");     
+                //used to check if user input matches room
+                boolean roomExists = false;
+                
+                //looping list of room and checking if input matches valid roomnumber
+                for (int i = 0; i < HotelRoom.roomList.size(); i++){
+                    if (roomMod == HotelRoom.roomList.get(i).roomNumber && 
+                            HotelRoom.roomList.get(i).occupied == false && 
+                            HotelRoom.roomList.get(i).unavailable == false){
+                        //setting room as unavailable
+                        HotelRoom.roomList.get(i).unavailable = true;
+                        System.out.println("Room number " + HotelRoom.roomList.get(i).roomNumber + 
+                                " is made unavailable until further notice.");
+                        //breaking loop and exiting
+                        roomUnavailableLoop = false;
+
                     }
+
+                }
                 
+                //checking if input is valid
+                if (roomExists == false) {
+                    System.out.println("The room you entered is invalid");
+                    System.out.println("-----------------------------");
+                }
+            }
+            catch (Exception InputMismatchException) {
+                        //handling if user input is not integer
+                        System.out.println("Please enter a number");
+                        System.out.println("-----------------------------");
+
+                        //Cleaning scanner
+                        RecInput.next();
             }
         }
-        catch (Exception InputMismatchException) {
-                    //handling if user input is not integer
-                    System.out.println("Please enter a number");
-                    System.out.println("-----------------------------");
+    }
+        
+        
+    private static void SetRoomAvailable() {
+        
+        boolean roomAvailableLoop = true;
+        
+        //loop for setting room available
+        while (roomAvailableLoop == true) {
+            
+            //if no rooms can be made available, exit loop
+            if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true){
+                System.out.println("All rooms are currently occupied by customers");
+                roomAvailableLoop = false;
+            }
+            
+            //printing all rooms to the user
+            System.out.println("Here is a list of all rooms:");
+            HotelRoom.DisplayRooms();
+            System.out.println("--------------------------------------");
+            
+            //try/catch for room number input
+            try {
+                System.out.print("Enter room number: ");
+                System.out.println("");
+                
+                //asking user for room number input
+                int roomMod = RecInput.nextInt();
+                
+                //used to check if user input matches room
+                boolean roomExists = false;
+                
+                //looping list of room and checking if input matches valid roomnumber
+                for (int i = 0; i < HotelRoom.roomList.size(); i++){
+                    //only checking if room exists
+                    if (roomMod == HotelRoom.roomList.get(i).roomNumber){
+                        roomExists = true;
+                        // if room is unavailable set it as available
+                        if(HotelRoom.roomList.get(i).unavailable == true) {
+                            //setting room as available
+                            HotelRoom.roomList.get(i).unavailable = false;
+                            System.out.println("Room number " + HotelRoom.roomList.get(i).roomNumber + 
+                                " is once again available.");
+                             
+                        }
+                        //if room is already available, do nothing and exit loop
+                        else {
+                            System.out.println("Room is already available.");
+                        }
+                    
+                        //breaking loop and exiting
+                        roomAvailableLoop = false;
+                    }
+                    
+                    /*
+                    original if-statement for reference
+                    if (roomMod == HotelRoom.roomList.get(i).roomNumber && 
+                            HotelRoom.roomList.get(i).occupied == false && 
+                            HotelRoom.roomList.get(i).unavailable == true){
+                        //setting room as available
+                        HotelRoom.roomList.get(i).unavailable = false;
+                        System.out.println("Room number " + HotelRoom.roomList.get(i).roomNumber + 
+                                " is once again available.");
+                        //breaking loop and exiting
+                        roomAvailableLoop = false;
 
-                    //Cleaning scanner
-                    RecInput.next();
-                } 
+                    }
+                    */
+                    
+                }
+                
+                //checking if input is valid
+                if (roomExists == false) {
+                    System.out.println("The room you entered is invalid");
+                    System.out.println("-----------------------------");
+                }
+                
+            } 
+            catch (Exception InputMismatchException) {
+                        //handling if user input is not integer
+                        System.out.println("Please enter a number");
+                        System.out.println("-----------------------------");
+
+                        //Cleaning scanner
+                        RecInput.next();
+            }
         }
-        
-        
-        
+    }
 
     
     
@@ -266,7 +367,7 @@ public class ReceptionStaff  {
                         //a switch case to perform differnt tasks related to a receptionist
                         switch(recVal){
                             case 1:
-                                   HotelMain.CheckIn();
+                                   HotelMain.BookRoom();
                                 break;
 
                             case 2:
@@ -286,10 +387,14 @@ public class ReceptionStaff  {
                                 break;
                             
                             case 6:
-                                    ModRoom();
+                                    SetRoomUnavailable();
+                                break;
+                            
+                            case 7:
+                                    SetRoomAvailable();
                                 break;
 
-                            case 7:
+                            case 8:
                                     System.out.println("Returning to main menu");
                                     System.out.println("-----------------------------");
                                     exit = true;

@@ -5,10 +5,10 @@
  */
 package grupp2pft;
 
-import static grupp2pft.HotelMain.CheckIn;
 import static grupp2pft.HotelMain.CheckOut;
 import java.util.ArrayList;
 import java.util.Scanner;
+import static grupp2pft.HotelMain.BookRoom;
 
 /**
  *
@@ -56,7 +56,7 @@ public class Customer {
                            break;
                         case 2:
                             //Call Checkin method
-                            CheckIn();
+                            BookRoom();
                             break;
                         case 3:
                             //Call Checkout method

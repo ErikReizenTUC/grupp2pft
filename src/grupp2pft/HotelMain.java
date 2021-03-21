@@ -38,16 +38,16 @@ public class HotelMain {
     }
 
     //Checking in, getting the option of paying in advance or not.
-    public static void CheckIn() {
+    public static void BookRoom() {
 
-        boolean CheckInComplete = false;
+        boolean BookRoomComplete = false;
         //loop for entire checkin process
-        while (CheckInComplete == false) {
+        while (BookRoomComplete == false) {
             
             //Checking if rooms are available
             if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true) {
                 System.out.println("Apologies, there are no available rooms!");
-                CheckInComplete = true;
+                BookRoomComplete = true;
             } 
             else {
                 //Show room list before checkin
@@ -65,7 +65,9 @@ public class HotelMain {
                     //Create For loop to change the status of room for entered room number
                     for (int i = 0; i < HotelRoom.roomList.size(); i++) {
                         //If entered room number is right. Checkin possible
-                        if (number == HotelRoom.roomList.get(i).roomNumber && HotelRoom.roomList.get(i).occupied == false) {
+                        if ((number == HotelRoom.roomList.get(i).roomNumber && 
+                                HotelRoom.roomList.get(i).occupied == false) 
+                                || HotelRoom.roomList.get(i).unavailable == false) {
                             roomExists = true;
                             System.out.println("Thank you for choosing this hotel.");
                             System.out.println("You will now create a user profile for booking.");
@@ -73,7 +75,7 @@ public class HotelMain {
                             //Creating new customer with user input for attributes
                             System.out.print("Enter the first name of the person checking in: ");
                             //checking that input is only letters, english only
-                                while (!scan.hasNext("[A-Za-z]+")) {
+                                while (scan.hasNext("[A-Za-z]+")) {
                                     System.out.println("Invalid input!");
                                     System.out.print("Enter the first name of the person checking in: ");
                                     scan.next();
@@ -110,7 +112,9 @@ public class HotelMain {
                                     number = scan.nextInt();
                                     if (number == 1) {
                                         HotelRoom.roomList.get(i).PaidInAdvance = true;
-                                        System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + "kr from your credit card, Thank You!");
+                                        System.out.println("We have deducted " + 
+                                                HotelRoom.roomList.get(i).roomPrice + 
+                                                "kr from your credit card, Thank You!");
                                         payLoop = true;
                                     } 
                                     else if (number == 2) {
@@ -157,20 +161,20 @@ public class HotelMain {
                                 System.out.println("1: Yes");
                                 System.out.println("2: No");
                                 System.out.print("Make selection: ");
-                                int CheckinAgain = scan.nextInt();
+                                int BookAgain = scan.nextInt();
                                 //if user wants to check in more
-                                if (CheckinAgain == 1) {
+                                if (BookAgain == 1) {
                                     //loop for checkin is false so checkin process restarts
-                                    CheckInComplete = false;
+                                    BookRoomComplete = false;
                                     //breaking loop for 'check in more' input
                                     CheckinMore = false;
                                 } 
-                                else if (CheckinAgain == 2) {
+                                else if (BookAgain == 2) {
                                     System.out.println("Ok, Thanks!");
                                     //breaking loop for 'check in more' input
                                     CheckinMore = false;
                                     //breaking loop for check in, user is returned to menu
-                                    CheckInComplete = true;
+                                    BookRoomComplete = true;
                                 } 
                                 else {
                                     //handling if user enters number not matching menu options
@@ -246,7 +250,8 @@ public class HotelMain {
                         System.out.println("Room already paid, please come again!"); 
                     } 
                     else {
-                        System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + "kr from your credit card, please come again!");
+                        System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + 
+                                "kr from your credit card, please come again!");
                     } 
                     System.out.println("You have succesfully checked out");
                     System.out.println("-----------------------------");

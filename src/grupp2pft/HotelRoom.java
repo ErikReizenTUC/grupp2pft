@@ -19,6 +19,7 @@ public class HotelRoom{
     public boolean occupied;
     public boolean PaidInAdvance;
     public String occupiedBy;
+    public boolean unavailable;
     public static boolean allRoomsOccupied;
 
 
@@ -31,6 +32,7 @@ public class HotelRoom{
         this.occupied = occupied;
         this.PaidInAdvance = PaidInAdvance;
         this.occupiedBy = occupiedBy;
+        this.unavailable = false;
     }
 
 
@@ -55,6 +57,14 @@ public class HotelRoom{
                                    ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
                                    ", Occupied by: " + HotelRoom.roomList.get(i).occupiedBy);
                 } 
+                //prints the HotelRoom as unavailable
+                else if (HotelRoom.roomList.get(i).unavailable == true)
+                {
+                    System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
+                                   ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
+                                   ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
+                                   ", Room unavailable.");
+                }
                 // prints the Hotelroom without a name for the customer occupying the room.
                 else {
                     System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
@@ -64,9 +74,7 @@ public class HotelRoom{
                 }
 
             }
-        }    
-            
-        
+        }      
     }
 
     //New method to DisplayRooms for the Customer.
@@ -78,7 +86,8 @@ public class HotelRoom{
         else {
             //printing only available rooms
             for (int i = 0; i < HotelRoom.roomList.size(); i++){
-                if (HotelRoom.roomList.get(i).occupied == false){
+                if (HotelRoom.roomList.get(i).occupied == false
+                        && HotelRoom.roomList.get(i).unavailable == false){
                     System.out.println("Room " + HotelRoom.roomList.get(i).roomNumber +
                                    ", Beds: " + HotelRoom.roomList.get(i).NumberOfBeds +
                                    ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
