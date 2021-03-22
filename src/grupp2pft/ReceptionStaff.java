@@ -6,7 +6,6 @@
 package grupp2pft;
 
 
-import static grupp2pft.HotelMain.scan;
 import java.util.Scanner;
 
 /**
@@ -180,7 +179,6 @@ public class ReceptionStaff  {
             //try/catch for room number input
             try {
                 System.out.print("Enter room number: ");
-                System.out.println("");
                 
                 //asking user for room number input
                 int roomMod = RecInput.nextInt();
@@ -243,7 +241,6 @@ public class ReceptionStaff  {
             //try/catch for room number input
             try {
                 System.out.print("Enter room number: ");
-                System.out.println("");
                 
                 //asking user for room number input
                 int roomMod = RecInput.nextInt();

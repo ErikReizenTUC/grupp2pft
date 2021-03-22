@@ -286,7 +286,8 @@ public class HotelMain {
         HotelRoom.roomList.add(new HotelRoom(2, 3, 600, false, false, "  "));                
         HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
         HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "  "));                   
-        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));                   
+        HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));        
+        HotelRoom.roomList.get(1).unavailable = true;
 
         //While loop for repetation of FirstMenu method
         boolean Exit = false;

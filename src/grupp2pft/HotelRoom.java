@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author stefa
  */
-public class HotelRoom{
+public class HotelRoom {
     //variables For HotelRooms
     public int roomNumber;
     public int NumberOfBeds;
@@ -93,8 +93,6 @@ public class HotelRoom{
                                    ", Price:" + HotelRoom.roomList.get(i).roomPrice +"kr"+
                                    ", Available!");
                 }
-
-
             }
         }
 
