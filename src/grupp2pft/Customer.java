@@ -52,7 +52,7 @@ public class Customer {
                         case 1:
                          //Show the list of available room by using hotelroom class
                          //call DisplayRoomsCustomer method in the HotelRoom class.
-                           HotelRoom.DisplayRoomsCustomer();                        
+                           HotelRoom.DisplayAvailableRooms();                        
                            break;
                         case 2:
                             //Call Checkin method

@@ -117,7 +117,7 @@ public class ReceptionStaff  {
             else {
                 System.out.println("Here is a list of rooms:");
                 //call the method for showing a list of all rooms
-                HotelRoom.DisplayRooms();
+                HotelRoom.DisplayAllRooms();
                 System.out.println("-----------------------------");
                 System.out.print("Room number: ");
                 //try/catch for delete room input
@@ -174,7 +174,7 @@ public class ReceptionStaff  {
             
             //printing available rooms to the user
             System.out.println("Here is a list of all rooms:");
-            HotelRoom.DisplayRoomsCustomer();
+            HotelRoom.DisplayAvailableRooms();
             System.out.println("--------------------------------------");
             
             //try/catch for room number input
@@ -237,7 +237,7 @@ public class ReceptionStaff  {
             
             //printing all rooms to the user
             System.out.println("Here is a list of all rooms:");
-            HotelRoom.DisplayRooms();
+            HotelRoom.DisplayAllRooms();
             System.out.println("--------------------------------------");
             
             //try/catch for room number input
@@ -375,7 +375,7 @@ public class ReceptionStaff  {
                                 break;
 
                             case 3:
-                                    HotelRoom.DisplayRooms();
+                                    HotelRoom.DisplayAllRooms();
                                 break;
 
                             case 4:

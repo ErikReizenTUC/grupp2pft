@@ -52,7 +52,7 @@ public class HotelMain {
             else {
                 //Show room list before checkin
                 //Customer can choose room number from the list
-                HotelRoom.DisplayRoomsCustomer();
+                HotelRoom.DisplayAvailableRooms();
                 //Enter room number which you want to checkin
                 
                 //try/catch for room number input
