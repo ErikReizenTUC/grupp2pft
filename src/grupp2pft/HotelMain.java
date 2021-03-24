@@ -65,10 +65,9 @@ public class HotelMain {
                     //Create For loop to change the status of room for entered room number
                     for (int i = 0; i < HotelRoom.roomList.size(); i++) {
                         //If entered room number is right. Room booking possible
-                       /*if (number == HotelRoom.roomList.get(i).roomNumber && 
+                       if (number == HotelRoom.roomList.get(i).roomNumber && 
                                 HotelRoom.roomList.get(i).occupied == false 
-                                || HotelRoom.roomList.get(i).unavailable == false) {*/
-                       if (number == HotelRoom.roomList.get(i).roomNumber && HotelRoom.roomList.get(i).occupied == false) {
+                                && HotelRoom.roomList.get(i).unavailable == false) {
                             roomExists = true;
                             System.out.println("Thank you for choosing this hotel.");
                             System.out.println("You will now create a user profile for booking.");
