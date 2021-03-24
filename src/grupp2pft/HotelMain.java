@@ -41,19 +41,19 @@ public class HotelMain {
     public static void BookRoom() {
 
         boolean BookRoomComplete = false;
-        //loop for entire checkin process
+        //loop for entire bookroom process
         while (BookRoomComplete == false) {
             
-            //Checking if rooms are available
+            //Book rooms if rooms are available
             if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true) {
                 System.out.println("Apologies, there are no available rooms!");
                 BookRoomComplete = true;
             } 
             else {
-                //Show room list before checkin
+                //Show room list before booking a room
                 //Customer can choose room number from the list
                 HotelRoom.DisplayAvailableRooms();
-                //Enter room number which you want to checkin
+                //Enter room number which you want to book
                 
                 //try/catch for room number input
                 try {
@@ -64,7 +64,7 @@ public class HotelMain {
 
                     //Create For loop to change the status of room for entered room number
                     for (int i = 0; i < HotelRoom.roomList.size(); i++) {
-                        //If entered room number is right. Book a room is possible
+                        //If entered room number is right. Room booking possible
                        /*if (number == HotelRoom.roomList.get(i).roomNumber && 
                                 HotelRoom.roomList.get(i).occupied == false 
                                 || HotelRoom.roomList.get(i).unavailable == false) {*/
@@ -75,7 +75,7 @@ public class HotelMain {
 
                             //Creating new customer with user input for attributes
                             System.out.print("Enter the first name of the person checking in: ");
-                            //checking that input is only letters, english only
+                            //Book a room if input is only letters, english only
                                 while (!scan.hasNext("[A-Za-z]+")) {
                                     System.out.println("Invalid input!");
                                     System.out.print("Enter the first name of the person checking in: ");
@@ -85,7 +85,7 @@ public class HotelMain {
                             String userFirstName = scan.next();
 
                             System.out.print("Enter the last name of the person checking in: ");
-                            //checking that input is only letters, english only
+                            //Book a room if input is only letters, english only
                             while (!scan.hasNext("[A-Za-z]+")) {
                                     System.out.println("Invalid input!");
                                     System.out.print("Enter the last name of the person checking in: ");
