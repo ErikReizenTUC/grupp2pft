@@ -41,7 +41,7 @@ public class ReceptionStaff  {
     private static void MainMenuRec(){
         System.out.println("Choose one of the following:");
         System.out.println("-----------------------------");
-        System.out.println("1. Check-in");
+        System.out.println("1. Book room");
         System.out.println("2. Check-out");
         System.out.println("3. See room list");
         System.out.println("4. Create a new available room");
@@ -81,11 +81,11 @@ public class ReceptionStaff  {
                     System.out.print("Room price: ");
                     int newRoomPrice = RecInput.nextInt();
                     
-                    //new  HotelRoom object is created
+                    //new HotelRoom object is created
                     HotelRoom.roomList.add(new HotelRoom(newRoomNumber, newNumberBeds, newRoomPrice, false, true, ""));
                     System.out.println("Room added");
                     
-                    //breaking loop to exit addroom
+                    //breaking loop to exit addroom method
                     addRoomLoop = false;
                 }
                     
