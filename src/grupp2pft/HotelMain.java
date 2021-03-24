@@ -44,7 +44,7 @@ public class HotelMain {
         //loop for entire bookroom process
         while (BookRoomComplete == false) {
             
-            //Book rooms if rooms are available
+            //checking if rooms are available
             if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true) {
                 System.out.println("Apologies, there are no available rooms!");
                 BookRoomComplete = true;
@@ -75,7 +75,7 @@ public class HotelMain {
 
                             //Creating new customer with user input for attributes
                             System.out.print("Enter the first name of the person checking in: ");
-                            //Book a room if input is only letters, english only
+                            //checking that input is only letters, english only
                                 while (!scan.hasNext("[A-Za-z]+")) {
                                     System.out.println("Invalid input!");
                                     System.out.print("Enter the first name of the person checking in: ");
@@ -85,7 +85,7 @@ public class HotelMain {
                             String userFirstName = scan.next();
 
                             System.out.print("Enter the last name of the person checking in: ");
-                            //Book a room if input is only letters, english only
+                            //checking that input is only letters, english only
                             while (!scan.hasNext("[A-Za-z]+")) {
                                     System.out.println("Invalid input!");
                                     System.out.print("Enter the last name of the person checking in: ");
