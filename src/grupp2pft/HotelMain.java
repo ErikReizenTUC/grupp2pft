@@ -75,7 +75,7 @@ public class HotelMain {
                             //Creating new customer with user input for attributes
                             System.out.print("Enter the first name of the person checking in: ");
                             //checking that input is only letters, english only
-                                while (scan.hasNext("[A-Za-z]+")) {
+                                while (!scan.hasNext("[A-Za-z]+")) {
                                     System.out.println("Invalid input!");
                                     System.out.print("Enter the first name of the person checking in: ");
                                     scan.next();
