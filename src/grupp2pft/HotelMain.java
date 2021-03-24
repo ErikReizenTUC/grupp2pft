@@ -64,10 +64,11 @@ public class HotelMain {
 
                     //Create For loop to change the status of room for entered room number
                     for (int i = 0; i < HotelRoom.roomList.size(); i++) {
-                        //If entered room number is right. Checkin possible
-                        if ((number == HotelRoom.roomList.get(i).roomNumber && 
-                                HotelRoom.roomList.get(i).occupied == false) 
-                                || HotelRoom.roomList.get(i).unavailable == false) {
+                        //If entered room number is right. Book a room is possible
+                       /*if (number == HotelRoom.roomList.get(i).roomNumber && 
+                                HotelRoom.roomList.get(i).occupied == false 
+                                || HotelRoom.roomList.get(i).unavailable == false) {*/
+                       if (number == HotelRoom.roomList.get(i).roomNumber && HotelRoom.roomList.get(i).occupied == false) {
                             roomExists = true;
                             System.out.println("Thank you for choosing this hotel.");
                             System.out.println("You will now create a user profile for booking.");
@@ -116,10 +117,12 @@ public class HotelMain {
                                                 HotelRoom.roomList.get(i).roomPrice + 
                                                 "kr from your credit card, Thank You!");
                                         payLoop = true;
+                                        
                                     } 
                                     else if (number == 2) {
                                         System.out.println("Ok. You can pay at the time of checkout.");
                                         payLoop = true;
+                                        
                                     } 
                                     //handling if user inputs number not matching menu options
                                     else {
@@ -149,13 +152,13 @@ public class HotelMain {
                         System.out.println("-----------------------------");
                     } 
                     else {
-                        //Checkin completed and message is shown to customer
-                        System.out.println("Check in completed. Welcome to the Hotel!");
+                        //Room booking completed and message is shown to customer
+                        System.out.println("Room booked for you. Welcome to the Hotel!");
                         System.out.println("-----------------------------");
-                        boolean CheckinMore = true;
-                        //loop for whether user wants to check in more customers
-                        while (CheckinMore == true) {
-                            //try/catch for 'check in more' input
+                        boolean BookmoreRoom = true;
+                        //loop for whether user wants to book more room for customers
+                        while (BookmoreRoom == true) {
+                            //try/catch for 'Book more room' input
                             try {
                                 System.out.println("Do you want to check in more customers?");
                                 System.out.println("1: Yes");
@@ -164,16 +167,16 @@ public class HotelMain {
                                 int BookAgain = scan.nextInt();
                                 //if user wants to check in more
                                 if (BookAgain == 1) {
-                                    //loop for checkin is false so checkin process restarts
+                                    //loop for bookroom is false so book room process restarts
                                     BookRoomComplete = false;
-                                    //breaking loop for 'check in more' input
-                                    CheckinMore = false;
+                                    //breaking loop for 'book more room' input
+                                    BookmoreRoom = false;
                                 } 
                                 else if (BookAgain == 2) {
                                     System.out.println("Ok, Thanks!");
-                                    //breaking loop for 'check in more' input
-                                    CheckinMore = false;
-                                    //breaking loop for check in, user is returned to menu
+                                    //breaking loop for 'book more room' input
+                                    BookmoreRoom = false;
+                                    //breaking loop for book room, user is returned to menu
                                     BookRoomComplete = true;
                                 } 
                                 else {
