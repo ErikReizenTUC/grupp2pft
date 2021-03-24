@@ -37,7 +37,7 @@ public class Customer {
             while(ExitCustomer == false) { 
                 System.out.println("-----------------------------");
                 System.out.println("1: See available rooms");
-                System.out.println("2: Check in");
+                System.out.println("2: Book room");
                 System.out.println("3: Check out");
                 System.out.println("4: Return to main menu");
                 System.out.println("-----------------------------");
@@ -55,7 +55,7 @@ public class Customer {
                            HotelRoom.DisplayAvailableRooms();                        
                            break;
                         case 2:
-                            //Call Checkin method
+                            //Call Bookroom method
                             BookRoom();
                             break;
                         case 3:
