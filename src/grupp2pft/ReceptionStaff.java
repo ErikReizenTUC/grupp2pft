@@ -289,7 +289,7 @@ public class ReceptionStaff  {
                 
                 //checking if input is valid
                 if (roomExists == false) {
-                    System.out.println("The room you entered is invalid");
+                    System.out.println("The room number you entered is invalid");
                     System.out.println("-----------------------------");
                 }
                 
