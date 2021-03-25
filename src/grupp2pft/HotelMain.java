@@ -43,11 +43,11 @@ public class HotelMain {
         boolean BookRoomComplete = false;
         //loop for entire bookroom process
         while (BookRoomComplete == false) {
-            
+            HotelRoom.AllRoomsOccupied();
             //checking if rooms are available
             if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true) {
                 System.out.println("Apologies, there are no available rooms!");
-                BookRoomComplete = true;
+                break;
             } 
             else {
                 //Show room list before booking a room
@@ -213,11 +213,11 @@ public class HotelMain {
         //try/catch for checkout, maybe unnecessary
         try {
             //user inputs first name
-            System.out.print("Enter your first name: ");
+            System.out.print("Enter the first name of the person checking out: ");
             //checking that input is only letters, english only
             while (!scan.hasNext("[A-Za-z]+")) {
                 System.out.println("Invalid input!");
-                System.out.print("Enter your first name: ");
+                System.out.print("Enter the first name of the person checking out: ");
                 scan.next();
             }
 
@@ -225,11 +225,11 @@ public class HotelMain {
             String userName = userChoice;
             
             //user inputs last name
-            System.out.print("Enter your last name: ");
+            System.out.print("Enter the last name of the person checking out: ");
             //checking that input is only letters, english only
             while (!scan.hasNext("[A-Za-z]+")) {
                 System.out.println("Invalid input!");
-                System.out.print("Enter your last name: ");
+                System.out.print("Enter the last name of the person checking out: ");
                 scan.next();
             }
             
@@ -289,6 +289,7 @@ public class HotelMain {
         HotelRoom.roomList.add(new HotelRoom(3, 2, 700, true, false, "Erik Fredriksson"));
         HotelRoom.roomList.add(new HotelRoom(4, 2, 800, false, false, "  "));                   
         HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));        
+        //setting a room as unavailable on startup, cannot do so in constructor
         HotelRoom.roomList.get(1).unavailable = true;
 
         //While loop for repetation of FirstMenu method

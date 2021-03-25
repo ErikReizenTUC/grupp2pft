@@ -111,7 +111,7 @@ public class ReceptionStaff  {
             //checking if there are rooms to delete
             if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true) {
                 System.out.println("Apologies, there are no available rooms!");
-                DelRoomLoop = false;
+                break;
             } 
             else {
                 System.out.println("Here is a list of rooms:");
@@ -167,8 +167,8 @@ public class ReceptionStaff  {
             
             //if no rooms can be made unavailable, exit loop
             if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true){
-                System.out.println("All rooms are currently occupied by customers");
-                roomUnavailableLoop = false;
+                System.out.println("There are no available rooms");
+                break;
             }
             
             //printing available rooms to the user
@@ -194,7 +194,7 @@ public class ReceptionStaff  {
                         //setting room as unavailable
                         HotelRoom.roomList.get(i).unavailable = true;
                         System.out.println("Room number " + HotelRoom.roomList.get(i).roomNumber + 
-                                " is made unavailable until further notice.");
+                                " has been made unavailable until further notice.");
                         //breaking loop and exiting
                         roomUnavailableLoop = false;
 
@@ -230,7 +230,7 @@ public class ReceptionStaff  {
             //if no rooms can be made available, exit loop
             if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true){
                 System.out.println("All rooms are currently occupied by customers");
-                roomAvailableLoop = false;
+                break;
             }
             
             //printing all rooms to the user
@@ -269,21 +269,6 @@ public class ReceptionStaff  {
                         //breaking loop and exiting
                         roomAvailableLoop = false;
                     }
-                    
-                    /*
-                    original if-statement for reference
-                    if (roomMod == HotelRoom.roomList.get(i).roomNumber && 
-                            HotelRoom.roomList.get(i).occupied == false && 
-                            HotelRoom.roomList.get(i).unavailable == true){
-                        //setting room as available
-                        HotelRoom.roomList.get(i).unavailable = false;
-                        System.out.println("Room number " + HotelRoom.roomList.get(i).roomNumber + 
-                                " is once again available.");
-                        //breaking loop and exiting
-                        roomAvailableLoop = false;
-
-                    }
-                    */
                     
                 }
                 

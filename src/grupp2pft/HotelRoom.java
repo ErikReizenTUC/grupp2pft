@@ -103,7 +103,7 @@ public class HotelRoom {
         int count = 0;
         //loop adding 1 to count for every occupied room
         for (int i = 0; i < HotelRoom.roomList.size(); i++) {
-            if (HotelRoom.roomList.get(i).occupied == true) {
+            if (HotelRoom.roomList.get(i).occupied == true || HotelRoom.roomList.get(i).unavailable) {
                 count++;
             }
         }
