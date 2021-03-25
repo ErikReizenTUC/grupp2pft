@@ -263,7 +263,7 @@ public class ReceptionStaff  {
                         }
                         //if room is already available, do nothing and exit loop
                         else {
-                            System.out.println("Room is already available.");
+                            System.out.println("Enter a unavailable room number.");
                         }
                     
                         //breaking loop and exiting
