@@ -4,20 +4,21 @@
  * and open the template in the editor.
 
  /*
-Gruppmedlemmar i grupp 2!
+Members of group 2:
 Stefan Levstad
 Erik Reizenstein
 Pooja Bansal
 Marcus Ahlgren
 Ali Esmaeeli
  */
+
 package grupp2pft;
 
 import java.util.Scanner;
 
 /**
  *
- * @author Grupp 2
+ * @author Group 2
  */
 public class HotelMain {
 
