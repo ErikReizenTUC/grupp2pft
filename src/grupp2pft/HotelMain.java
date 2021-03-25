@@ -43,7 +43,7 @@ public class HotelMain {
         boolean BookRoomComplete = false;
         //loop for entire bookroom process
         while (BookRoomComplete == false) {
-            HotelRoom.AllRoomsOccupied();
+            
             //checking if rooms are available
             if (HotelRoom.roomList.isEmpty() || HotelRoom.AllRoomsOccupied() == true) {
                 System.out.println("Apologies, there are no available rooms!");
