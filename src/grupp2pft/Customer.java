@@ -3,6 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+/*
+Members in group 2:
+Stefan Levstad
+Erik Reizenstein
+Pooja Bansal
+Marcus Ahlgren
+Ali Esmaeeli
+ */
+
 package grupp2pft;
 
 import static grupp2pft.HotelMain.CheckOut;
