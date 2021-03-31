@@ -418,6 +418,17 @@ public class ReceptionStaff  {
 
     }
     
+    //Log in as receptionist with password
+    public static boolean LogIn(){
+        
+        return false;
+    }
+    
+    //Creating a new receptionist object.
+    public static void CreateReceptionist(){
+        
+    }
+    
     //calling after checkout is completed
     public static void Cleaning() {  
         

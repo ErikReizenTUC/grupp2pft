@@ -31,9 +31,10 @@ public class HotelMain {
     public static void FirstMenu() {
         System.out.println("Hello, Welcome to the Hotel!");
         System.out.println("Enter your choice: ");
-        System.out.println("1. Log in as Customer");
-        System.out.println("2. Log in as Receptionstaff");
-        System.out.println("3. Exit from the program!");
+        System.out.println("1. Log in as Customer.");
+        System.out.println("2. Log in as Receptionstaff.");
+        System.out.println("3. Log in as Admin.");
+        System.out.println("4. Exit from the program!");
         System.out.println("-----------------------------");
     }
 
@@ -317,6 +318,11 @@ public class HotelMain {
                         break;
 
                     case 3:
+                        // Creating a new receptionist object as "Admin"
+                        ReceptionStaff.CreateReceptionist();
+                        break;
+                        
+                    case 4:
                         System.out.println("Exit from the program!");
                         //Resetting variable to exit from Firstmenu
                         Exit = true;
