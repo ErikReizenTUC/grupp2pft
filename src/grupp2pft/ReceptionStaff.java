@@ -445,7 +445,8 @@ public class ReceptionStaff  {
 
     }
 
-    //Creating a new receptionist object.
+    //Creating a new receptionist object. 
+    //under construction!
     public static void AdminCreateReceptionist(){
         
         int AdminPassword = 1234;
