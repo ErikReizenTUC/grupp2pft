@@ -303,79 +303,86 @@ public class ReceptionStaff  {
     
     
    //this is the main method for accessing the receptionists options     
-    public static void RecAccess (){
-        
+    public static void RecAccess() {
+
         boolean exit = false;
-            //a do-while loop for performing different menus and exiting using the boolean
-            //HA KVAR DENNA DO SKITEN!
-            do{         
-                    //calling method to display menu options to user
-                    MainMenuRec();
-                    //try/catch for switch case input
-                    try {
-                        System.out.print("Make selection: ");
-                        int recVal = RecInput.nextInt();
 
-                        //a switch case to perform differnt tasks related to a receptionist
-                        switch(recVal){
-                            case 1:
-                                   HotelMain.BookRoom();
-                                break;
+        //a do-while loop for performing different menus and exiting using the boolean
+        do {
+            if (ReceptionistLogIn() == false) {
+                System.out.println("Access Denied, please try again later!");
+                
+                exit = true;
+            } else {
+                //calling method to display menu options to user
+                MainMenuRec();
+                //try/catch for switch case input
+                try {
+                    System.out.print("Make selection: ");
+                    int recVal = RecInput.nextInt();
 
-                            case 2:
-                                    HotelMain.CheckOut();
-                                break;
+                    //a switch case to perform differnt tasks related to a receptionist
+                    switch (recVal) {
+                        case 1:
+                            HotelMain.BookRoom();
+                            break;
 
-                            case 3:
-                                    HotelRoom.DisplayAllRooms();
-                                break;
+                        case 2:
+                            HotelMain.CheckOut();
+                            break;
 
-                            case 4:
-                                    AddRoom();
-                                break;
+                        case 3:
+                            HotelRoom.DisplayAllRooms();
+                            break;
 
-                            case 5:
-                                    DelRoom();
-                                break;
-                            
-                            case 6:
-                                    SetRoomUnavailable();
-                                break;
-                            
-                            case 7:
-                                    SetRoomAvailable();
-                                break;
+                        case 4:
+                            AddRoom();
+                            break;
 
-                            case 8:
-                                    System.out.println("Returning to main menu");
-                                    System.out.println("-----------------------------");
-                                    exit = true;
-                                break;
-                            
-                            default:
-                                System.out.println("Input does not match menu options");
-                                break;
+                        case 5:
+                            DelRoom();
+                            break;
 
-                        }
+                        case 6:
+                            SetRoomUnavailable();
+                            break;
+
+                        case 7:
+                            SetRoomAvailable();
+                            break;
+
+                        case 8:
+                            System.out.println("Returning to main menu");
+                            System.out.println("-----------------------------");
+                            exit = true;
+                            break;
+
+                        default:
+                            System.out.println("Input does not match menu options");
+                            break;
+
                     }
-                    catch (Exception InputMismatchException) {
-                        //handling if input is not integer
-                        System.out.println("Please enter a number");
-                        System.out.println("-----------------------------");
-                        
-                        //Cleaning scanner
-                        RecInput.next();
-                    }
-            } while(!exit);
+                } catch (Exception InputMismatchException) {
+                    //handling if input is not integer
+                    System.out.println("Please enter a number");
+                    System.out.println("-----------------------------");
+
+                    //Cleaning scanner
+                    RecInput.next();
+                }
+            }
+        }
+            while (!exit);
+        
     }
-    
+
     //Log in as receptionist with password
     public static boolean ReceptionistLogIn() {
 
         boolean loginSuccess = false;
 
         //for-loop with counter to check how many times login has been done.
-        for (int i = 1; i <= 3; i++ ) {
+        for (int i = 1; i <= 3; i++) {
             try {
                 //asking the receptionist to enter first name 
                 System.out.print("First Name: ");
@@ -413,12 +420,10 @@ public class ReceptionStaff  {
 
                     System.out.println("Welcome " + receptionist.firstName + " " + receptionist.lastName);
                     System.out.println("-----------------------------");
-                    
+
                     loginSuccess = true;
                     break;
-                }
-                
-                else { 
+                } else {
                     System.out.println("invalid credentials, attempt " + i + " of 3!");
                     System.out.println("-----------------------------");
                 }
@@ -431,13 +436,15 @@ public class ReceptionStaff  {
                 RecInput.next();
             }
         }
-        
-        if(loginSuccess == false){
-           return false; 
-        } else return true;
-        
+
+        if (loginSuccess == false) {
+            return false;
+        } else {
+            return true;
+        }
+
     }
-    
+
     //Creating a new receptionist object.
     public static void AdminCreateReceptionist(){
         
