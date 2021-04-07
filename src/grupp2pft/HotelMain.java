@@ -294,6 +294,8 @@ public class HotelMain {
         //setting a room as unavailable on startup, cannot do so in constructor
         HotelRoom.roomList.get(1).unavailable = true;
 
+        // för att testa nya metoden!
+        ReceptionStaff.ReceptionistLogIn();
         //While loop for repetation of FirstMenu method
         boolean Exit = false;
         //while loop for main menu
@@ -320,7 +322,7 @@ public class HotelMain {
 
                     case 3:
                         // Creating a new receptionist object as "Admin"
-                        ReceptionStaff.CreateReceptionist();
+                        ReceptionStaff.AdminCreateReceptionist();
                         break;
                         
                     case 4:
