@@ -435,7 +435,7 @@ public class ReceptionStaff  {
         boolean loginSuccess = false;
 
         //for-loop with counter to check how many times login has been done.
-        for (int i = 0; i < 3; i++ ) {
+        for (int i = 1; i <= 3; i++ ) {
             try {
                 //asking the receptionist to enter first name 
                 System.out.print("First Name: ");
@@ -475,10 +475,16 @@ public class ReceptionStaff  {
                     System.out.println("-----------------------------");
                     
                     loginSuccess = true;
+                    break;
+                }
+                
+                else { 
+                    System.out.println("invalid credentials, attempt " + i + " of 3!");
+                    System.out.println("-----------------------------");
                 }
             } catch (Exception InputMismatchException) {
                 //handling if input is not integer
-                System.out.println("Please enter a number");
+                System.out.println("Please enter a number, attempt " + i + " of 3!");
                 System.out.println("-----------------------------");
 
                 //Cleaning scanner
