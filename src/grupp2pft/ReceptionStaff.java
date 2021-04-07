@@ -436,7 +436,7 @@ public class ReceptionStaff  {
                 RecInput.next();
             }
         }
-
+        
         if (loginSuccess == false) {
             return false;
         } else {
@@ -448,6 +448,7 @@ public class ReceptionStaff  {
     //Creating a new receptionist object.
     public static void AdminCreateReceptionist(){
         
+        int AdminPassword = 1234;
     }
     
     //calling after checkout is completed
