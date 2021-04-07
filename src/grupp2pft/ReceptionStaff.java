@@ -306,50 +306,9 @@ public class ReceptionStaff  {
     public static void RecAccess (){
         
         boolean exit = false;
-        
-        //try/catch for user input
-        try {
-            //asking the receptionist to enter first name 
-            System.out.print("First Name: ");
-            //checking that input is only letters, english only
-            while (!RecInput.hasNext("[A-Za-z]+")) {
-                System.out.println("Invalid input!");
-                System.out.print("First Name: ");
-                RecInput.next();
-            }
-            String recFName = RecInput.next();
-            
-            //user inputs last name
-            System.out.print("Last Name: ");
-            //chgecking that input is only letters, english only
-            while (!RecInput.hasNext("[A-Za-z]+")) {
-                System.out.println("Invalid input!");
-                System.out.print("Last Name: ");
-                RecInput.next();
-            }
-            //asking user to input work id, has to be between 1 and 9 to be authorized
-            String recLName = RecInput.next();
-            System.out.print("Work ID: ");
-            int recId = RecInput.nextInt();
-
-            //saving the users input, creating new receptionstaff object
-            ReceptionStaff receptionist = new ReceptionStaff(recFName, recLName, recId);
-
             //a do-while loop for performing different menus and exiting using the boolean
             //HA KVAR DENNA DO SKITEN!
             do{         
-
-                //if statement for either accessing  the main menu or being redirected to the user 
-                //selection menu
-                if (recId > 0 && recId < 10){
-                    
-                    System.out.println("-----------------------------");
-                    System.out.println("Access Authorized");
-                    System.out.println("-----------------------------");
-
-                    System.out.println("Welcome " + receptionist.firstName + " " + receptionist.lastName);
-                    System.out.println("-----------------------------");
-                    
                     //calling method to display menu options to user
                     MainMenuRec();
                     //try/catch for switch case input
@@ -407,26 +366,7 @@ public class ReceptionStaff  {
                         //Cleaning scanner
                         RecInput.next();
                     }
-
-                }
-                //if id is not valid, asking user for new input
-                else { 
-                    System.out.println("Access Denied \nPlease try again");
-                    System.out.println("-----------------------------");
-                    exit = true;
-                }
-
-            }while(!exit);
-        }
-        catch (Exception InputMismatchException) {
-            //handling if input is not integer
-            System.out.println("Please enter a number");
-            System.out.println("-----------------------------");
-            
-            //Cleaning scanner
-            RecInput.next();
-        }
-
+            } while(!exit);
     }
     
     //Log in as receptionist with password
