@@ -444,13 +444,6 @@ public class ReceptionStaff  {
         }
 
     }
-
-    //Creating a new receptionist object. 
-    //under construction!
-    public static void AdminCreateReceptionist(){
-        
-        int AdminPassword = 1234;
-    }
     
     //calling after checkout is completed
     public static void Cleaning() {  

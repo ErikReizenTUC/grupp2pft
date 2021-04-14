@@ -34,8 +34,7 @@ public class HotelMain {
         System.out.println("Enter your choice: ");
         System.out.println("1. Log in as Customer.");
         System.out.println("2. Log in as Receptionstaff.");
-        System.out.println("3. Log in as Admin.");
-        System.out.println("4. Exit from the program!");
+        System.out.println("3. Exit from the program!");
         System.out.println("-----------------------------");
     }
 
@@ -317,13 +316,8 @@ public class HotelMain {
                         //logging in as receptionist              
                         ReceptionStaff.RecAccess();
                         break;
-
-                    case 3:
-                        // Creating a new receptionist object as "Admin"
-                        ReceptionStaff.AdminCreateReceptionist();
-                        break;
                         
-                    case 4:
+                    case 3:
                         System.out.println("Exit from the program!");
                         //Resetting variable to exit from Firstmenu
                         Exit = true;
