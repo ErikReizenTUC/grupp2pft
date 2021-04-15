@@ -78,4 +78,22 @@ public class RoomServiceTest {
         
     }
     
+    @Test
+    public void testDisplayProducts(){
+        System.out.println("DisplayProducts");
+        
+        RoomService.productList.add(new RoomService("Coke", 20));
+        RoomService.productList.add(new RoomService("Pepsi", 15));
+        RoomService.productList.add(new RoomService("Fanta", 18));
+        
+        int expResult = RoomService.productList.size();
+        int Result = RoomService.DisplayProducts();
+        
+        assertEquals(expResult, Result);
+        
+        expResult = RoomService.productList.size() + 1;
+        Result = RoomService.DisplayProducts();
+        
+        assertNotEquals(expResult, Result);
+    }
 }

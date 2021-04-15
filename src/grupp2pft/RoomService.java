@@ -32,16 +32,16 @@ public class RoomService {
     static ArrayList<RoomService> productList = new ArrayList<>();
     
     //New method to display available products
-    public static int DisplayProducts(){
-        
+    public static int DisplayProducts() {
+
         int count = 0;
-        
+
         //printing All products
-            for (int i = 0; i < RoomService.productList.size(); i++){
-                System.out.println(RoomService.productList.get(i).productName + ", " +
-                        RoomService.productList.get(i).productPrice + " kr.");
-                count++;
-            }
+        for (int i = 0; i < RoomService.productList.size(); i++) {
+            count++;
+            System.out.println(count + ". " + RoomService.productList.get(i).productName + ", "
+                    + RoomService.productList.get(i).productPrice + " kr.");
+        }
         return count;
     }
 }

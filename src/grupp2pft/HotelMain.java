@@ -295,6 +295,12 @@ public class HotelMain {
         
         //Instanciating new RoomService objects.
         
+        RoomService.productList.add(new RoomService("Coke", 20));
+        RoomService.productList.add(new RoomService("Pepsi", 15));
+        RoomService.productList.add(new RoomService("Fanta", 18));
+        
+        RoomService.DisplayProducts();
+        
         //While loop for repetation of FirstMenu method
         boolean Exit = false;
         //while loop for main menu
