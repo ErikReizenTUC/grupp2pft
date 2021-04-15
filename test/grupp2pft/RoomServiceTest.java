@@ -51,25 +51,25 @@ public class RoomServiceTest {
         System.out.println("RoomServiceItemPrice");
         //Creating a new instance of RoomService
         //Customer used Coke
-        RoomService drinkServiceCoke =new RoomService("Coke", 20);
+        RoomService drinkServiceCoke = new RoomService("Coke", 20);
         int number = 2;
         int expResult = 40;
         int result = drinkServiceCoke.RoomServiceItemPrice(number);
         //Test for if expected result and actual result are equal
         assertEquals(expResult, result);
-        
+
         //Creating a new instance of RoomService
         //Customer used Pepsi
-        RoomService drinkServicePepsi =new RoomService("Pepsi", 15);
+        RoomService drinkServicePepsi = new RoomService("Pepsi", 15);
         number = 4;
         expResult = 80;
         result = drinkServicePepsi.RoomServiceItemPrice(number);
         //Test for if expected result and actual result are not equal
         assertNotEquals(expResult, result);
-        
+
         //Creating a new instance of RoomService
         //Customer used Fanta
-        RoomService drinkServiceFanta =new RoomService("Fanta", 18);
+        RoomService drinkServiceFanta = new RoomService("Fanta", 18);
         number = 2;
         expResult = 36;
         result = drinkServiceFanta.RoomServiceItemPrice(number);
