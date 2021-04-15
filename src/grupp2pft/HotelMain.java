@@ -292,7 +292,9 @@ public class HotelMain {
         HotelRoom.roomList.add(new HotelRoom(5, 1, 900, false, false, "  "));        
         //setting a room as unavailable on startup, cannot do so in constructor
         HotelRoom.roomList.get(1).unavailable = true;
-
+        
+        //Instanciating new RoomService objects.
+        
         //While loop for repetation of FirstMenu method
         boolean Exit = false;
         //while loop for main menu
