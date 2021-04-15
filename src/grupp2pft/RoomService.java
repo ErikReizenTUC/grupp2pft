@@ -1,5 +1,7 @@
 package grupp2pft;
 
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,5 +28,20 @@ public class RoomService {
         return this.productPrice * number;
     }
     
+    //ArrayList with productObjects.
+    static ArrayList<RoomService> productList = new ArrayList<>();
     
+    //New method to display available products
+    public static int DisplayProducts(){
+        
+        int count = 0;
+        
+        //printing All products
+            for (int i = 0; i < RoomService.productList.size(); i++){
+                System.out.println(RoomService.productList.get(i).productName + ", " +
+                        RoomService.productList.get(i).productPrice + " kr.");
+                count++;
+            }
+        return count;
+    }
 }
