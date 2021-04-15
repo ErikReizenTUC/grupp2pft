@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Neetesh
+ * @author Group 2
  */
 public class RoomServiceTest {
     
@@ -49,23 +49,32 @@ public class RoomServiceTest {
     @Test
     public void testRoomServiceItemPrice() {
         System.out.println("RoomServiceItemPrice");
-        RoomService rs =new RoomService("Coke", 20);
+        //Creating a new instance of RoomService
+        //Customer used Coke
+        RoomService drinkServiceCoke =new RoomService("Coke", 20);
         int number = 2;
         int expResult = 40;
-        int result = rs.RoomServiceItemPrice(number);
+        int result = drinkServiceCoke.RoomServiceItemPrice(number);
+        //Test for if expected result and actual result are equal
         assertEquals(expResult, result);
         
-        RoomService rs1 =new RoomService("Pepsi", 15);
+        //Creating a new instance of RoomService
+        //Customer used Pepsi
+        RoomService drinkServicePepsi =new RoomService("Pepsi", 15);
         number = 4;
         expResult = 80;
-        result = rs1.RoomServiceItemPrice(number);
+        result = drinkServicePepsi.RoomServiceItemPrice(number);
+        //Test for if expected result and actual result are not equal
         assertNotEquals(expResult, result);
         
-        RoomService rs2 =new RoomService("Fanta", 18);
+        //Creating a new instance of RoomService
+        //Customer used Fanta
+        RoomService drinkServiceFanta =new RoomService("Fanta", 18);
         number = 2;
-        expResult = 40;
-        result = rs2.RoomServiceItemPrice(number);
-        assertNotEquals(expResult, result);
+        expResult = 36;
+        result = drinkServiceFanta.RoomServiceItemPrice(number);
+        //Test for if expected result and actual result are equal
+        assertEquals(expResult, result);
         
     }
     
