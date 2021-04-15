@@ -19,10 +19,7 @@ public class RoomService {
         this.productName = productName;
         this.productPrice = productPrice;
     }
-    
-    public static void StockRoomService(){
-    }
-    
+          
     public int RoomServiceItemPrice(int number){
         return this.productPrice * number;             
     }
