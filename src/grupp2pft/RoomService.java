@@ -84,6 +84,7 @@ public class RoomService {
     protected static void ItemsMenu(){
         boolean itemsMenuExit = false;
         System.out.println("Please select the items used during your stay: ");
+        ItemsCount();
         
         if (itemsMenuExit = false){
         ItemsCount();

@@ -250,12 +250,13 @@ public class HotelMain {
                     //handling user payment
                     if (HotelRoom.roomList.get(i).PaidInAdvance == true) {
 
-                        System.out.println("Room already paid, please come again!");
+                        System.out.println("Room already paid, please check if you have used extra products");
                         RoomService.RoomServiceChargeMenu();
                     } 
                     else {
                         System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + 
-                                "kr from your credit card, please come again!");
+                                "kr from your credit card, please check if you have used extra products");
+                        RoomService.RoomServiceChargeMenu();
                     } 
                     System.out.println("You have succesfully checked out");
                     System.out.println("-----------------------------");
@@ -300,7 +301,7 @@ public class HotelMain {
         RoomService.productList.add(new RoomService("Pepsi", 15));
         RoomService.productList.add(new RoomService("Fanta", 18));
         
-        RoomService.DisplayProducts();
+        //RoomService.DisplayProducts();
         
         //While loop for repetation of FirstMenu method
         boolean Exit = false;
