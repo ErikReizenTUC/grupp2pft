@@ -250,7 +250,8 @@ public class HotelMain {
                     //handling user payment
                     if (HotelRoom.roomList.get(i).PaidInAdvance == true) {
 
-                        System.out.println("Room already paid, please come again!"); 
+                        System.out.println("Room already paid, please come again!");
+                        RoomService.RoomServiceChargeMenu();
                     } 
                     else {
                         System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + 

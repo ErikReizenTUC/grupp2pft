@@ -96,4 +96,11 @@ public class RoomServiceTest {
         
         assertNotEquals(expResult, Result);
     }
+    
+    @Test
+    public void testCountValue(){
+        System.out.println("Count Value Test");
+        int testSum = RoomService.CountValue(3, 18);
+        assertEquals(54, testSum);
+    }
 }
