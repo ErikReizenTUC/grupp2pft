@@ -19,7 +19,7 @@ public class RoomService {
     public int productPrice;
     static int charge;
     
-    static Scanner RServeice = new Scanner(System.in);
+    static Scanner RService = new Scanner(System.in);
     
     //Constructor
     public RoomService(String productName, int productPrice) {
@@ -55,30 +55,31 @@ public class RoomService {
     }
     
     //menu used for items in RoomSerivceCharge method 
-    public static void RoomServiceChargeMenu(){
-            
-            boolean end = false;
-        
-        
+    public static void RoomServiceChargeMenu() {
+
+        boolean chargeLoop = true;
+        while (chargeLoop) {
+
             System.out.println("Please confirm if you have used extra items during your stay: ");
             System.out.println("1. Yes");
             System.out.println("2. No");
-            int chargeMenu =  RServeice.nextInt();
-            
-            switch(chargeMenu){
-                
+            int chargeMenu = RService.nextInt();
+
+            switch (chargeMenu) {
+
                 case 1:
+                    DisplayProducts();
                     ItemsMenu();
                     break;
-                    
+
                 case 2:
-                    end = true;
+                    chargeLoop = false;
                     break;
-                    default: System.out.println("Please enter a valid selection");
+                default:
+                    System.out.println("Please enter a valid selection");
             }
-            
-            
-            
+        } 
+
     }
     //a method for showing list of products and a subsequent calculation of the value
     protected static void ItemsMenu(){
@@ -92,7 +93,7 @@ public class RoomService {
             System.out.println("Did you use any more items");
             System.out.println("1. Yes");
             System.out.println("2. No");
-            int itemsMenuAnswer = RServeice.nextInt();
+            int itemsMenuAnswer = RService.nextInt();
             switch(itemsMenuAnswer){
                 case 1:
                     ItemsCount();
@@ -116,7 +117,7 @@ public class RoomService {
         System.out.println(productList.get(i).productName);
         //asking for the quantity of products used    
         System.out.println("Quantity: ");
-            int count = RServeice.nextInt();
+            int count = RService.nextInt();
         
         if (itemExist = true){
             System.out.println(CountValue(count, productList.get(i).productPrice) + " kr is added to your bill");}
