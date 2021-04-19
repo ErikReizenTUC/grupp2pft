@@ -82,26 +82,27 @@ public class RoomService {
 
     }
     //a method for showing list of products and a subsequent calculation of the value
-    protected static void ItemsMenu(){
+    protected static void ItemsMenu() {
         boolean itemsMenuExit = false;
         System.out.println("Please select the items used during your stay: ");
         ItemsCount();
-        
-        if (itemsMenuExit = false){
-        ItemsCount();
-        }else {
+
+        if (itemsMenuExit = false) {
+            ItemsCount();
+        } else {
             System.out.println("Did you use any more items");
             System.out.println("1. Yes");
             System.out.println("2. No");
             int itemsMenuAnswer = RService.nextInt();
-            switch(itemsMenuAnswer){
+            switch (itemsMenuAnswer) {
                 case 1:
                     ItemsCount();
-                        break;
+                    break;
                 case 2:
                     itemsMenuExit = true;
-                        break;
-                        default:System.out.println("Please select a correct option");
+                    break;
+                default:
+                    System.out.println("Please select a correct option");
             }
         }
     }
@@ -111,29 +112,28 @@ public class RoomService {
         
         boolean itemExist = true;
         
-        
         DisplayProducts();
         System.out.println("Please enter the product used: ");
         int productUsed = RService.nextInt();
-        
-        if (productUsed <= productList.size() || productList.contains(productUsed))
-        
-         //   for (int i = 0; i < productList.size();i++){
-        
-        //print out the list of product names
-        //System.out.println(productList.get(i).productName);
-        //asking for the quantity of products used    
-        System.out.println("Quantity: ");
-            int count = RService.nextInt();
-        
-        if (itemExist = true){
-            System.out.println(CountValue(count, productList.get(productUsed).productPrice) + " kr is added to your bill");}
-        
-        else{
-            itemExist = false;
+
+        if (productUsed > productList.size() || productUsed <= 0) {
             System.out.println("The product could not be found");
+        } else {
+
+            //   for (int i = 0; i < productList.size();i++){
+            //print out the list of product names
+            //System.out.println(productList.get(i).productName);
+            //asking for the quantity of products used    
+            System.out.println("Quantity: ");
+            int count = RService.nextInt();
+
+            if (itemExist = true) {
+                System.out.println(CountValue(count, productList.get(productUsed).productPrice) + " kr is added to your bill");
+            } else {
+                itemExist = false;
+                System.out.println("The product could not be found");
             }
-       // }
+        }
     }
     
     // a method for calculating the value
