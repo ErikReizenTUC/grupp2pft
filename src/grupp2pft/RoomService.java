@@ -113,11 +113,12 @@ public class RoomService {
         
         
         DisplayProducts();
-        System.out.println("Please enter the name of the product used: ");
-        String productUsed = RService.next();
+        System.out.println("Please enter the product used: ");
+        int productUsed = RService.nextInt();
         
-        if (productList.contains(productUsed))
-        for (int i = 0; i < productList.size();i++){
+        if (productUsed <= productList.size() || productList.contains(productUsed))
+        
+         //   for (int i = 0; i < productList.size();i++){
         
         //print out the list of product names
         //System.out.println(productList.get(i).productName);
@@ -126,13 +127,13 @@ public class RoomService {
             int count = RService.nextInt();
         
         if (itemExist = true){
-            System.out.println(CountValue(count, productList.get(i).productPrice) + " kr is added to your bill");}
+            System.out.println(CountValue(count, productList.get(productUsed).productPrice) + " kr is added to your bill");}
         
         else{
             itemExist = false;
             System.out.println("The product could not be found");
             }
-        }
+       // }
     }
     
     // a method for calculating the value
