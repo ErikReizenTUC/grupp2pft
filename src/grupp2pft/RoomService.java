@@ -8,19 +8,19 @@ import java.util.Scanner;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Group 2
  */
 public class RoomService {
+
     //Attributes
     public String productName;
     public int productPrice;
     static int charge;
-    
+
     static Scanner RService = new Scanner(System.in);
-    
+
     //Constructor
     public RoomService(String productName, int productPrice) {
         this.productName = productName;
@@ -31,10 +31,10 @@ public class RoomService {
     public int RoomServiceItemPrice(int number) {
         return this.productPrice * number;
     }
-    
+
     //ArrayList with productObjects.
     static ArrayList<RoomService> productList = new ArrayList<>();
-    
+
     //New method to display available products
     public static int DisplayProducts() {
 
@@ -48,12 +48,13 @@ public class RoomService {
         }
         return count;
     }
+
     //method for counting the sum of extra items used in the room 
-    public static int RoomServiceCharge(){
-        
+    public static int RoomServiceCharge() {
+
         return charge;
     }
-    
+
     //menu used for items in RoomSerivceCharge method 
     public static void RoomServiceChargeMenu() {
 
@@ -68,7 +69,7 @@ public class RoomService {
             switch (chargeMenu) {
 
                 case 1:
-                   //DisplayProducts();
+                    
                     ItemsMenu();
                     break;
 
@@ -78,9 +79,10 @@ public class RoomService {
                 default:
                     System.out.println("Please enter a valid selection");
             }
-        } 
+        }
 
     }
+
     //a method for showing list of products and a subsequent calculation of the value
     protected static void ItemsMenu() {
         boolean itemsMenuExit = false;
@@ -106,42 +108,30 @@ public class RoomService {
             }
         }
     }
-    
+
     //a method for asking the name of products and the quantity
-    protected static void ItemsCount(){
-        
+    protected static void ItemsCount() {
+
         boolean itemExist = true;
-        
+
         DisplayProducts();
         System.out.println("Please enter the product used: ");
         int productUsed = RService.nextInt();
 
         if (productUsed > productList.size() || productUsed <= 0) {
             System.out.println("The product could not be found");
+            itemExist = false;
         } else {
-
-            //   for (int i = 0; i < productList.size();i++){
-            //print out the list of product names
-            //System.out.println(productList.get(i).productName);
-            //asking for the quantity of products used    
             System.out.println("Quantity: ");
             int count = RService.nextInt();
-
-            if (itemExist = true) {
-                System.out.println(CountValue(count, productList.get(productUsed).productPrice) + " kr is added to your bill");
-            } else {
-                itemExist = false;
-                System.out.println("The product could not be found");
-            }
+            System.out.println(CountValue(count, productList.get(productUsed -1).productPrice) + " kr is added to your bill");
         }
     }
-    
+
     // a method for calculating the value
-    protected static int CountValue(int quantity, int value){
-        int sum = quantity*value;
+    protected static int CountValue(int quantity, int value) {
+        int sum = quantity * value;
         return sum;
     }
-    
-    
-   
+
 }
