@@ -237,7 +237,8 @@ public class HotelMain {
             userChoice = scan.next();
             //userName is now Customer firstName + " " + lastName
             userName += " " + userChoice;
-
+            
+            int finalBill;
             //Using roomExists to see whether user entered a valid room
             boolean roomExists = false;
             //looping through all rooms checking if any are occupied by user
@@ -249,14 +250,15 @@ public class HotelMain {
                     HotelRoom.roomList.get(i).occupiedBy = "";    
                     //handling user payment
                     if (HotelRoom.roomList.get(i).PaidInAdvance == true) {
-
-                        System.out.println("Room already paid, please check if you have used extra products");
-                        RoomService.RoomServiceChargeMenu();
+                        finalBill = RoomService.RoomServiceChargeMenu();
+                        System.out.println("Room already paid, we have deducted " + finalBill + 
+                                " kr from your credit card.");
                     } 
                     else {
-                        System.out.println("We have deducted " + HotelRoom.roomList.get(i).roomPrice + 
-                                "kr from your credit card, please check if you have used extra products");
-                        RoomService.RoomServiceChargeMenu();
+                        finalBill = HotelRoom.roomList.get(i).roomPrice + RoomService.RoomServiceChargeMenu();
+                        System.out.println("In total we have deducted " + finalBill + 
+                                "kr from your credit card.");
+                        
                     } 
                     System.out.println("You have succesfully checked out");
                     System.out.println("-----------------------------");

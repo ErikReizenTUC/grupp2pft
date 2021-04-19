@@ -56,31 +56,74 @@ public class RoomService {
     }
 
     //menu used for items in RoomSerivceCharge method 
-    public static void RoomServiceChargeMenu() {
-
+    public static int RoomServiceChargeMenu() {
+        int totalPrice = 0;
         boolean chargeLoop = true;
         while (chargeLoop) {
 
             System.out.println("Please confirm if you have used extra items during your stay: ");
             System.out.println("1. Yes");
             System.out.println("2. No");
+            System.out.print("Make selection: ");
             int chargeMenu = RService.nextInt();
+            System.out.println("-----------------------------");
 
             switch (chargeMenu) {
 
                 case 1:
-                    
-                    ItemsMenu();
-                    break;
+                    boolean selectionLoop = true;
+                    while (selectionLoop) {
+                        System.out.println("The options are: ");
+                        DisplayProducts();
+                        System.out.print("Please enter the product used: ");
+                        int productUsed = RService.nextInt();
 
-                case 2:
+                        if (productUsed > productList.size() || productUsed <= 0) {
+                            System.out.println("The product could not be found");
+                            continue;
+                        } else {
+                            System.out.print("Quantity: ");
+                            int quantity = RService.nextInt();
+                            totalPrice += productList.get(productUsed -1).RoomServiceItemPrice(quantity);
+                            System.out.println("Thank you. Your total bill for room service is currently " + totalPrice + " kr.");
+                        }
+                        boolean moreItemsLoop = true;
+                        while (moreItemsLoop) {
+                            System.out.println("Did you use any more items");
+                            System.out.println("1. Yes");
+                            System.out.println("2. No");
+                            System.out.print("Make selection: ");
+                            int moreItemsChoice = RService.nextInt();
+                            if (moreItemsChoice == 1) {
+                                moreItemsLoop = false;
+                            }
+                            else if (moreItemsChoice == 2) {
+                                System.out.println("Okay, thank you!");
+                                System.out.println("-----------------------------");
+                                selectionLoop = false;
+                                moreItemsLoop = false;
+                                //return totalPrice;
+                                
+                            }
+                            else {
+                                System.out.println("Please choose from menu options.");
+                            }
+                        }   
+                    }
                     chargeLoop = false;
                     break;
+                case 2:
+                    System.out.println("Okay, thank you!");
+                    System.out.println("-----------------------------");
+                    //return totalPrice;
+                    //chargeLoop = false;
+                    //break;
                 default:
-                    System.out.println("Please enter a valid selection");
+                    System.out.println("Please enter a valid selection.");
+                    break;
             }
         }
-
+        return totalPrice;
     }
 
     //a method for showing list of products and a subsequent calculation of the value
@@ -122,7 +165,7 @@ public class RoomService {
             System.out.println("The product could not be found");
             itemExist = false;
         } else {
-            System.out.println("Quantity: ");
+            System.out.print("Quantity: ");
             int count = RService.nextInt();
             System.out.println(CountValue(count, productList.get(productUsed -1).productPrice) + " kr is added to your bill");
         }
