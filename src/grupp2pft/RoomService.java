@@ -68,7 +68,7 @@ public class RoomService {
             switch (chargeMenu) {
 
                 case 1:
-                    DisplayProducts();
+                   //DisplayProducts();
                     ItemsMenu();
                     break;
 
@@ -111,10 +111,16 @@ public class RoomService {
         
         boolean itemExist = true;
         
+        
+        DisplayProducts();
+        System.out.println("Please enter the name of the product used: ");
+        String productUsed = RService.next();
+        
+        if (productList.contains(productUsed))
         for (int i = 0; i < productList.size();i++){
         
         //print out the list of product names
-        System.out.println(productList.get(i).productName);
+        //System.out.println(productList.get(i).productName);
         //asking for the quantity of products used    
         System.out.println("Quantity: ");
             int count = RService.nextInt();
@@ -134,4 +140,7 @@ public class RoomService {
         int sum = quantity*value;
         return sum;
     }
+    
+    
+   
 }
