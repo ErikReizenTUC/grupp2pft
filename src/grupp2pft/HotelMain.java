@@ -238,6 +238,7 @@ public class HotelMain {
             //userName is now Customer firstName + " " + lastName
             userName += " " + userChoice;
             
+            //variable storing the final bill
             int finalBill;
             //Using roomExists to see whether user entered a valid room
             boolean roomExists = false;
@@ -250,11 +251,13 @@ public class HotelMain {
                     HotelRoom.roomList.get(i).occupiedBy = "";    
                     //handling user payment
                     if (HotelRoom.roomList.get(i).PaidInAdvance == true) {
+                        //adds the room service cost to the final bill (which is 0 since user already paid)
                         finalBill = RoomService.RoomServiceChargeMenu();
                         System.out.println("Room already paid, we have deducted " + finalBill + 
                                 " kr from your credit card.");
                     } 
                     else {
+                        //adds the room service cost to the final bill
                         finalBill = HotelRoom.roomList.get(i).roomPrice + RoomService.RoomServiceChargeMenu();
                         System.out.println("In total we have deducted " + finalBill + 
                                 "kr from your credit card.");

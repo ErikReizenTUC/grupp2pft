@@ -50,82 +50,150 @@ public class RoomService {
     }
 
     //method for counting the sum of extra items used in the room 
-    public static int RoomServiceCharge() {
-
-        return charge;
+    public static boolean IsProductListEmpty() {
+        boolean emptyList = true;
+        if (productList.isEmpty()) return emptyList;
+        else return !emptyList;
     }
 
-    //menu used for items in RoomSerivceCharge method 
+    //menu used for items in RoomSerivceCharge method,
+    //returns the total price of room service items used by customers
     public static int RoomServiceChargeMenu() {
+        
+        //variable used to store the total price of room service items
         int totalPrice = 0;
-        boolean chargeLoop = true;
-        while (chargeLoop) {
-
-            System.out.println("Please confirm if you have used extra items during your stay: ");
-            System.out.println("1. Yes");
-            System.out.println("2. No");
-            System.out.print("Make selection: ");
-            int chargeMenu = RService.nextInt();
+        
+        //checking whether there are any items in stock
+        if (IsProductListEmpty()) {
+            System.out.println("Sorry, there are no items in stock right now.");
             System.out.println("-----------------------------");
-
-            switch (chargeMenu) {
-
-                case 1:
-                    boolean selectionLoop = true;
-                    while (selectionLoop) {
-                        System.out.println("The options are: ");
-                        DisplayProducts();
-                        System.out.print("Please enter the product used: ");
-                        int productUsed = RService.nextInt();
-
-                        if (productUsed > productList.size() || productUsed <= 0) {
-                            System.out.println("The product could not be found");
-                            continue;
-                        } else {
-                            System.out.print("Quantity: ");
-                            int quantity = RService.nextInt();
-                            totalPrice += productList.get(productUsed -1).RoomServiceItemPrice(quantity);
-                            System.out.println("Thank you. Your total bill for room service is currently " + totalPrice + " kr.");
-                        }
-                        boolean moreItemsLoop = true;
-                        while (moreItemsLoop) {
-                            System.out.println("Did you use any more items");
-                            System.out.println("1. Yes");
-                            System.out.println("2. No");
-                            System.out.print("Make selection: ");
-                            int moreItemsChoice = RService.nextInt();
-                            if (moreItemsChoice == 1) {
-                                moreItemsLoop = false;
-                            }
-                            else if (moreItemsChoice == 2) {
-                                System.out.println("Okay, thank you!");
-                                System.out.println("-----------------------------");
-                                selectionLoop = false;
-                                moreItemsLoop = false;
-                                //return totalPrice;
-                                
-                            }
-                            else {
-                                System.out.println("Please choose from menu options.");
-                            }
-                        }   
-                    }
-                    chargeLoop = false;
-                    break;
-                case 2:
-                    System.out.println("Okay, thank you!");
+        } else {
+            
+            boolean chargeLoop = true;
+            //loop for user input for whether they have used extra items or not
+            while (chargeLoop) {
+                //try/catch for user input for whether items have been usedc or not
+                try {
+                    
+                    //asking user whether they have used extra items or not
+                    System.out.println("Please confirm if you have used extra items during your stay: ");
+                    System.out.println("1. Yes");
+                    System.out.println("2. No");
+                    System.out.print("Make selection: ");
+                    int chargeMenu = RService.nextInt();
                     System.out.println("-----------------------------");
-                    //return totalPrice;
-                    //chargeLoop = false;
-                    //break;
-                default:
-                    System.out.println("Please enter a valid selection.");
-                    break;
+
+                    switch (chargeMenu) {
+                        //if user has used extra items, they are asked to select products and quantity
+                        case 1:
+                            boolean selectionLoop = true;
+                            
+                            //loop for user selecting products and amount
+                            while (selectionLoop) {
+                                //try/catch for selecting products and amount
+                                try {
+                                    //prints the list of products to user
+                                    System.out.println("The options are: ");
+                                    DisplayProducts();
+                                    //asks user which product they have used
+                                    System.out.print("Please enter the product used: ");
+                                    int productUsed = RService.nextInt();
+                                    
+                                    //checks whether the user input matches an item in the list
+                                    if (productUsed > productList.size() || productUsed <= 0) {
+                                        System.out.println("The product could not be found");
+                                        continue;
+                                    } else {
+                                        
+                                        //asks user to input the amount of a certain product they have used
+                                        System.out.print("Quantity: ");
+                                        int quantity = RService.nextInt();
+                                        //calculates the price of the products used and adds it to the total price
+                                        totalPrice += productList.get(productUsed - 1).RoomServiceItemPrice(quantity);
+                                        System.out.println("Thank you. Your total bill for room service is currently "
+                                                + totalPrice + " kr.");
+                                    }
+                                    boolean moreItemsLoop = true;
+                                    
+                                    //loop for whether more items were used
+                                    while (moreItemsLoop) {
+                                        //try/catch for whether more items were used
+                                        try {
+                                            //asks whether user used more items
+                                            System.out.println("Did you use any more items");
+                                            System.out.println("1. Yes");
+                                            System.out.println("2. No");
+                                            System.out.print("Make selection: ");
+                                            int moreItemsChoice = RService.nextInt();
+                                            
+                                            //if user used more items, breaks current loop and goes back to selectionLoop
+                                            if (moreItemsChoice == 1) {
+                                                moreItemsLoop = false;
+                                            
+                                            //if user did not use more items, breaks loops and goes back to checkout
+                                            } else if (moreItemsChoice == 2) {
+                                                System.out.println("Okay, thank you!");
+                                                System.out.println("-----------------------------");
+                                                selectionLoop = false;
+                                                moreItemsLoop = false;
+                                            
+                                            //if user input is incorrect, asks for new input
+                                            } else {
+                                                System.out.println("Please choose from menu options.");
+                                            }
+                                        } catch (Exception InputMismatchException) {
+                                            //handling if user input is not integer
+                                            System.out.println("Please enter a number");
+                                            System.out.println("-----------------------------");
+
+                                            //Cleaning scanner
+                                            RService.next();
+
+                                        }
+                                    }
+                                } catch (Exception InputMismatchException) {
+                                    //handling if user input is not integer
+                                    System.out.println("Please enter a number");
+                                    System.out.println("-----------------------------");
+
+                                    //Cleaning scanner
+                                    RService.next();
+
+                                }
+                            }
+                            //once user has selected all the products breaks loop and returns to checkout
+                            chargeLoop = false;
+                            break;
+                            
+                        //if user has not used extra items, goes back to checkout, exits loop and goes back to checkout    
+                        case 2:
+                            System.out.println("Okay, thank you!");
+                            System.out.println("-----------------------------");
+
+                            chargeLoop = false;
+                            break;
+                        //if user enters incorrent number, asks them for new input
+                        default:
+                            System.out.println("Please enter a valid selection.");
+                            break;
+                    }
+                } catch (Exception InputMismatchException) {
+                    //handling if user input is not integer
+                    System.out.println("Please enter a number");
+                    System.out.println("-----------------------------");
+
+                    //Cleaning scanner
+                    RService.next();
+                }
             }
         }
+        //returns total price of room service once user has made all their choices
         return totalPrice;
     }
-
+    
+    
+    //Methods below are currently not used, but kept in case we need them later
+    /*
     //a method for showing list of products and a subsequent calculation of the value
     protected static void ItemsMenu() {
         boolean itemsMenuExit = false;
@@ -176,5 +244,6 @@ public class RoomService {
         int sum = quantity * value;
         return sum;
     }
+    */
 
 }
