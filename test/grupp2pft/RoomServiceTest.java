@@ -123,14 +123,4 @@ public class RoomServiceTest {
         //checks if the two values do not match
         assertNotEquals(expResult, Result);
     }
-    
-    //for a method that is currently not in use
-     /*
-    @Test
-    public void testCountValue(){
-        System.out.println("Count Value Test");
-        int testSum = RoomService.CountValue(3, 18);
-        assertEquals(54, testSum);
-    }
-    */
 }
