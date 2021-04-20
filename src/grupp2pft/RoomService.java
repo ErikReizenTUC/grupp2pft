@@ -120,7 +120,7 @@ public class RoomService {
                                         //try/catch for whether more items were used
                                         try {
                                             //asks whether user used more items
-                                            System.out.println("Did you use any more items");
+                                            System.out.println("Did you use any more items?");
                                             System.out.println("1. Yes");
                                             System.out.println("2. No");
                                             System.out.print("Make selection: ");
