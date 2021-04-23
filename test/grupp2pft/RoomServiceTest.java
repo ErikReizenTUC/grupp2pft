@@ -78,22 +78,49 @@ public class RoomServiceTest {
         
     }
     
+    /**
+     * Test of IsProductListEmpty method, of class RoomService.
+     */
     @Test
-    public void testDisplayProducts(){
-        System.out.println("DisplayProducts");
+    public void testIsProductListEmpty() {
+        System.out.println("IsProductListEmpty");
+        //checks for empty list
+        assertTrue(RoomService.IsProductListEmpty());
         
+        //creates objects so list has items
         RoomService.productList.add(new RoomService("Coke", 20));
         RoomService.productList.add(new RoomService("Pepsi", 15));
         RoomService.productList.add(new RoomService("Fanta", 18));
         
+        //checks for list with items
+        assertFalse(RoomService.IsProductListEmpty());
+        
+    }
+    
+    /**
+     * Test of DisplayProducts method, of class RoomService.
+     */
+    @Test
+    public void testDisplayProducts(){
+        System.out.println("DisplayProducts");
+        
+        //creates objects for use in test
+        RoomService.productList.add(new RoomService("Coke", 20));
+        RoomService.productList.add(new RoomService("Pepsi", 15));
+        RoomService.productList.add(new RoomService("Fanta", 18));
+        
+        //expects that the result should be equal to the size of the arraylist
         int expResult = RoomService.productList.size();
         int Result = RoomService.DisplayProducts();
         
+        //checks whether the size of the list matches return value from method
         assertEquals(expResult, Result);
         
+        //expects that the result should be equal to the size of the arraylist + 1
         expResult = RoomService.productList.size() + 1;
         Result = RoomService.DisplayProducts();
         
+        //checks if the two values do not match
         assertNotEquals(expResult, Result);
-    }   
-  }
+    }
+}
