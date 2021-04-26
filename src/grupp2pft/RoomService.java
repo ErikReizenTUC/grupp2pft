@@ -104,17 +104,32 @@ public class RoomService {
                                         System.out.println("The product could not be found");
                                         continue;
                                     } else {
+                                        boolean quantityLoop = true;
                                         
-                                        //asks user to input the amount of a certain product they have used
-                                        System.out.print("Quantity: ");
-                                        int quantity = RService.nextInt();
-                                        //calculates the price of the products used and adds it to the total price
-                                        totalPrice += productList.get(productUsed - 1).RoomServiceItemPrice(quantity);
-                                        System.out.println("Thank you. Your total bill for room service is currently "
-                                                + totalPrice + " kr.");
+                                        while (quantityLoop) {
+                                            try {
+                                                //asks user to input the amount of a certain product they have used
+                                                System.out.print("Quantity: ");
+                                                int quantity = RService.nextInt();
+                                                //calculates the price of the products used and adds it to the total price
+                                                totalPrice += productList.get(productUsed - 1).RoomServiceItemPrice(quantity);
+                                                System.out.println("Thank you. Your total bill for room service is currently "
+                                                        + totalPrice + " kr.");
+                                                quantityLoop = false;
+
+                                            } catch (Exception InputMismatchException) {
+                                                //handling if user input is not integer
+                                                System.out.println("Please enter a number");
+                                                System.out.println("-----------------------------");
+
+                                                //Cleaning scanner
+                                                RService.next();
+
+                                            }
+                                        }
                                     }
                                     boolean moreItemsLoop = true;
-                                    
+
                                     //loop for whether more items were used
                                     while (moreItemsLoop) {
                                         //try/catch for whether more items were used
@@ -133,6 +148,7 @@ public class RoomService {
                                             //if user did not use more items, breaks loops and goes back to checkout
                                             } else if (moreItemsChoice == 2) {
                                                 System.out.println("Okay, thank you!");
+                                                System.out.println("Your final roomservice bill is: " + totalPrice + " kr.");
                                                 System.out.println("-----------------------------");
                                                 selectionLoop = false;
                                                 moreItemsLoop = false;
