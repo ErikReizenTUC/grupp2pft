@@ -52,7 +52,7 @@ public class RoomService {
     //method for counting the sum of extra items used in the room 
     public static boolean IsProductListEmpty() {
         boolean emptyList = true;
-        if (productList.isEmpty()) return emptyList;
+        if (productList.isEmpty()) return emptyList = true;
         else return !emptyList;
     }
 

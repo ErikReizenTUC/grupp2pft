@@ -239,7 +239,7 @@ public class HotelMain {
             userName += " " + userChoice;
             
             //variable storing the final bill
-            int finalBill;
+            int finalBill = 0;
             //Using roomExists to see whether user entered a valid room
             boolean roomExists = false;
             //looping through all rooms checking if any are occupied by user
