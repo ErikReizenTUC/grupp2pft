@@ -304,7 +304,7 @@ public class HotelMain {
         
         RoomService.productList.add(new RoomService("Coke", 20));
         RoomService.productList.add(new RoomService("Pepsi", 15));
-        RoomService.productList.add(new RoomService("Fanta", 18));
+        RoomService.productList.add(new RoomService("Fanta", 18));  
         
         
         //RoomService.DisplayProducts();
